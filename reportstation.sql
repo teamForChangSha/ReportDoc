@@ -1,22 +1,22 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : MyDB
-Source Server Version : 50530
+Source Server         : mywork
+Source Server Version : 50130
 Source Host           : localhost:3306
 Source Database       : reportstation
 
 Target Server Type    : MYSQL
-Target Server Version : 50530
+Target Server Version : 50130
 File Encoding         : 65001
 
-Date: 2016-02-15 11:41:27
+Date: 2016-02-15 15:46:55
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for areainfo
+-- Table structure for `areainfo`
 -- ----------------------------
 DROP TABLE IF EXISTS `areainfo`;
 CREATE TABLE `areainfo` (
@@ -50,7 +50,7 @@ INSERT INTO `areainfo` VALUES ('10016', '南昌市', '3', '10015');
 INSERT INTO `areainfo` VALUES ('10017', '景德镇市', '3', '10015');
 
 -- ----------------------------
--- Table structure for caseattach
+-- Table structure for `caseattach`
 -- ----------------------------
 DROP TABLE IF EXISTS `caseattach`;
 CREATE TABLE `caseattach` (
@@ -71,7 +71,7 @@ CREATE TABLE `caseattach` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for casechangelog
+-- Table structure for `casechangelog`
 -- ----------------------------
 DROP TABLE IF EXISTS `casechangelog`;
 CREATE TABLE `casechangelog` (
@@ -91,7 +91,7 @@ CREATE TABLE `casechangelog` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for casecomment
+-- Table structure for `casecomment`
 -- ----------------------------
 DROP TABLE IF EXISTS `casecomment`;
 CREATE TABLE `casecomment` (
@@ -110,7 +110,7 @@ CREATE TABLE `casecomment` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for company
+-- Table structure for `company`
 -- ----------------------------
 DROP TABLE IF EXISTS `company`;
 CREATE TABLE `company` (
@@ -131,7 +131,7 @@ CREATE TABLE `company` (
 INSERT INTO `company` VALUES ('1', 'ztesoft', '很大', 'ZTE', null, '1', '2', null);
 
 -- ----------------------------
--- Table structure for companybranch
+-- Table structure for `companybranch`
 -- ----------------------------
 DROP TABLE IF EXISTS `companybranch`;
 CREATE TABLE `companybranch` (
@@ -155,7 +155,7 @@ INSERT INTO `companybranch` VALUES ('1', '1', '10001', '10002', '长沙办事处
 INSERT INTO `companybranch` VALUES ('2', '1', '10015', '10016', '南昌办事处', '解放路', '13800000', null, null);
 
 -- ----------------------------
--- Table structure for companyother
+-- Table structure for `companyother`
 -- ----------------------------
 DROP TABLE IF EXISTS `companyother`;
 CREATE TABLE `companyother` (
@@ -174,7 +174,7 @@ CREATE TABLE `companyother` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for company_question
+-- Table structure for `company_question`
 -- ----------------------------
 DROP TABLE IF EXISTS `company_question`;
 CREATE TABLE `company_question` (
@@ -187,7 +187,7 @@ CREATE TABLE `company_question` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for dictionarybean
+-- Table structure for `dictionarybean`
 -- ----------------------------
 DROP TABLE IF EXISTS `dictionarybean`;
 CREATE TABLE `dictionarybean` (
@@ -211,7 +211,7 @@ INSERT INTO `dictionarybean` VALUES ('company', 'type', '2', null, '民营');
 INSERT INTO `dictionarybean` VALUES ('company', 'type', '3', null, '股份');
 
 -- ----------------------------
--- Table structure for generate_key
+-- Table structure for `generate_key`
 -- ----------------------------
 DROP TABLE IF EXISTS `generate_key`;
 CREATE TABLE `generate_key` (
@@ -225,7 +225,7 @@ CREATE TABLE `generate_key` (
 INSERT INTO `generate_key` VALUES ('1004', '1005');
 
 -- ----------------------------
--- Table structure for questioninfo
+-- Table structure for `questioninfo`
 -- ----------------------------
 DROP TABLE IF EXISTS `questioninfo`;
 CREATE TABLE `questioninfo` (
@@ -242,7 +242,7 @@ CREATE TABLE `questioninfo` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for reportanswer
+-- Table structure for `reportanswer`
 -- ----------------------------
 DROP TABLE IF EXISTS `reportanswer`;
 CREATE TABLE `reportanswer` (
@@ -258,11 +258,11 @@ CREATE TABLE `reportanswer` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for reportcase
+-- Table structure for `reportcase`
 -- ----------------------------
 DROP TABLE IF EXISTS `reportcase`;
 CREATE TABLE `reportcase` (
-  `rc_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '编号',
+  `rc_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '编号',
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `company_id` bigint(20) DEFAULT NULL COMMENT '案件所属公司',
   `branch_id` bigint(20) DEFAULT NULL COMMENT '案件所属分支',
@@ -274,14 +274,15 @@ CREATE TABLE `reportcase` (
   `access_code` varchar(20) DEFAULT NULL COMMENT '访问密码',
   `tracking_no` varchar(20) DEFAULT NULL COMMENT '追踪号',
   PRIMARY KEY (`rc_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of reportcase
 -- ----------------------------
+INSERT INTO `reportcase` VALUES ('1', '2016-02-15 15:46:32', '1', '0', '0', null, null, '0', null, 'ZT', 'ZT2016021001');
 
 -- ----------------------------
--- Table structure for reporter
+-- Table structure for `reporter`
 -- ----------------------------
 DROP TABLE IF EXISTS `reporter`;
 CREATE TABLE `reporter` (
@@ -300,7 +301,7 @@ CREATE TABLE `reporter` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for reporttype
+-- Table structure for `reporttype`
 -- ----------------------------
 DROP TABLE IF EXISTS `reporttype`;
 CREATE TABLE `reporttype` (
@@ -321,7 +322,7 @@ INSERT INTO `reporttype` VALUES ('3', '0', '1', '标题3', '内容3');
 INSERT INTO `reporttype` VALUES ('4', '0', '1', '标题4', '内容4');
 
 -- ----------------------------
--- Table structure for user
+-- Table structure for `user`
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
@@ -341,3 +342,24 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
+
+-- ----------------------------
+-- Table structure for `user2`
+-- ----------------------------
+DROP TABLE IF EXISTS `user2`;
+CREATE TABLE `user2` (
+  `userId` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`userId`)
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of user2
+-- ----------------------------
+INSERT INTO `user2` VALUES ('1', 'gcx', '123');
+INSERT INTO `user2` VALUES ('2', '123', '123');
+INSERT INTO `user2` VALUES ('3', 'test', 'test');
+INSERT INTO `user2` VALUES ('6', 'test1', 'test1');
+INSERT INTO `user2` VALUES ('8', 'teset', 'test');
+INSERT INTO `user2` VALUES ('10', 'junit', 'junit');
