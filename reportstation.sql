@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50530
 File Encoding         : 65001
 
-Date: 2016-02-15 10:56:54
+Date: 2016-02-15 11:41:27
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -143,6 +143,7 @@ CREATE TABLE `companybranch` (
   `address` varchar(50) DEFAULT NULL COMMENT '分支地址',
   `phone` varchar(30) DEFAULT NULL COMMENT '联系电话',
   `contactor` varchar(30) DEFAULT NULL COMMENT '联系人名称',
+  `post_code` varchar(30) DEFAULT NULL COMMENT '邮编',
   PRIMARY KEY (`branch_id`),
   KEY `fk` (`company_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -150,8 +151,8 @@ CREATE TABLE `companybranch` (
 -- ----------------------------
 -- Records of companybranch
 -- ----------------------------
-INSERT INTO `companybranch` VALUES ('1', '1', '10001', '10002', '长沙办事处', '五一路', '13000000', null);
-INSERT INTO `companybranch` VALUES ('2', '1', '10015', '10016', '南昌办事处', '解放路', '13800000', null);
+INSERT INTO `companybranch` VALUES ('1', '1', '10001', '10002', '长沙办事处', '五一路', '13000000', null, null);
+INSERT INTO `companybranch` VALUES ('2', '1', '10015', '10016', '南昌办事处', '解放路', '13800000', null, null);
 
 -- ----------------------------
 -- Table structure for companyother
