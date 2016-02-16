@@ -1,22 +1,22 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : mywork
-Source Server Version : 50130
+Source Server         : MyDB
+Source Server Version : 50530
 Source Host           : localhost:3306
 Source Database       : reportstation
 
 Target Server Type    : MYSQL
-Target Server Version : 50130
+Target Server Version : 50530
 File Encoding         : 65001
 
-Date: 2016-02-15 15:46:55
+Date: 2016-02-16 12:12:21
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for `areainfo`
+-- Table structure for areainfo
 -- ----------------------------
 DROP TABLE IF EXISTS `areainfo`;
 CREATE TABLE `areainfo` (
@@ -50,7 +50,7 @@ INSERT INTO `areainfo` VALUES ('10016', '南昌市', '3', '10015');
 INSERT INTO `areainfo` VALUES ('10017', '景德镇市', '3', '10015');
 
 -- ----------------------------
--- Table structure for `caseattach`
+-- Table structure for caseattach
 -- ----------------------------
 DROP TABLE IF EXISTS `caseattach`;
 CREATE TABLE `caseattach` (
@@ -71,7 +71,7 @@ CREATE TABLE `caseattach` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `casechangelog`
+-- Table structure for casechangelog
 -- ----------------------------
 DROP TABLE IF EXISTS `casechangelog`;
 CREATE TABLE `casechangelog` (
@@ -91,7 +91,7 @@ CREATE TABLE `casechangelog` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `casecomment`
+-- Table structure for casecomment
 -- ----------------------------
 DROP TABLE IF EXISTS `casecomment`;
 CREATE TABLE `casecomment` (
@@ -110,7 +110,7 @@ CREATE TABLE `casecomment` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `company`
+-- Table structure for company
 -- ----------------------------
 DROP TABLE IF EXISTS `company`;
 CREATE TABLE `company` (
@@ -131,7 +131,7 @@ CREATE TABLE `company` (
 INSERT INTO `company` VALUES ('1', 'ztesoft', '很大', 'ZTE', null, '1', '2', null);
 
 -- ----------------------------
--- Table structure for `companybranch`
+-- Table structure for companybranch
 -- ----------------------------
 DROP TABLE IF EXISTS `companybranch`;
 CREATE TABLE `companybranch` (
@@ -155,7 +155,7 @@ INSERT INTO `companybranch` VALUES ('1', '1', '10001', '10002', '长沙办事处
 INSERT INTO `companybranch` VALUES ('2', '1', '10015', '10016', '南昌办事处', '解放路', '13800000', null, null);
 
 -- ----------------------------
--- Table structure for `companyother`
+-- Table structure for companyother
 -- ----------------------------
 DROP TABLE IF EXISTS `companyother`;
 CREATE TABLE `companyother` (
@@ -174,7 +174,7 @@ CREATE TABLE `companyother` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `company_question`
+-- Table structure for company_question
 -- ----------------------------
 DROP TABLE IF EXISTS `company_question`;
 CREATE TABLE `company_question` (
@@ -187,7 +187,7 @@ CREATE TABLE `company_question` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `dictionarybean`
+-- Table structure for dictionarybean
 -- ----------------------------
 DROP TABLE IF EXISTS `dictionarybean`;
 CREATE TABLE `dictionarybean` (
@@ -201,17 +201,20 @@ CREATE TABLE `dictionarybean` (
 -- ----------------------------
 -- Records of dictionarybean
 -- ----------------------------
-INSERT INTO `dictionarybean` VALUES ('company', 'state', '1', '1', '正常');
-INSERT INTO `dictionarybean` VALUES ('company', 'state', '2', '2', '待审核');
-INSERT INTO `dictionarybean` VALUES ('user', 'state', '1', null, '正常');
-INSERT INTO `dictionarybean` VALUES ('user', 'state', '2', null, '注销');
-INSERT INTO `dictionarybean` VALUES ('user', 'state', '3', null, null);
-INSERT INTO `dictionarybean` VALUES ('company', 'type', '1', null, '国有');
-INSERT INTO `dictionarybean` VALUES ('company', 'type', '2', null, '民营');
-INSERT INTO `dictionarybean` VALUES ('company', 'type', '3', null, '股份');
+INSERT INTO `dictionarybean` VALUES ('company.state', '正常', '1', '1', '正常');
+INSERT INTO `dictionarybean` VALUES ('company.state', '待审核', '2', '2', '待审核');
+INSERT INTO `dictionarybean` VALUES ('user.state', '正常', '1', null, '正常');
+INSERT INTO `dictionarybean` VALUES ('user.state', '注销', '2', null, '注销');
+INSERT INTO `dictionarybean` VALUES ('user.state', '待审核', '3', null, '待审核');
+INSERT INTO `dictionarybean` VALUES ('company.type', '国有', '1', null, '国有');
+INSERT INTO `dictionarybean` VALUES ('company.type', '民营', '2', null, '民营');
+INSERT INTO `dictionarybean` VALUES ('company.type', '股份', '3', null, '股份');
+INSERT INTO `dictionarybean` VALUES ('case.state', '发起', '0', '1', '发起案例');
+INSERT INTO `dictionarybean` VALUES ('case.state', '处理中', '1', '2', '处理案例');
+INSERT INTO `dictionarybean` VALUES ('case.state', '注销', '2', '3', '注销案例');
 
 -- ----------------------------
--- Table structure for `generate_key`
+-- Table structure for generate_key
 -- ----------------------------
 DROP TABLE IF EXISTS `generate_key`;
 CREATE TABLE `generate_key` (
@@ -222,10 +225,10 @@ CREATE TABLE `generate_key` (
 -- ----------------------------
 -- Records of generate_key
 -- ----------------------------
-INSERT INTO `generate_key` VALUES ('1004', '1005');
+INSERT INTO `generate_key` VALUES ('1011', '1012');
 
 -- ----------------------------
--- Table structure for `questioninfo`
+-- Table structure for questioninfo
 -- ----------------------------
 DROP TABLE IF EXISTS `questioninfo`;
 CREATE TABLE `questioninfo` (
@@ -242,7 +245,7 @@ CREATE TABLE `questioninfo` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `reportanswer`
+-- Table structure for reportanswer
 -- ----------------------------
 DROP TABLE IF EXISTS `reportanswer`;
 CREATE TABLE `reportanswer` (
@@ -258,7 +261,7 @@ CREATE TABLE `reportanswer` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `reportcase`
+-- Table structure for reportcase
 -- ----------------------------
 DROP TABLE IF EXISTS `reportcase`;
 CREATE TABLE `reportcase` (
@@ -269,7 +272,7 @@ CREATE TABLE `reportcase` (
   `report_id` bigint(20) DEFAULT NULL COMMENT '案件举报人',
   `handler_company` bigint(20) DEFAULT NULL COMMENT '当前处理公司',
   `rt_list` varchar(200) DEFAULT NULL COMMENT '所选举报类型列表',
-  `case_state` varchar(30) DEFAULT NULL COMMENT '案件状态',
+  `case_state` int(30) DEFAULT NULL COMMENT '案件状态',
   `state_changed` datetime DEFAULT NULL COMMENT '最后修改时间',
   `access_code` varchar(20) DEFAULT NULL COMMENT '访问密码',
   `tracking_no` varchar(20) DEFAULT NULL COMMENT '追踪号',
@@ -282,7 +285,7 @@ CREATE TABLE `reportcase` (
 INSERT INTO `reportcase` VALUES ('1', '2016-02-15 15:46:32', '1', '0', '0', null, null, '0', null, 'ZT', 'ZT2016021001');
 
 -- ----------------------------
--- Table structure for `reporter`
+-- Table structure for reporter
 -- ----------------------------
 DROP TABLE IF EXISTS `reporter`;
 CREATE TABLE `reporter` (
@@ -301,7 +304,7 @@ CREATE TABLE `reporter` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `reporttype`
+-- Table structure for reporttype
 -- ----------------------------
 DROP TABLE IF EXISTS `reporttype`;
 CREATE TABLE `reporttype` (
@@ -322,7 +325,7 @@ INSERT INTO `reporttype` VALUES ('3', '0', '1', '标题3', '内容3');
 INSERT INTO `reporttype` VALUES ('4', '0', '1', '标题4', '内容4');
 
 -- ----------------------------
--- Table structure for `user`
+-- Table structure for user
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
@@ -344,7 +347,7 @@ CREATE TABLE `user` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `user2`
+-- Table structure for user2
 -- ----------------------------
 DROP TABLE IF EXISTS `user2`;
 CREATE TABLE `user2` (
