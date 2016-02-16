@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50530
 File Encoding         : 65001
 
-Date: 2016-02-16 12:12:21
+Date: 2016-02-16 16:51:40
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -63,6 +63,7 @@ CREATE TABLE `caseattach` (
   `attach_file_name` varchar(50) DEFAULT NULL COMMENT '附件全名',
   `thumb` binary(255) DEFAULT NULL COMMENT '缩略图',
   `attach_size` bigint(20) DEFAULT NULL COMMENT '附件大小',
+  `state` int(11) DEFAULT NULL COMMENT '附件状态，0：临时，1：正常',
   PRIMARY KEY (`ca_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
