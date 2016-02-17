@@ -1,22 +1,22 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : MyDB
-Source Server Version : 50530
+Source Server         : mywork
+Source Server Version : 50130
 Source Host           : localhost:3306
 Source Database       : reportstation
 
 Target Server Type    : MYSQL
-Target Server Version : 50530
+Target Server Version : 50130
 File Encoding         : 65001
 
-Date: 2016-02-16 16:51:40
+Date: 2016-02-17 16:10:52
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for areainfo
+-- Table structure for `areainfo`
 -- ----------------------------
 DROP TABLE IF EXISTS `areainfo`;
 CREATE TABLE `areainfo` (
@@ -48,9 +48,11 @@ INSERT INTO `areainfo` VALUES ('10014', '岳阳', '3', '10001');
 INSERT INTO `areainfo` VALUES ('10015', '江西省', '2', '10000');
 INSERT INTO `areainfo` VALUES ('10016', '南昌市', '3', '10015');
 INSERT INTO `areainfo` VALUES ('10017', '景德镇市', '3', '10015');
+INSERT INTO `areainfo` VALUES ('10018', 'xx省', '2', '10000');
+INSERT INTO `areainfo` VALUES ('10019', 'xx省', '2', '10000');
 
 -- ----------------------------
--- Table structure for caseattach
+-- Table structure for `caseattach`
 -- ----------------------------
 DROP TABLE IF EXISTS `caseattach`;
 CREATE TABLE `caseattach` (
@@ -65,14 +67,15 @@ CREATE TABLE `caseattach` (
   `attach_size` bigint(20) DEFAULT NULL COMMENT '附件大小',
   `state` int(11) DEFAULT NULL COMMENT '附件状态，0：临时，1：正常',
   PRIMARY KEY (`ca_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of caseattach
 -- ----------------------------
+INSERT INTO `caseattach` VALUES ('1', 'YT2016021040', '附件名', null, null, '扩展文本', null, null, '0', null);
 
 -- ----------------------------
--- Table structure for casechangelog
+-- Table structure for `casechangelog`
 -- ----------------------------
 DROP TABLE IF EXISTS `casechangelog`;
 CREATE TABLE `casechangelog` (
@@ -92,30 +95,31 @@ CREATE TABLE `casechangelog` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for casecomment
+-- Table structure for `casecomment`
 -- ----------------------------
 DROP TABLE IF EXISTS `casecomment`;
 CREATE TABLE `casecomment` (
-  `cc_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '追加编号',
+  `cc_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '追加编号',
   `rc_id` bigint(20) DEFAULT NULL COMMENT '案例编号',
   `is_reporter` int(11) DEFAULT NULL COMMENT '追加标志',
   `user_id` bigint(20) DEFAULT NULL COMMENT '追加用户',
   `post_time` datetime DEFAULT NULL COMMENT '追加时间',
-  `companyId` bigint(20) DEFAULT NULL COMMENT '进行追加的公司',
+  `company_id` bigint(20) DEFAULT NULL COMMENT '进行追加的公司',
   `content` varchar(255) DEFAULT NULL COMMENT '追加内容',
   PRIMARY KEY (`cc_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of casecomment
 -- ----------------------------
+INSERT INTO `casecomment` VALUES ('1', '1', '0', '1', null, '1', '测试追加的内容');
 
 -- ----------------------------
--- Table structure for company
+-- Table structure for `company`
 -- ----------------------------
 DROP TABLE IF EXISTS `company`;
 CREATE TABLE `company` (
-  `company_id` int(10) NOT NULL COMMENT '企业编号',
+  `company_id` int(10) NOT NULL AUTO_INCREMENT COMMENT '企业编号',
   `company_name` varchar(20) NOT NULL COMMENT '企业名称',
   `description` varchar(50) DEFAULT NULL COMMENT '企业描述',
   `company_code` varchar(30) DEFAULT NULL COMMENT '企业代码',
@@ -124,15 +128,22 @@ CREATE TABLE `company` (
   `company_state` varchar(30) DEFAULT NULL COMMENT '企业状态',
   `state_changed` datetime DEFAULT NULL COMMENT '企业状态最后变更时间',
   PRIMARY KEY (`company_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of company
 -- ----------------------------
 INSERT INTO `company` VALUES ('1', 'ztesoft', '很大', 'ZTE', null, '1', '2', null);
+INSERT INTO `company` VALUES ('2', 'xingzhong', '规模大', 'ZTX', '1234567', '3', '1', null);
+INSERT INTO `company` VALUES ('3', 'xingzhong', '规模大', 'ZTX', '1234567', '3', '1', null);
+INSERT INTO `company` VALUES ('4', 'xingzhong', '规模大', 'ZTX', '1234567', '3', '1', null);
+INSERT INTO `company` VALUES ('5', 'xingzhong', '规模大', 'ZTX', '1234567', '3', '1', null);
+INSERT INTO `company` VALUES ('6', 'xingzhong', '规模大', 'ZTX', '1234567', '3', '1', null);
+INSERT INTO `company` VALUES ('7', 'xingzhong', '规模大', 'ZTX', '1234567', '3', '1', null);
+INSERT INTO `company` VALUES ('8', 'xingzhong', '规模大', 'ZTX', '1234567', '3', '1', null);
 
 -- ----------------------------
--- Table structure for companybranch
+-- Table structure for `companybranch`
 -- ----------------------------
 DROP TABLE IF EXISTS `companybranch`;
 CREATE TABLE `companybranch` (
@@ -156,7 +167,7 @@ INSERT INTO `companybranch` VALUES ('1', '1', '10001', '10002', '长沙办事处
 INSERT INTO `companybranch` VALUES ('2', '1', '10015', '10016', '南昌办事处', '解放路', '13800000', null, null);
 
 -- ----------------------------
--- Table structure for companyother
+-- Table structure for `companyother`
 -- ----------------------------
 DROP TABLE IF EXISTS `companyother`;
 CREATE TABLE `companyother` (
@@ -175,7 +186,7 @@ CREATE TABLE `companyother` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for company_question
+-- Table structure for `company_question`
 -- ----------------------------
 DROP TABLE IF EXISTS `company_question`;
 CREATE TABLE `company_question` (
@@ -186,9 +197,10 @@ CREATE TABLE `company_question` (
 -- ----------------------------
 -- Records of company_question
 -- ----------------------------
+INSERT INTO `company_question` VALUES ('1', '1');
 
 -- ----------------------------
--- Table structure for dictionarybean
+-- Table structure for `dictionarybean`
 -- ----------------------------
 DROP TABLE IF EXISTS `dictionarybean`;
 CREATE TABLE `dictionarybean` (
@@ -213,9 +225,10 @@ INSERT INTO `dictionarybean` VALUES ('company.type', '股份', '3', null, '股�
 INSERT INTO `dictionarybean` VALUES ('case.state', '发起', '0', '1', '发起案例');
 INSERT INTO `dictionarybean` VALUES ('case.state', '处理中', '1', '2', '处理案例');
 INSERT INTO `dictionarybean` VALUES ('case.state', '注销', '2', '3', '注销案例');
+INSERT INTO `dictionarybean` VALUES ('user.type', '普通用户', '1', null, '普通用户只能有部分权限');
 
 -- ----------------------------
--- Table structure for generate_key
+-- Table structure for `generate_key`
 -- ----------------------------
 DROP TABLE IF EXISTS `generate_key`;
 CREATE TABLE `generate_key` (
@@ -226,10 +239,10 @@ CREATE TABLE `generate_key` (
 -- ----------------------------
 -- Records of generate_key
 -- ----------------------------
-INSERT INTO `generate_key` VALUES ('1011', '1012');
+INSERT INTO `generate_key` VALUES ('1056', '1057');
 
 -- ----------------------------
--- Table structure for questioninfo
+-- Table structure for `questioninfo`
 -- ----------------------------
 DROP TABLE IF EXISTS `questioninfo`;
 CREATE TABLE `questioninfo` (
@@ -244,9 +257,10 @@ CREATE TABLE `questioninfo` (
 -- ----------------------------
 -- Records of questioninfo
 -- ----------------------------
+INSERT INTO `questioninfo` VALUES ('1', 'NO1', '你觉得该企业服务态度怎么样', '问题描述', '0');
 
 -- ----------------------------
--- Table structure for reportanswer
+-- Table structure for `reportanswer`
 -- ----------------------------
 DROP TABLE IF EXISTS `reportanswer`;
 CREATE TABLE `reportanswer` (
@@ -262,7 +276,7 @@ CREATE TABLE `reportanswer` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for reportcase
+-- Table structure for `reportcase`
 -- ----------------------------
 DROP TABLE IF EXISTS `reportcase`;
 CREATE TABLE `reportcase` (
@@ -276,17 +290,22 @@ CREATE TABLE `reportcase` (
   `case_state` int(30) DEFAULT NULL COMMENT '案件状态',
   `state_changed` datetime DEFAULT NULL COMMENT '最后修改时间',
   `access_code` varchar(20) DEFAULT NULL COMMENT '访问密码',
-  `tracking_no` varchar(20) DEFAULT NULL COMMENT '追踪号',
+  `tracking_no` varchar(20) NOT NULL DEFAULT '' COMMENT '追踪号',
   PRIMARY KEY (`rc_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of reportcase
 -- ----------------------------
-INSERT INTO `reportcase` VALUES ('1', '2016-02-15 15:46:32', '1', '0', '0', null, null, '0', null, 'ZT', 'ZT2016021001');
+INSERT INTO `reportcase` VALUES ('1', '2016-02-15 15:46:32', '1', '1', '1', null, null, '0', null, 'ZT', 'ZTE2016021040');
+INSERT INTO `reportcase` VALUES ('3', '2016-02-16 14:37:10', '1', '0', '0', null, '举报类型1，举报类型2', '1', null, 'ZT', 'ZTE2016021012');
+INSERT INTO `reportcase` VALUES ('5', '2016-02-16 14:37:38', '1', '0', '0', null, '举报类型1，举报类型2', '1', null, 'ZT', 'ZTE2016021016');
+INSERT INTO `reportcase` VALUES ('9', '2016-02-16 17:22:15', '1', '0', '0', null, '举报类型1，举报类型2', '1', null, 'ZT', 'ZTE2016021024');
+INSERT INTO `reportcase` VALUES ('12', '2016-02-16 17:25:52', '1', '0', '0', null, '举报类型1，举报类型2', '1', null, 'ZT', 'ZTE2016021032');
+INSERT INTO `reportcase` VALUES ('14', '2016-02-16 17:27:58', '1', '0', '0', null, '举报类型1，举报类型2', '1', null, 'ZT', 'ZTE2016021036');
 
 -- ----------------------------
--- Table structure for reporter
+-- Table structure for `reporter`
 -- ----------------------------
 DROP TABLE IF EXISTS `reporter`;
 CREATE TABLE `reporter` (
@@ -305,7 +324,7 @@ CREATE TABLE `reporter` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for reporttype
+-- Table structure for `reporttype`
 -- ----------------------------
 DROP TABLE IF EXISTS `reporttype`;
 CREATE TABLE `reporttype` (
@@ -326,12 +345,12 @@ INSERT INTO `reporttype` VALUES ('3', '0', '1', '标题3', '内容3');
 INSERT INTO `reporttype` VALUES ('4', '0', '1', '标题4', '内容4');
 
 -- ----------------------------
--- Table structure for user
+-- Table structure for `user`
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `userId` int(10) NOT NULL COMMENT '用户编号',
-  `userType` int(11) DEFAULT NULL COMMENT '用户类型',
+  `user_id` int(10) NOT NULL AUTO_INCREMENT COMMENT '用户编号',
+  `user_type` varchar(11) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '用户类型',
   `login_name` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '用户登录名',
   `user_pwd` varchar(20) COLLATE utf8_unicode_ci NOT NULL COMMENT '用户登录密码',
   `user_name` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '用户姓名',
@@ -340,30 +359,11 @@ CREATE TABLE `user` (
   `work_no` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '工作证号码',
   `remark` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '备注',
   `state_changed` datetime DEFAULT NULL COMMENT '最后改变时间',
-  PRIMARY KEY (`userId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `user_state` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-
--- ----------------------------
--- Table structure for user2
--- ----------------------------
-DROP TABLE IF EXISTS `user2`;
-CREATE TABLE `user2` (
-  `userId` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`userId`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of user2
--- ----------------------------
-INSERT INTO `user2` VALUES ('1', 'gcx', '123');
-INSERT INTO `user2` VALUES ('2', '123', '123');
-INSERT INTO `user2` VALUES ('3', 'test', 'test');
-INSERT INTO `user2` VALUES ('6', 'test1', 'test1');
-INSERT INTO `user2` VALUES ('8', 'teset', 'test');
-INSERT INTO `user2` VALUES ('10', 'junit', 'junit');
+INSERT INTO `user` VALUES ('1', '1', 'gcx', '123', '春春', '1', '13142056476', 'NO123', null, null, '1');
