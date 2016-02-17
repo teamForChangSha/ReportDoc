@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50130
 File Encoding         : 65001
 
-Date: 2016-02-17 16:10:52
+Date: 2016-02-17 16:21:52
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -128,7 +128,7 @@ CREATE TABLE `company` (
   `company_state` varchar(30) DEFAULT NULL COMMENT '企业状态',
   `state_changed` datetime DEFAULT NULL COMMENT '企业状态最后变更时间',
   PRIMARY KEY (`company_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of company
@@ -141,6 +141,9 @@ INSERT INTO `company` VALUES ('5', 'xingzhong', '规模大', 'ZTX', '1234567', '
 INSERT INTO `company` VALUES ('6', 'xingzhong', '规模大', 'ZTX', '1234567', '3', '1', null);
 INSERT INTO `company` VALUES ('7', 'xingzhong', '规模大', 'ZTX', '1234567', '3', '1', null);
 INSERT INTO `company` VALUES ('8', 'xingzhong', '规模大', 'ZTX', '1234567', '3', '1', null);
+INSERT INTO `company` VALUES ('9', 'xingzhong', '规模大', 'ZTX', '1234567', '3', '1', null);
+INSERT INTO `company` VALUES ('10', 'xingzhong', '规模大', 'ZTX', '1234567', '3', '1', null);
+INSERT INTO `company` VALUES ('11', 'xingzhong', '规模大', 'ZTX', '1234567', '3', '1', null);
 
 -- ----------------------------
 -- Table structure for `companybranch`
@@ -198,6 +201,7 @@ CREATE TABLE `company_question` (
 -- Records of company_question
 -- ----------------------------
 INSERT INTO `company_question` VALUES ('1', '1');
+INSERT INTO `company_question` VALUES ('1', '2');
 
 -- ----------------------------
 -- Table structure for `dictionarybean`
@@ -258,6 +262,7 @@ CREATE TABLE `questioninfo` (
 -- Records of questioninfo
 -- ----------------------------
 INSERT INTO `questioninfo` VALUES ('1', 'NO1', '你觉得该企业服务态度怎么样', '问题描述', '0');
+INSERT INTO `questioninfo` VALUES ('2', 'NO2', '问题2', '问题2描述', null);
 
 -- ----------------------------
 -- Table structure for `reportanswer`
