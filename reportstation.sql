@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50130
 File Encoding         : 65001
 
-Date: 2016-02-17 16:21:52
+Date: 2016-02-18 09:32:44
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -66,13 +66,25 @@ CREATE TABLE `caseattach` (
   `thumb` binary(255) DEFAULT NULL COMMENT '缩略图',
   `attach_size` bigint(20) DEFAULT NULL COMMENT '附件大小',
   `state` int(11) DEFAULT NULL COMMENT '附件状态，0：临时，1：正常',
+  `description` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`ca_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of caseattach
 -- ----------------------------
-INSERT INTO `caseattach` VALUES ('1', 'YT2016021040', '附件名', null, null, '扩展文本', null, null, '0', null);
+INSERT INTO `caseattach` VALUES ('1', 'YT2016021040', '附件名', null, null, '扩展文本', null, null, '0', null, null);
+INSERT INTO `caseattach` VALUES ('2', 'YT2016021040', '附件名', null, null, '扩展文本', null, null, '0', null, null);
+INSERT INTO `caseattach` VALUES ('3', 'YT2016021040', '附件名', null, null, '扩展文本', null, null, '0', null, null);
+INSERT INTO `caseattach` VALUES ('4', 'YT2016021040', '附件名', 'http://', 'upload', '扩展文本', 'fileName', null, '200', '1', null);
+INSERT INTO `caseattach` VALUES ('5', 'YT2016021040', '附件名', 'http://', 'upload', '扩展文本', 'fileName', null, '200', '1', null);
+INSERT INTO `caseattach` VALUES ('6', 'YT2016021040', '附件名', 'http://', 'upload', '扩展文本', 'fileName', null, '200', '1', '描述');
+INSERT INTO `caseattach` VALUES ('7', 'YT2016021040', '附件名', 'http://', 'upload', '扩展文本', 'fileName', null, '200', '1', '描述');
+INSERT INTO `caseattach` VALUES ('8', 'YT2016021040', '附件名', 'http://', 'upload', '扩展文本', 'fileName', null, '200', '1', '附件描述');
+INSERT INTO `caseattach` VALUES ('9', 'YT2016021040', '附件名', 'http://', 'upload', '扩展文本', 'fileName', null, '200', '1', '描述');
+INSERT INTO `caseattach` VALUES ('10', 'YT2016021040', '附件名', 'http://', 'upload', '扩展文本', 'fileName', null, '200', '1', '描述');
+INSERT INTO `caseattach` VALUES ('11', 'YT2016021040', '附件名', 'http://', 'upload', '扩展文本', 'fileName', null, '200', '1', '描述');
+INSERT INTO `caseattach` VALUES ('12', 'YT2016021040', '附件名', 'http://', 'upload', '扩展文本', 'fileName', null, '200', '1', '描述');
 
 -- ----------------------------
 -- Table structure for `casechangelog`
@@ -128,7 +140,7 @@ CREATE TABLE `company` (
   `company_state` varchar(30) DEFAULT NULL COMMENT '企业状态',
   `state_changed` datetime DEFAULT NULL COMMENT '企业状态最后变更时间',
   PRIMARY KEY (`company_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of company
@@ -144,6 +156,8 @@ INSERT INTO `company` VALUES ('8', 'xingzhong', '规模大', 'ZTX', '1234567', '
 INSERT INTO `company` VALUES ('9', 'xingzhong', '规模大', 'ZTX', '1234567', '3', '1', null);
 INSERT INTO `company` VALUES ('10', 'xingzhong', '规模大', 'ZTX', '1234567', '3', '1', null);
 INSERT INTO `company` VALUES ('11', 'xingzhong', '规模大', 'ZTX', '1234567', '3', '1', null);
+INSERT INTO `company` VALUES ('12', 'xingzhong', '规模大', 'ZTX', '1234567', '3', '1', null);
+INSERT INTO `company` VALUES ('13', 'xingzhong', '规模大', 'ZTX', '1234567', '3', '1', null);
 
 -- ----------------------------
 -- Table structure for `companybranch`
@@ -274,11 +288,13 @@ CREATE TABLE `reportanswer` (
   `quest_key` varchar(50) DEFAULT NULL COMMENT '问题索引',
   `quest_value` varchar(50) DEFAULT NULL COMMENT '问题答复',
   PRIMARY KEY (`rd_Id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of reportanswer
 -- ----------------------------
+INSERT INTO `reportanswer` VALUES ('1', '1', 'NO1', '态度不好');
+INSERT INTO `reportanswer` VALUES ('2', '1', 'NO2', '问题2的答案');
 
 -- ----------------------------
 -- Table structure for `reportcase`
