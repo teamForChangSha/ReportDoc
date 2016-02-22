@@ -1,22 +1,22 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : mywork
-Source Server Version : 50130
+Source Server         : MyDB
+Source Server Version : 50530
 Source Host           : localhost:3306
 Source Database       : reportstation
 
 Target Server Type    : MYSQL
-Target Server Version : 50130
+Target Server Version : 50530
 File Encoding         : 65001
 
-Date: 2016-02-18 09:32:44
+Date: 2016-02-22 15:59:57
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for `areainfo`
+-- Table structure for areainfo
 -- ----------------------------
 DROP TABLE IF EXISTS `areainfo`;
 CREATE TABLE `areainfo` (
@@ -48,19 +48,19 @@ INSERT INTO `areainfo` VALUES ('10014', '岳阳', '3', '10001');
 INSERT INTO `areainfo` VALUES ('10015', '江西省', '2', '10000');
 INSERT INTO `areainfo` VALUES ('10016', '南昌市', '3', '10015');
 INSERT INTO `areainfo` VALUES ('10017', '景德镇市', '3', '10015');
-INSERT INTO `areainfo` VALUES ('10018', 'xx省', '2', '10000');
-INSERT INTO `areainfo` VALUES ('10019', 'xx省', '2', '10000');
+INSERT INTO `areainfo` VALUES ('10018', '未知（省）', '2', '10000');
+INSERT INTO `areainfo` VALUES ('10019', '未知（市）', '2', '10018');
 
 -- ----------------------------
--- Table structure for `caseattach`
+-- Table structure for caseattach
 -- ----------------------------
 DROP TABLE IF EXISTS `caseattach`;
 CREATE TABLE `caseattach` (
   `ca_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '编号',
   `tracking_no` varchar(20) DEFAULT NULL COMMENT '案件追踪号',
   `attach_name` varchar(20) DEFAULT NULL COMMENT '附件名',
-  `attach_url` varchar(50) DEFAULT NULL COMMENT '访问路径',
-  `attach_path` varchar(50) DEFAULT NULL COMMENT '保存路径',
+  `attach_url` varchar(300) DEFAULT NULL COMMENT '访问路径',
+  `attach_path` varchar(300) DEFAULT NULL COMMENT '保存路径',
   `attach_ext` varchar(20) DEFAULT NULL COMMENT 'attach_ext',
   `attach_file_name` varchar(50) DEFAULT NULL COMMENT '附件全名',
   `thumb` binary(255) DEFAULT NULL COMMENT '缩略图',
@@ -68,26 +68,14 @@ CREATE TABLE `caseattach` (
   `state` int(11) DEFAULT NULL COMMENT '附件状态，0：临时，1：正常',
   `description` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`ca_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of caseattach
 -- ----------------------------
-INSERT INTO `caseattach` VALUES ('1', 'YT2016021040', '附件名', null, null, '扩展文本', null, null, '0', null, null);
-INSERT INTO `caseattach` VALUES ('2', 'YT2016021040', '附件名', null, null, '扩展文本', null, null, '0', null, null);
-INSERT INTO `caseattach` VALUES ('3', 'YT2016021040', '附件名', null, null, '扩展文本', null, null, '0', null, null);
-INSERT INTO `caseattach` VALUES ('4', 'YT2016021040', '附件名', 'http://', 'upload', '扩展文本', 'fileName', null, '200', '1', null);
-INSERT INTO `caseattach` VALUES ('5', 'YT2016021040', '附件名', 'http://', 'upload', '扩展文本', 'fileName', null, '200', '1', null);
-INSERT INTO `caseattach` VALUES ('6', 'YT2016021040', '附件名', 'http://', 'upload', '扩展文本', 'fileName', null, '200', '1', '描述');
-INSERT INTO `caseattach` VALUES ('7', 'YT2016021040', '附件名', 'http://', 'upload', '扩展文本', 'fileName', null, '200', '1', '描述');
-INSERT INTO `caseattach` VALUES ('8', 'YT2016021040', '附件名', 'http://', 'upload', '扩展文本', 'fileName', null, '200', '1', '附件描述');
-INSERT INTO `caseattach` VALUES ('9', 'YT2016021040', '附件名', 'http://', 'upload', '扩展文本', 'fileName', null, '200', '1', '描述');
-INSERT INTO `caseattach` VALUES ('10', 'YT2016021040', '附件名', 'http://', 'upload', '扩展文本', 'fileName', null, '200', '1', '描述');
-INSERT INTO `caseattach` VALUES ('11', 'YT2016021040', '附件名', 'http://', 'upload', '扩展文本', 'fileName', null, '200', '1', '描述');
-INSERT INTO `caseattach` VALUES ('12', 'YT2016021040', '附件名', 'http://', 'upload', '扩展文本', 'fileName', null, '200', '1', '描述');
 
 -- ----------------------------
--- Table structure for `casechangelog`
+-- Table structure for casechangelog
 -- ----------------------------
 DROP TABLE IF EXISTS `casechangelog`;
 CREATE TABLE `casechangelog` (
@@ -107,7 +95,7 @@ CREATE TABLE `casechangelog` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `casecomment`
+-- Table structure for casecomment
 -- ----------------------------
 DROP TABLE IF EXISTS `casecomment`;
 CREATE TABLE `casecomment` (
@@ -124,10 +112,9 @@ CREATE TABLE `casecomment` (
 -- ----------------------------
 -- Records of casecomment
 -- ----------------------------
-INSERT INTO `casecomment` VALUES ('1', '1', '0', '1', null, '1', '测试追加的内容');
 
 -- ----------------------------
--- Table structure for `company`
+-- Table structure for company
 -- ----------------------------
 DROP TABLE IF EXISTS `company`;
 CREATE TABLE `company` (
@@ -145,26 +132,18 @@ CREATE TABLE `company` (
 -- ----------------------------
 -- Records of company
 -- ----------------------------
-INSERT INTO `company` VALUES ('1', 'ztesoft', '很大', 'ZTE', null, '1', '2', null);
-INSERT INTO `company` VALUES ('2', 'xingzhong', '规模大', 'ZTX', '1234567', '3', '1', null);
-INSERT INTO `company` VALUES ('3', 'xingzhong', '规模大', 'ZTX', '1234567', '3', '1', null);
-INSERT INTO `company` VALUES ('4', 'xingzhong', '规模大', 'ZTX', '1234567', '3', '1', null);
-INSERT INTO `company` VALUES ('5', 'xingzhong', '规模大', 'ZTX', '1234567', '3', '1', null);
-INSERT INTO `company` VALUES ('6', 'xingzhong', '规模大', 'ZTX', '1234567', '3', '1', null);
-INSERT INTO `company` VALUES ('7', 'xingzhong', '规模大', 'ZTX', '1234567', '3', '1', null);
-INSERT INTO `company` VALUES ('8', 'xingzhong', '规模大', 'ZTX', '1234567', '3', '1', null);
-INSERT INTO `company` VALUES ('9', 'xingzhong', '规模大', 'ZTX', '1234567', '3', '1', null);
-INSERT INTO `company` VALUES ('10', 'xingzhong', '规模大', 'ZTX', '1234567', '3', '1', null);
-INSERT INTO `company` VALUES ('11', 'xingzhong', '规模大', 'ZTX', '1234567', '3', '1', null);
-INSERT INTO `company` VALUES ('12', 'xingzhong', '规模大', 'ZTX', '1234567', '3', '1', null);
-INSERT INTO `company` VALUES ('13', 'xingzhong', '规模大', 'ZTX', '1234567', '3', '1', null);
+INSERT INTO `company` VALUES ('1', 'ztesoft', '很大', 'ZTE', null, '1', '1', null);
+INSERT INTO `company` VALUES ('2', 'huawei', '很牛', 'hw', null, '2', '1', null);
+INSERT INTO `company` VALUES ('3', '大唐电信', '电信行业领导者', 'DTT', null, '1', '1', null);
+INSERT INTO `company` VALUES ('4', '阿里巴巴', '电子商务', 'Alibaba', null, '3', '1', null);
+INSERT INTO `company` VALUES ('5', '腾讯', '综合网络公司', 'Tencent', null, '3', '1', null);
 
 -- ----------------------------
--- Table structure for `companybranch`
+-- Table structure for companybranch
 -- ----------------------------
 DROP TABLE IF EXISTS `companybranch`;
 CREATE TABLE `companybranch` (
-  `branch_id` bigint(10) NOT NULL COMMENT '企业分支编号',
+  `branch_id` bigint(10) NOT NULL AUTO_INCREMENT COMMENT '企业分支编号',
   `company_id` bigint(10) DEFAULT NULL COMMENT '所属企业编号',
   `province` bigint(10) DEFAULT NULL COMMENT '所在省份',
   `city` bigint(10) DEFAULT NULL COMMENT '所在地市',
@@ -175,16 +154,20 @@ CREATE TABLE `companybranch` (
   `post_code` varchar(30) DEFAULT NULL COMMENT '邮编',
   PRIMARY KEY (`branch_id`),
   KEY `fk` (`company_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of companybranch
 -- ----------------------------
 INSERT INTO `companybranch` VALUES ('1', '1', '10001', '10002', '长沙办事处', '五一路', '13000000', null, null);
 INSERT INTO `companybranch` VALUES ('2', '1', '10015', '10016', '南昌办事处', '解放路', '13800000', null, null);
+INSERT INTO `companybranch` VALUES ('3', '2', '10018', '10019', '总部', '未知', '未知', '', '');
+INSERT INTO `companybranch` VALUES ('4', '3', '10018', '10019', '总部', '未知', '未知', '', '');
+INSERT INTO `companybranch` VALUES ('5', '4', '10018', '10019', '总部', '未知', '未知', '', '');
+INSERT INTO `companybranch` VALUES ('6', '5', '10018', '10019', '总部', '未知', '未知', '', '');
 
 -- ----------------------------
--- Table structure for `companyother`
+-- Table structure for companyother
 -- ----------------------------
 DROP TABLE IF EXISTS `companyother`;
 CREATE TABLE `companyother` (
@@ -203,7 +186,7 @@ CREATE TABLE `companyother` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `company_question`
+-- Table structure for company_question
 -- ----------------------------
 DROP TABLE IF EXISTS `company_question`;
 CREATE TABLE `company_question` (
@@ -216,9 +199,34 @@ CREATE TABLE `company_question` (
 -- ----------------------------
 INSERT INTO `company_question` VALUES ('1', '1');
 INSERT INTO `company_question` VALUES ('1', '2');
+INSERT INTO `company_question` VALUES ('2', '2');
+INSERT INTO `company_question` VALUES ('2', '1');
+INSERT INTO `company_question` VALUES ('2', '3');
+INSERT INTO `company_question` VALUES ('3', '1');
+INSERT INTO `company_question` VALUES ('3', '2');
+INSERT INTO `company_question` VALUES ('3', '3');
+INSERT INTO `company_question` VALUES ('3', '4');
+INSERT INTO `company_question` VALUES ('4', '1');
+INSERT INTO `company_question` VALUES ('4', '2');
+INSERT INTO `company_question` VALUES ('4', '3');
+INSERT INTO `company_question` VALUES ('4', '4');
+INSERT INTO `company_question` VALUES ('4', '5');
+INSERT INTO `company_question` VALUES ('5', '1');
+INSERT INTO `company_question` VALUES ('5', '2');
+INSERT INTO `company_question` VALUES ('5', '3');
+INSERT INTO `company_question` VALUES ('5', '4');
+INSERT INTO `company_question` VALUES ('5', '5');
+INSERT INTO `company_question` VALUES ('5', '6');
+INSERT INTO `company_question` VALUES ('5', '7');
+INSERT INTO `company_question` VALUES ('5', '8');
+INSERT INTO `company_question` VALUES ('5', '9');
+INSERT INTO `company_question` VALUES ('5', '10');
+INSERT INTO `company_question` VALUES ('5', '11');
+INSERT INTO `company_question` VALUES ('5', '12');
+INSERT INTO `company_question` VALUES ('5', '13');
 
 -- ----------------------------
--- Table structure for `dictionarybean`
+-- Table structure for dictionarybean
 -- ----------------------------
 DROP TABLE IF EXISTS `dictionarybean`;
 CREATE TABLE `dictionarybean` (
@@ -246,7 +254,7 @@ INSERT INTO `dictionarybean` VALUES ('case.state', '注销', '2', '3', '注销�
 INSERT INTO `dictionarybean` VALUES ('user.type', '普通用户', '1', null, '普通用户只能有部分权限');
 
 -- ----------------------------
--- Table structure for `generate_key`
+-- Table structure for generate_key
 -- ----------------------------
 DROP TABLE IF EXISTS `generate_key`;
 CREATE TABLE `generate_key` (
@@ -257,17 +265,17 @@ CREATE TABLE `generate_key` (
 -- ----------------------------
 -- Records of generate_key
 -- ----------------------------
-INSERT INTO `generate_key` VALUES ('1056', '1057');
+INSERT INTO `generate_key` VALUES ('1078', '1079');
 
 -- ----------------------------
--- Table structure for `questioninfo`
+-- Table structure for questioninfo
 -- ----------------------------
 DROP TABLE IF EXISTS `questioninfo`;
 CREATE TABLE `questioninfo` (
   `quest_id` bigint(20) NOT NULL,
   `quest_key` varchar(50) DEFAULT '' COMMENT '问题索引',
-  `quest` varchar(50) DEFAULT NULL COMMENT '问题',
-  `quest_desc` varchar(50) DEFAULT NULL COMMENT '问题描述',
+  `quest` varchar(100) DEFAULT NULL COMMENT '问题',
+  `quest_desc` varchar(100) DEFAULT NULL COMMENT '问题描述',
   `is_needed` int(11) DEFAULT NULL COMMENT '是否必填1:必填，0:非必填',
   PRIMARY KEY (`quest_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -275,11 +283,22 @@ CREATE TABLE `questioninfo` (
 -- ----------------------------
 -- Records of questioninfo
 -- ----------------------------
-INSERT INTO `questioninfo` VALUES ('1', 'NO1', '你觉得该企业服务态度怎么样', '问题描述', '0');
-INSERT INTO `questioninfo` VALUES ('2', 'NO2', '问题2', '问题2描述', null);
+INSERT INTO `questioninfo` VALUES ('1', 'quest_1', '您是 ${companyBranch.owner.companyName } 的员工吗？', '问题描述', '0');
+INSERT INTO `questioninfo` VALUES ('2', 'quest_2', '请说明与此行为相关的人的身份', '例如：无名氏，内部审计主管，未知，晚间监督员', null);
+INSERT INTO `questioninfo` VALUES ('3', 'quest_3', '您是否怀疑或知道监督或管理人员与此有关？', '不知道 / 不愿意透露,如果选择是，请指出是谁？', null);
+INSERT INTO `questioninfo` VALUES ('4', 'quest_4', '管理人员注意到此问题了吗？', '是,否,不知道', null);
+INSERT INTO `questioninfo` VALUES ('5', 'quest_5', '此事件的总体特征是什么？', '这仅为一般说明，稍后我们将询问详细情况。', null);
+INSERT INTO `questioninfo` VALUES ('6', 'quest_6', '您估计这一行为的货币价值是多少？', null, null);
+INSERT INTO `questioninfo` VALUES ('7', 'quest_7', '该事件或违规行为在哪里发生的？', '我们了解到该事件可能没有确切的发生地点，但如果事件有某些文档或业务交易的记录，请相应指明。', null);
+INSERT INTO `questioninfo` VALUES ('8', 'quest_8', '请指出该事件发生的确切或大致时间：', '例如：2002 年 5 月 3 日，星期二；两周前；大约一个月以前', null);
+INSERT INTO `questioninfo` VALUES ('9', 'quest_9', '您认为此问题持续了多少时间？', null, null);
+INSERT INTO `questioninfo` VALUES ('10', 'quest_10', '您是如何发现此违规行为的？', null, null);
+INSERT INTO `questioninfo` VALUES ('11', 'quest_11', '您先前是否报告过这一问题？', '如果答案为“是”，您是何时以何种方式向谁报告的？', null);
+INSERT INTO `questioninfo` VALUES ('12', 'quest_12', '请指出试图隐藏此问题的人以及他们隐藏采取的步骤：', '请指出其姓名和职位。', null);
+INSERT INTO `questioninfo` VALUES ('13', 'quest_13', '请提供关于所谓违规行为的所有细节，包括目击者的位置以及任何对于此情形的评估和最终解决有价值的其它信息。', '请花一些时间尽可能提供细节，但请小心不要提供泄漏您身份的细节，除非您自己愿意。如果您是唯一的知情人，了解这一点非常重要。', null);
 
 -- ----------------------------
--- Table structure for `reportanswer`
+-- Table structure for reportanswer
 -- ----------------------------
 DROP TABLE IF EXISTS `reportanswer`;
 CREATE TABLE `reportanswer` (
@@ -288,16 +307,14 @@ CREATE TABLE `reportanswer` (
   `quest_key` varchar(50) DEFAULT NULL COMMENT '问题索引',
   `quest_value` varchar(50) DEFAULT NULL COMMENT '问题答复',
   PRIMARY KEY (`rd_Id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of reportanswer
 -- ----------------------------
-INSERT INTO `reportanswer` VALUES ('1', '1', 'NO1', '态度不好');
-INSERT INTO `reportanswer` VALUES ('2', '1', 'NO2', '问题2的答案');
 
 -- ----------------------------
--- Table structure for `reportcase`
+-- Table structure for reportcase
 -- ----------------------------
 DROP TABLE IF EXISTS `reportcase`;
 CREATE TABLE `reportcase` (
@@ -310,23 +327,17 @@ CREATE TABLE `reportcase` (
   `rt_list` varchar(200) DEFAULT NULL COMMENT '所选举报类型列表',
   `case_state` int(30) DEFAULT NULL COMMENT '案件状态',
   `state_changed` datetime DEFAULT NULL COMMENT '最后修改时间',
-  `access_code` varchar(20) DEFAULT NULL COMMENT '访问密码',
+  `access_code` varchar(50) DEFAULT NULL COMMENT '访问密码',
   `tracking_no` varchar(20) NOT NULL DEFAULT '' COMMENT '追踪号',
   PRIMARY KEY (`rc_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of reportcase
 -- ----------------------------
-INSERT INTO `reportcase` VALUES ('1', '2016-02-15 15:46:32', '1', '1', '1', null, null, '0', null, 'ZT', 'ZTE2016021040');
-INSERT INTO `reportcase` VALUES ('3', '2016-02-16 14:37:10', '1', '0', '0', null, '举报类型1，举报类型2', '1', null, 'ZT', 'ZTE2016021012');
-INSERT INTO `reportcase` VALUES ('5', '2016-02-16 14:37:38', '1', '0', '0', null, '举报类型1，举报类型2', '1', null, 'ZT', 'ZTE2016021016');
-INSERT INTO `reportcase` VALUES ('9', '2016-02-16 17:22:15', '1', '0', '0', null, '举报类型1，举报类型2', '1', null, 'ZT', 'ZTE2016021024');
-INSERT INTO `reportcase` VALUES ('12', '2016-02-16 17:25:52', '1', '0', '0', null, '举报类型1，举报类型2', '1', null, 'ZT', 'ZTE2016021032');
-INSERT INTO `reportcase` VALUES ('14', '2016-02-16 17:27:58', '1', '0', '0', null, '举报类型1，举报类型2', '1', null, 'ZT', 'ZTE2016021036');
 
 -- ----------------------------
--- Table structure for `reporter`
+-- Table structure for reporter
 -- ----------------------------
 DROP TABLE IF EXISTS `reporter`;
 CREATE TABLE `reporter` (
@@ -338,14 +349,14 @@ CREATE TABLE `reporter` (
   `email` varchar(20) DEFAULT NULL COMMENT '邮箱',
   `best_contact` varchar(50) DEFAULT NULL COMMENT '最佳联系方式以及时间',
   PRIMARY KEY (`reporter_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of reporter
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `reporttype`
+-- Table structure for reporttype
 -- ----------------------------
 DROP TABLE IF EXISTS `reporttype`;
 CREATE TABLE `reporttype` (
@@ -353,20 +364,58 @@ CREATE TABLE `reporttype` (
   `is_standard` int(10) DEFAULT NULL COMMENT '是否为标准类型：0标准，1非标准',
   `company_id` bigint(10) DEFAULT NULL COMMENT '举报类型标题',
   `rt_title` varchar(20) DEFAULT NULL COMMENT '举报企业编号',
-  `rt_desc` varchar(50) DEFAULT NULL COMMENT '举报类型描述',
+  `rt_desc` varchar(500) DEFAULT NULL COMMENT '举报类型描述',
   PRIMARY KEY (`rt_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of reporttype
 -- ----------------------------
-INSERT INTO `reporttype` VALUES ('1', '0', '1', '标题1', '内容1');
-INSERT INTO `reporttype` VALUES ('2', '0', '1', '标题2', '内容2');
-INSERT INTO `reporttype` VALUES ('3', '0', '1', '标题3', '内容3');
-INSERT INTO `reporttype` VALUES ('4', '0', '1', '标题4', '内容4');
+INSERT INTO `reporttype` VALUES ('1', '0', '1', '审计与账户管理', '任何故意做出的与事实不符的信息报告，与内部或外部的审计人员互动过程中进行不正当的影响或表示独有的关心，或监视审计人员从事职权范围的活动。包括管理、审计或内部财务控制相关的值得质疑的运作（例如包括：逃税、谎报收入、谎报费用、谎报资产、滥用会计准则、不正当交易）。');
+INSERT INTO `reporttype` VALUES ('2', '0', '1', '财务问题', '对财务文件、合同或报告的全部或任何部分进行篡改、编造、伪造或造假；制造虚假印象、省略重要事实或进行谎报；提供不准确的财务状况说明、内线交易或与内部财务管控相关的值得质疑的运作。\r\n对财务文件、合同或报告的全部或任何部分进行篡改、编造、伪造或造假；制造虚假印象、省略重要事实或进行谎报；提供不准确的财务状况说明、内线交易或与内部财务管控相关的值得质疑的运作。\r\n对财务文件、合同或报告的全部或任何部分进行篡改、编造、伪造或造假；制造虚假印象、省略重要事实或进行谎报；提供不准确的财务状况说明、内线交易或与内部财务管控相关的值得质疑的运作。');
+INSERT INTO `reporttype` VALUES ('3', '0', '1', '银行业', '涉及有关可疑或不道德的银行业务。（例如： 洗钱、银行欺诈、挪用、修改、作假、篡改或伪造任何银行凭证、报表或记录；或与内部银行控制规章有关的可疑行为）');
+INSERT INTO `reporttype` VALUES ('4', '0', '1', '反行賄', '涉及有关可疑或不道德的银行业务。（例如： 洗钱、银行欺诈、挪用、修改、作假、篡改或伪造任何银行凭证、报表或记录；或与内部银行控制规章有关的可疑行为）？');
+INSERT INTO `reporttype` VALUES ('5', '0', '2', '审计与账户管理', '任何故意做出的与事实不符的信息报告，与内部或外部的审计人员互动过程中进行不正当的影响或表示独有的关心，或监视审计人员从事职权范围的活动。包括管理、审计或内部财务控制相关的值得质疑的运作（例如包括：逃税、谎报收入、谎报费用、谎报资产、滥用会计准则、不正当交易）。');
+INSERT INTO `reporttype` VALUES ('6', '0', '2', '财务问题', '对财务文件、合同或报告的全部或任何部分进行篡改、编造、伪造或造假；制造虚假印象、省略重要事实或进行谎报；提供不准确的财务状况说明、内线交易或与内部财务管控相关的值得质疑的运作。\r\n对财务文件、合同或报告的全部或任何部分进行篡改、编造、伪造或造假；制造虚假印象、省略重要事实或进行谎报；提供不准确的财务状况说明、内线交易或与内部财务管控相关的值得质疑的运作。\r\n对财务文件、合同或报告的全部或任何部分进行篡改、编造、伪造或造假；制造虚假印象、省略重要事实或进行谎报；提供不准确的财务状况说明、内线交易或与内部财务管控相关的值得质疑的运作。');
+INSERT INTO `reporttype` VALUES ('7', '0', '2', '银行业', '涉及有关可疑或不道德的银行业务。（例如： 洗钱、银行欺诈、挪用、修改、作假、篡改或伪造任何银行凭证、报表或记录；或与内部银行控制规章有关的可疑行为）');
+INSERT INTO `reporttype` VALUES ('8', '0', '2', '反行賄', '涉及有关可疑或不道德的银行业务。（例如： 洗钱、银行欺诈、挪用、修改、作假、篡改或伪造任何银行凭证、报表或记录；或与内部银行控制规章有关的可疑行为）？');
+INSERT INTO `reporttype` VALUES ('9', '0', '3', '审计与账户管理', '任何故意做出的与事实不符的信息报告，与内部或外部的审计人员互动过程中进行不正当的影响或表示独有的关心，或监视审计人员从事职权范围的活动。包括管理、审计或内部财务控制相关的值得质疑的运作（例如包括：逃税、谎报收入、谎报费用、谎报资产、滥用会计准则、不正当交易）。');
+INSERT INTO `reporttype` VALUES ('10', '0', '3', '财务问题', '对财务文件、合同或报告的全部或任何部分进行篡改、编造、伪造或造假；制造虚假印象、省略重要事实或进行谎报；提供不准确的财务状况说明、内线交易或与内部财务管控相关的值得质疑的运作。\r\n对财务文件、合同或报告的全部或任何部分进行篡改、编造、伪造或造假；制造虚假印象、省略重要事实或进行谎报；提供不准确的财务状况说明、内线交易或与内部财务管控相关的值得质疑的运作。\r\n对财务文件、合同或报告的全部或任何部分进行篡改、编造、伪造或造假；制造虚假印象、省略重要事实或进行谎报；提供不准确的财务状况说明、内线交易或与');
+INSERT INTO `reporttype` VALUES ('11', '0', '3', '银行业', '涉及有关可疑或不道德的银行业务。（例如： 洗钱、银行欺诈、挪用、修改、作假、篡改或伪造任何银行凭证、报表或记录；或与内部银行控制规章有关的可疑行为）');
+INSERT INTO `reporttype` VALUES ('12', '0', '3', '反行賄', '涉及有关可疑或不道德的银行业务。（例如： 洗钱、银行欺诈、挪用、修改、作假、篡改或伪造任何银行凭证、报表或记录；或与内部银行控制规章有关的可疑行为）？');
+INSERT INTO `reporttype` VALUES ('13', '0', '4', '不安全的工作条件', '未能满足在安全环境下执行全部职责的需要。有潜在伤害的区域。（范例包括：环境伤害、OSHA、EPA、主管指示、不负责的家务管理）');
+INSERT INTO `reporttype` VALUES ('14', '0', '4', '会计或审计事务', '在认可会计常规监管下的业务及财政交易作不道德之系统记录和分析。（例如：收入、支出和资产的谎报、GAAP原则的滥用、虚假之交易项目。）');
+INSERT INTO `reporttype` VALUES ('15', '0', '4', '伪造合同、报告或记录', '伪造记录包括为获取利益而修改、捏造、伪造或凭空制造全部或部分文档、合同或记录，或者不如实转达文档、合同或记录的内容。');
+INSERT INTO `reporttype` VALUES ('16', '0', '4', '偷窃', '偷盗行为；特别是故意剥夺合法拥有人的个人财产而强制侵占和夺取');
+INSERT INTO `reporttype` VALUES ('17', '0', '4', '利益冲突', '利益冲突定义为在公务员、雇员或专业人员等在私人或个人利益下足以对他或她的公务产生客观影响的情况。（范例包括：不正当的供应商关系、贿赂、滥用机密资料、不正当的客户关系）');
+INSERT INTO `reporttype` VALUES ('18', '0', '4', '挪用', '以欺骗性的手段挪用（作为某人看管委托的财产）为某人自己使用（范例包括：登记错误、滥用资金和不正确运转现金）');
+INSERT INTO `reporttype` VALUES ('19', '0', '4', '暴力或恐吓', '暴力是故意对人身或其财产造成不幸、伤害或损毁的表述。（范例包括：直接、隐藏、有条件、猛烈的行为）');
+INSERT INTO `reporttype` VALUES ('20', '0', '4', '歧视或骚扰', '由于雇员的性别、宗教、种族或信仰而对他或她所作的未经允许和不受欢迎的言辞或身体行为。（范例包括：雇用偏见、分配偏见、不正当解聘、晋升偏见、教育决策偏见、不公正的赔偿、不正当的语言）');
+INSERT INTO `reporttype` VALUES ('21', '0', '4', '滥用物质', '滥用物质定义为滥用包括酒精在内的合法和违法药品。（范例包括：可卡因、镇静剂、兴奋剂）');
+INSERT INTO `reporttype` VALUES ('22', '0', '5', '蓄意破坏或损毁公共财务', '毁坏雇主（作为工具或材料的）财产或通过使工人不满意来阻碍生产（范例包括：设备毁坏、偷窃、降低工作速度、散播计算机病毒）');
+INSERT INTO `reporttype` VALUES ('23', '0', '5', '证券违反', '触犯、违反条例；特别是违反证券行为定义的规则。（范例包括：知情人士交易）');
+INSERT INTO `reporttype` VALUES ('24', '0', '5', '违反政策', '直接违反公司政策、程序、行为准则，和/或暗含的合同职责的主观或无意行为（范例包括：不泄露协议、雇用标准、安全、互联网使用、公司准则）。');
+INSERT INTO `reporttype` VALUES ('25', '0', '5', '错误或不正当的行为', '故意做坏事；特别是故障违反法律或标准。');
+INSERT INTO `reporttype` VALUES ('26', '0', '0', '审计与账户管理', '任何故意做出的与事实不符的信息报告，与内部或外部的审计人员互动过程中进行不正当的影响或表示独有的关心，或监视审计人员从事职权范围的活动。包括管理、审计或内部财务控制相关的值得质疑的运作（例如包括：逃税、谎报收入、谎报费用、谎报资产、滥用会计准则、不正当交易）。');
+INSERT INTO `reporttype` VALUES ('27', '0', '0', '财务问题', '对财务文件、合同或报告的全部或任何部分进行篡改、编造、伪造或造假；制造虚假印象、省略重要事实或进行谎报；提供不准确的财务状况说明、内线交易或与内部财务管控相关的值得质疑的运作。\r\n对财务文件、合同或报告的全部或任何部分进行篡改、编造、伪造或造假；制造虚假印象、省略重要事实或进行谎报；提供不准确的财务状况说明、内线交易或与内部财务管控相关的值得质疑的运作。\r\n对财务文件、合同或报告的全部或任何部分进行篡改、编造、伪造或造假；制造虚假印象、省略重要事实或进行谎报；提供不准确的财务状况说明、内线交易或与');
+INSERT INTO `reporttype` VALUES ('28', '0', '0', '银行业', '涉及有关可疑或不道德的银行业务。（例如： 洗钱、银行欺诈、挪用、修改、作假、篡改或伪造任何银行凭证、报表或记录；或与内部银行控制规章有关的可疑行为）');
+INSERT INTO `reporttype` VALUES ('29', '0', '0', '反行賄', '涉及有关可疑或不道德的银行业务。（例如： 洗钱、银行欺诈、挪用、修改、作假、篡改或伪造任何银行凭证、报表或记录；或与内部银行控制规章有关的可疑行为）？');
+INSERT INTO `reporttype` VALUES ('30', '0', '0', '不安全的工作条件', '未能满足在安全环境下执行全部职责的需要。有潜在伤害的区域。（范例包括：环境伤害、OSHA、EPA、主管指示、不负责的家务管理）');
+INSERT INTO `reporttype` VALUES ('31', '0', '0', '会计或审计事务', '在认可会计常规监管下的业务及财政交易作不道德之系统记录和分析。（例如：收入、支出和资产的谎报、GAAP原则的滥用、虚假之交易项目。）');
+INSERT INTO `reporttype` VALUES ('32', '0', '0', '伪造合同、报告或记录', '伪造记录包括为获取利益而修改、捏造、伪造或凭空制造全部或部分文档、合同或记录，或者不如实转达文档、合同或记录的内容。');
+INSERT INTO `reporttype` VALUES ('33', '0', '0', '偷窃', '偷盗行为；特别是故意剥夺合法拥有人的个人财产而强制侵占和夺取');
+INSERT INTO `reporttype` VALUES ('34', '0', '0', '利益冲突', '利益冲突定义为在公务员、雇员或专业人员等在私人或个人利益下足以对他或她的公务产生客观影响的情况。（范例包括：不正当的供应商关系、贿赂、滥用机密资料、不正当的客户关系）');
+INSERT INTO `reporttype` VALUES ('35', '0', '0', '挪用', '以欺骗性的手段挪用（作为某人看管委托的财产）为某人自己使用（范例包括：登记错误、滥用资金和不正确运转现金）');
+INSERT INTO `reporttype` VALUES ('36', '0', '0', '暴力或恐吓', '暴力是故意对人身或其财产造成不幸、伤害或损毁的表述。（范例包括：直接、隐藏、有条件、猛烈的行为）');
+INSERT INTO `reporttype` VALUES ('37', '0', '0', '歧视或骚扰', '由于雇员的性别、宗教、种族或信仰而对他或她所作的未经允许和不受欢迎的言辞或身体行为。（范例包括：雇用偏见、分配偏见、不正当解聘、晋升偏见、教育决策偏见、不公正的赔偿、不正当的语言）');
+INSERT INTO `reporttype` VALUES ('38', '0', '0', '滥用物质', '滥用物质定义为滥用包括酒精在内的合法和违法药品。（范例包括：可卡因、镇静剂、兴奋剂）');
+INSERT INTO `reporttype` VALUES ('39', '0', '0', '蓄意破坏或损毁公共财务', '毁坏雇主（作为工具或材料的）财产或通过使工人不满意来阻碍生产（范例包括：设备毁坏、偷窃、降低工作速度、散播计算机病毒）');
+INSERT INTO `reporttype` VALUES ('40', '0', '0', '证券违反', '触犯、违反条例；特别是违反证券行为定义的规则。（范例包括：知情人士交易）');
+INSERT INTO `reporttype` VALUES ('41', '0', '0', '违反政策', '直接违反公司政策、程序、行为准则，和/或暗含的合同职责的主观或无意行为（范例包括：不泄露协议、雇用标准、安全、互联网使用、公司准则）。');
+INSERT INTO `reporttype` VALUES ('42', '0', '0', '错误或不正当的行为', '故意做坏事；特别是故障违反法律或标准。');
 
 -- ----------------------------
--- Table structure for `user`
+-- Table structure for user
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
