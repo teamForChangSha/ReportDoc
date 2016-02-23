@@ -1,22 +1,22 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : MyDB
-Source Server Version : 50530
+Source Server         : mywork
+Source Server Version : 50130
 Source Host           : localhost:3306
 Source Database       : reportstation
 
 Target Server Type    : MYSQL
-Target Server Version : 50530
+Target Server Version : 50130
 File Encoding         : 65001
 
-Date: 2016-02-22 15:59:57
+Date: 2016-02-23 17:09:19
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for areainfo
+-- Table structure for `areainfo`
 -- ----------------------------
 DROP TABLE IF EXISTS `areainfo`;
 CREATE TABLE `areainfo` (
@@ -52,7 +52,7 @@ INSERT INTO `areainfo` VALUES ('10018', '未知（省）', '2', '10000');
 INSERT INTO `areainfo` VALUES ('10019', '未知（市）', '2', '10018');
 
 -- ----------------------------
--- Table structure for caseattach
+-- Table structure for `caseattach`
 -- ----------------------------
 DROP TABLE IF EXISTS `caseattach`;
 CREATE TABLE `caseattach` (
@@ -75,7 +75,7 @@ CREATE TABLE `caseattach` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for casechangelog
+-- Table structure for `casechangelog`
 -- ----------------------------
 DROP TABLE IF EXISTS `casechangelog`;
 CREATE TABLE `casechangelog` (
@@ -95,7 +95,7 @@ CREATE TABLE `casechangelog` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for casecomment
+-- Table structure for `casecomment`
 -- ----------------------------
 DROP TABLE IF EXISTS `casecomment`;
 CREATE TABLE `casecomment` (
@@ -114,7 +114,7 @@ CREATE TABLE `casecomment` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for company
+-- Table structure for `company`
 -- ----------------------------
 DROP TABLE IF EXISTS `company`;
 CREATE TABLE `company` (
@@ -127,7 +127,7 @@ CREATE TABLE `company` (
   `company_state` varchar(30) DEFAULT NULL COMMENT '企业状态',
   `state_changed` datetime DEFAULT NULL COMMENT '企业状态最后变更时间',
   PRIMARY KEY (`company_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of company
@@ -139,7 +139,7 @@ INSERT INTO `company` VALUES ('4', '阿里巴巴', '电子商务', 'Alibaba', nu
 INSERT INTO `company` VALUES ('5', '腾讯', '综合网络公司', 'Tencent', null, '3', '1', null);
 
 -- ----------------------------
--- Table structure for companybranch
+-- Table structure for `companybranch`
 -- ----------------------------
 DROP TABLE IF EXISTS `companybranch`;
 CREATE TABLE `companybranch` (
@@ -167,7 +167,7 @@ INSERT INTO `companybranch` VALUES ('5', '4', '10018', '10019', '总部', '未�
 INSERT INTO `companybranch` VALUES ('6', '5', '10018', '10019', '总部', '未知', '未知', '', '');
 
 -- ----------------------------
--- Table structure for companyother
+-- Table structure for `companyother`
 -- ----------------------------
 DROP TABLE IF EXISTS `companyother`;
 CREATE TABLE `companyother` (
@@ -186,7 +186,7 @@ CREATE TABLE `companyother` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for company_question
+-- Table structure for `company_question`
 -- ----------------------------
 DROP TABLE IF EXISTS `company_question`;
 CREATE TABLE `company_question` (
@@ -226,7 +226,7 @@ INSERT INTO `company_question` VALUES ('5', '12');
 INSERT INTO `company_question` VALUES ('5', '13');
 
 -- ----------------------------
--- Table structure for dictionarybean
+-- Table structure for `dictionarybean`
 -- ----------------------------
 DROP TABLE IF EXISTS `dictionarybean`;
 CREATE TABLE `dictionarybean` (
@@ -254,7 +254,7 @@ INSERT INTO `dictionarybean` VALUES ('case.state', '注销', '2', '3', '注销�
 INSERT INTO `dictionarybean` VALUES ('user.type', '普通用户', '1', null, '普通用户只能有部分权限');
 
 -- ----------------------------
--- Table structure for generate_key
+-- Table structure for `generate_key`
 -- ----------------------------
 DROP TABLE IF EXISTS `generate_key`;
 CREATE TABLE `generate_key` (
@@ -268,7 +268,7 @@ CREATE TABLE `generate_key` (
 INSERT INTO `generate_key` VALUES ('1078', '1079');
 
 -- ----------------------------
--- Table structure for questioninfo
+-- Table structure for `questioninfo`
 -- ----------------------------
 DROP TABLE IF EXISTS `questioninfo`;
 CREATE TABLE `questioninfo` (
@@ -298,7 +298,7 @@ INSERT INTO `questioninfo` VALUES ('12', 'quest_12', '请指出试图隐藏此�
 INSERT INTO `questioninfo` VALUES ('13', 'quest_13', '请提供关于所谓违规行为的所有细节，包括目击者的位置以及任何对于此情形的评估和最终解决有价值的其它信息。', '请花一些时间尽可能提供细节，但请小心不要提供泄漏您身份的细节，除非您自己愿意。如果您是唯一的知情人，了解这一点非常重要。', null);
 
 -- ----------------------------
--- Table structure for reportanswer
+-- Table structure for `reportanswer`
 -- ----------------------------
 DROP TABLE IF EXISTS `reportanswer`;
 CREATE TABLE `reportanswer` (
@@ -314,7 +314,7 @@ CREATE TABLE `reportanswer` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for reportcase
+-- Table structure for `reportcase`
 -- ----------------------------
 DROP TABLE IF EXISTS `reportcase`;
 CREATE TABLE `reportcase` (
@@ -337,7 +337,7 @@ CREATE TABLE `reportcase` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for reporter
+-- Table structure for `reporter`
 -- ----------------------------
 DROP TABLE IF EXISTS `reporter`;
 CREATE TABLE `reporter` (
@@ -356,17 +356,17 @@ CREATE TABLE `reporter` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for reporttype
+-- Table structure for `reporttype`
 -- ----------------------------
 DROP TABLE IF EXISTS `reporttype`;
 CREATE TABLE `reporttype` (
-  `rt_id` bigint(10) NOT NULL COMMENT '编号',
+  `rt_id` bigint(10) NOT NULL AUTO_INCREMENT COMMENT '编号',
   `is_standard` int(10) DEFAULT NULL COMMENT '是否为标准类型：0标准，1非标准',
   `company_id` bigint(10) DEFAULT NULL COMMENT '举报类型标题',
   `rt_title` varchar(20) DEFAULT NULL COMMENT '举报企业编号',
   `rt_desc` varchar(500) DEFAULT NULL COMMENT '举报类型描述',
   PRIMARY KEY (`rt_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of reporttype
@@ -415,7 +415,7 @@ INSERT INTO `reporttype` VALUES ('41', '0', '0', '违反政策', '直接违反�
 INSERT INTO `reporttype` VALUES ('42', '0', '0', '错误或不正当的行为', '故意做坏事；特别是故障违反法律或标准。');
 
 -- ----------------------------
--- Table structure for user
+-- Table structure for `user`
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
