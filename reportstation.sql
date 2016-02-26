@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50530
 File Encoding         : 65001
 
-Date: 2016-02-26 15:57:11
+Date: 2016-02-26 16:45:06
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -261,12 +261,17 @@ INSERT INTO `dictionarybean` VALUES ('user.state', '待审核', '3', null, '待�
 INSERT INTO `dictionarybean` VALUES ('company.type', '国有', '1', null, '国有');
 INSERT INTO `dictionarybean` VALUES ('company.type', '民营', '2', null, '民营');
 INSERT INTO `dictionarybean` VALUES ('company.type', '股份', '3', null, '股份');
-INSERT INTO `dictionarybean` VALUES ('case.state', '发起', '0', '1', '发起案例');
-INSERT INTO `dictionarybean` VALUES ('case.state', '处理中', '1', '2', '处理案例');
-INSERT INTO `dictionarybean` VALUES ('case.state', '注销', '2', '3', '注销案例');
+INSERT INTO `dictionarybean` VALUES ('case.state', '新建', '1', '1', '举报人新建案件');
+INSERT INTO `dictionarybean` VALUES ('case.state', '已查看', '2', '2', '当公司用户查看该案件后，自动标记');
 INSERT INTO `dictionarybean` VALUES ('user.type', '普通用户', '1', null, '普通用户只能有部分权限');
 INSERT INTO `dictionarybean` VALUES ('user.type', '管理员', '2', null, '公司管理员用户，能使用后台管理中的部分功能');
 INSERT INTO `dictionarybean` VALUES ('user.type', '超级管理员', '3', null, '超级管理员，能使用所有功能');
+INSERT INTO `dictionarybean` VALUES ('case.state', '处理中', '3', '3', '公司用户开始处理该案件');
+INSERT INTO `dictionarybean` VALUES ('case.state', '公司处理完毕', '4', '4', '公司用户处理完毕该案件');
+INSERT INTO `dictionarybean` VALUES ('case.state', '移交平台管理方处理', '5', '5', '移交给平台管理方进行处理');
+INSERT INTO `dictionarybean` VALUES ('case.state', '平台处理完毕', '6', '6', '平台方处理完毕');
+INSERT INTO `dictionarybean` VALUES ('case.state', '移交给客户确认', '7', '7', '移交给客户查看处理结果');
+INSERT INTO `dictionarybean` VALUES ('case.state', '举报人关闭案件', '8', '8', '举报人关闭案件');
 
 -- ----------------------------
 -- Table structure for generate_key
@@ -430,7 +435,7 @@ INSERT INTO `reporttype` VALUES ('23', '0', '5', '证券违反', '触犯、违�
 INSERT INTO `reporttype` VALUES ('24', '0', '5', '违反政策', '直接违反公司政策、程序、行为准则，和/或暗含的合同职责的主观或无意行为（范例包括：不泄露协议、雇用标准、安全、互联网使用、公司准则）。');
 INSERT INTO `reporttype` VALUES ('25', '0', '5', '错误或不正当的行为', '故意做坏事；特别是故障违反法律或标准。');
 INSERT INTO `reporttype` VALUES ('26', '0', '0', '审计与账户管理', '任何故意做出的与事实不符的信息报告，与内部或外部的审计人员互动过程中进行不正当的影响或表示独有的关心，或监视审计人员从事职权范围的活动。包括管理、审计或内部财务控制相关的值得质疑的运作（例如包括：逃税、谎报收入、谎报费用、谎报资产、滥用会计准则、不正当交易）。');
-INSERT INTO `reporttype` VALUES ('27', '0', '0', '财务问题', '对财务文件、合同或报告的全部或任何部分进行篡改、编造、伪造或造假；制造虚假印象、省略重要事实或进行谎报；提供不准确的财务状况说明、内线交易或与内部财务管控相关的值得质疑的运作。\r\n对财务文件、合同或报告的全部或任何部分进行篡改、编造、伪造或造假；制造虚假印象、省略重要事实或进行谎报；提供不准确的财务状况说明、内线交易或与内部财务管控相关的值得质疑的运作。\r\n对财务文件、合同或报告的全部或任何部分进行篡改、编造、伪造或造假；制造虚假印象、省略重要事实或进行谎报；提供不准确的财务状况说明、内线交易或与');
+INSERT INTO `reporttype` VALUES ('27', '0', '0', '财务问题', '对财务文件、合同或报告的全部或任何部分进行篡改、编造、伪造或造假；制造虚假印象、省略重要事实或进行谎报；提供不准确的财务状况说明、内线交易或与内部财务管控相关的值得质疑的运作。');
 INSERT INTO `reporttype` VALUES ('28', '0', '0', '银行业', '涉及有关可疑或不道德的银行业务。（例如： 洗钱、银行欺诈、挪用、修改、作假、篡改或伪造任何银行凭证、报表或记录；或与内部银行控制规章有关的可疑行为）');
 INSERT INTO `reporttype` VALUES ('29', '0', '0', '反行賄', '涉及有关可疑或不道德的银行业务。（例如： 洗钱、银行欺诈、挪用、修改、作假、篡改或伪造任何银行凭证、报表或记录；或与内部银行控制规章有关的可疑行为）？');
 INSERT INTO `reporttype` VALUES ('30', '0', '0', '不安全的工作条件', '未能满足在安全环境下执行全部职责的需要。有潜在伤害的区域。（范例包括：环境伤害、OSHA、EPA、主管指示、不负责的家务管理）');
