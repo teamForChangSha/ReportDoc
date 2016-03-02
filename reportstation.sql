@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50530
 File Encoding         : 65001
 
-Date: 2016-03-02 12:17:27
+Date: 2016-03-02 15:35:00
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -5785,7 +5785,7 @@ CREATE TABLE `user` (
   `user_id` int(10) NOT NULL AUTO_INCREMENT COMMENT '用户编号',
   `user_type` varchar(11) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '用户类型',
   `login_name` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '用户登录名',
-  `user_pwd` varchar(20) COLLATE utf8_unicode_ci NOT NULL COMMENT '用户登录密码',
+  `user_pwd` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '用户登录密码',
   `user_name` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '用户姓名',
   `company_id` int(10) DEFAULT NULL COMMENT '用户所属企业',
   `mobile` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '电话',
@@ -5794,12 +5794,13 @@ CREATE TABLE `user` (
   `state_changed` datetime DEFAULT NULL COMMENT '最后改变时间',
   `user_state` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
 INSERT INTO `user` VALUES ('1', '1', 'gcx', '123', '春春', '1', '13142056476', 'NO123', null, null, '1');
-INSERT INTO `user` VALUES ('2', '1', 'cuijian', '123', '剑哥', '0', '15364060309', '00001', null, null, '1');
-INSERT INTO `user` VALUES ('3', '1', 'xiaoqiu', '123', '秋秋', '0', '53432432', '00002', null, null, '1');
-INSERT INTO `user` VALUES ('4', '1', 'pan', '123', '潘老大', '0', '3413213213', '00003', 'BOSS', null, '1');
+INSERT INTO `user` VALUES ('2', '1', 'cuijian', '123', '剑哥', '1', '15364060309', '00001', null, null, '1');
+INSERT INTO `user` VALUES ('3', '1', 'xiaoqiu', '123', '秋秋', '1', '53432432', '00002', null, null, '1');
+INSERT INTO `user` VALUES ('4', '1', 'pan', '123', '潘老大', '1', '3413213213', '00003', 'BOSS', null, '1');
+INSERT INTO `user` VALUES ('5', '2', 'zhang', '123', '张三', '810', '432432', '00004', null, null, '1');
