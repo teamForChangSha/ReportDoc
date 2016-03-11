@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50530
 File Encoding         : 65001
 
-Date: 2016-03-11 15:41:53
+Date: 2016-03-11 15:52:53
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -2570,39 +2570,40 @@ INSERT INTO `companyother` VALUES ('1', '', '', null, null, '0', '0');
 DROP TABLE IF EXISTS `company_question`;
 CREATE TABLE `company_question` (
   `company_id` bigint(20) DEFAULT NULL,
-  `quest_id` bigint(50) DEFAULT NULL
+  `quest_id` bigint(50) DEFAULT NULL,
+  `is_needed` int(11) DEFAULT NULL COMMENT '是否必填'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of company_question
 -- ----------------------------
-INSERT INTO `company_question` VALUES ('1', '1');
-INSERT INTO `company_question` VALUES ('1', '2');
-INSERT INTO `company_question` VALUES ('2', '2');
-INSERT INTO `company_question` VALUES ('2', '1');
-INSERT INTO `company_question` VALUES ('2', '3');
-INSERT INTO `company_question` VALUES ('3', '1');
-INSERT INTO `company_question` VALUES ('3', '2');
-INSERT INTO `company_question` VALUES ('3', '3');
-INSERT INTO `company_question` VALUES ('3', '4');
-INSERT INTO `company_question` VALUES ('4', '1');
-INSERT INTO `company_question` VALUES ('4', '2');
-INSERT INTO `company_question` VALUES ('4', '3');
-INSERT INTO `company_question` VALUES ('4', '4');
-INSERT INTO `company_question` VALUES ('4', '5');
-INSERT INTO `company_question` VALUES ('5', '1');
-INSERT INTO `company_question` VALUES ('5', '2');
-INSERT INTO `company_question` VALUES ('5', '3');
-INSERT INTO `company_question` VALUES ('5', '4');
-INSERT INTO `company_question` VALUES ('5', '5');
-INSERT INTO `company_question` VALUES ('5', '6');
-INSERT INTO `company_question` VALUES ('5', '7');
-INSERT INTO `company_question` VALUES ('5', '8');
-INSERT INTO `company_question` VALUES ('5', '9');
-INSERT INTO `company_question` VALUES ('5', '10');
-INSERT INTO `company_question` VALUES ('5', '11');
-INSERT INTO `company_question` VALUES ('5', '12');
-INSERT INTO `company_question` VALUES ('5', '13');
+INSERT INTO `company_question` VALUES ('1', '1', null);
+INSERT INTO `company_question` VALUES ('1', '2', null);
+INSERT INTO `company_question` VALUES ('2', '2', null);
+INSERT INTO `company_question` VALUES ('2', '1', null);
+INSERT INTO `company_question` VALUES ('2', '3', null);
+INSERT INTO `company_question` VALUES ('3', '1', null);
+INSERT INTO `company_question` VALUES ('3', '2', null);
+INSERT INTO `company_question` VALUES ('3', '3', null);
+INSERT INTO `company_question` VALUES ('3', '4', null);
+INSERT INTO `company_question` VALUES ('4', '1', null);
+INSERT INTO `company_question` VALUES ('4', '2', null);
+INSERT INTO `company_question` VALUES ('4', '3', null);
+INSERT INTO `company_question` VALUES ('4', '4', null);
+INSERT INTO `company_question` VALUES ('4', '5', null);
+INSERT INTO `company_question` VALUES ('5', '1', null);
+INSERT INTO `company_question` VALUES ('5', '2', null);
+INSERT INTO `company_question` VALUES ('5', '3', null);
+INSERT INTO `company_question` VALUES ('5', '4', null);
+INSERT INTO `company_question` VALUES ('5', '5', null);
+INSERT INTO `company_question` VALUES ('5', '6', null);
+INSERT INTO `company_question` VALUES ('5', '7', null);
+INSERT INTO `company_question` VALUES ('5', '8', null);
+INSERT INTO `company_question` VALUES ('5', '9', null);
+INSERT INTO `company_question` VALUES ('5', '10', null);
+INSERT INTO `company_question` VALUES ('5', '11', null);
+INSERT INTO `company_question` VALUES ('5', '12', null);
+INSERT INTO `company_question` VALUES ('5', '13', null);
 
 -- ----------------------------
 -- Table structure for dictionarybean
