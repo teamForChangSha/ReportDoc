@@ -1,22 +1,22 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : MyDB
-Source Server Version : 50530
+Source Server         : mywork
+Source Server Version : 50130
 Source Host           : localhost:3306
 Source Database       : reportstation
 
 Target Server Type    : MYSQL
-Target Server Version : 50530
+Target Server Version : 50130
 File Encoding         : 65001
 
-Date: 2016-03-11 15:52:53
+Date: 2016-03-11 16:09:16
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for areainfo
+-- Table structure for `areainfo`
 -- ----------------------------
 DROP TABLE IF EXISTS `areainfo`;
 CREATE TABLE `areainfo` (
@@ -433,7 +433,7 @@ INSERT INTO `areainfo` VALUES ('9990', '未知（省）', '2', '1');
 INSERT INTO `areainfo` VALUES ('9991', '未知（市）', '3', '9990');
 
 -- ----------------------------
--- Table structure for caseattach
+-- Table structure for `caseattach`
 -- ----------------------------
 DROP TABLE IF EXISTS `caseattach`;
 CREATE TABLE `caseattach` (
@@ -472,7 +472,7 @@ INSERT INTO `caseattach` VALUES ('46', 'null2016031099', 'Desert', '/reportStati
 INSERT INTO `caseattach` VALUES ('47', 'null2016031102', 'Hydrangeas', '/reportStation/fileupload/file/null2016031102/Hydrangeas.jpg', '/reportStation/fileupload/file/null2016031102/', 'jpg', 'Hydrangeas.jpg', null, '595284', '1', '');
 
 -- ----------------------------
--- Table structure for casechangelog
+-- Table structure for `casechangelog`
 -- ----------------------------
 DROP TABLE IF EXISTS `casechangelog`;
 CREATE TABLE `casechangelog` (
@@ -492,7 +492,7 @@ CREATE TABLE `casechangelog` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for casecomment
+-- Table structure for `casecomment`
 -- ----------------------------
 DROP TABLE IF EXISTS `casecomment`;
 CREATE TABLE `casecomment` (
@@ -511,7 +511,7 @@ CREATE TABLE `casecomment` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for company
+-- Table structure for `company`
 -- ----------------------------
 DROP TABLE IF EXISTS `company`;
 CREATE TABLE `company` (
@@ -1527,7 +1527,7 @@ INSERT INTO `company` VALUES ('1801', '武汉钢铁(集团)公司', null, null, 
 INSERT INTO `company` VALUES ('1', '平台管理公司', '', '', '', '0', '1', null, null);
 
 -- ----------------------------
--- Table structure for companybranch
+-- Table structure for `companybranch`
 -- ----------------------------
 DROP TABLE IF EXISTS `companybranch`;
 CREATE TABLE `companybranch` (
@@ -2545,7 +2545,7 @@ INSERT INTO `companybranch` VALUES ('995', '1', '9990', '9991', '总部', '未�
 INSERT INTO `companybranch` VALUES ('996', '1', '1975', '1976', '湖南办事处', '长沙市五一路7号', '86901111', '张三', '410000');
 
 -- ----------------------------
--- Table structure for companyother
+-- Table structure for `companyother`
 -- ----------------------------
 DROP TABLE IF EXISTS `companyother`;
 CREATE TABLE `companyother` (
@@ -2565,13 +2565,13 @@ CREATE TABLE `companyother` (
 INSERT INTO `companyother` VALUES ('1', '', '', null, null, '0', '0');
 
 -- ----------------------------
--- Table structure for company_question
+-- Table structure for `company_question`
 -- ----------------------------
 DROP TABLE IF EXISTS `company_question`;
 CREATE TABLE `company_question` (
   `company_id` bigint(20) DEFAULT NULL,
   `quest_id` bigint(50) DEFAULT NULL,
-  `is_needed` int(11) DEFAULT NULL COMMENT '是否必填'
+  `is_needed` int(11) DEFAULT NULL COMMENT '是否必填1:必填，0:非必填'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -2606,7 +2606,7 @@ INSERT INTO `company_question` VALUES ('5', '12', null);
 INSERT INTO `company_question` VALUES ('5', '13', null);
 
 -- ----------------------------
--- Table structure for dictionarybean
+-- Table structure for `dictionarybean`
 -- ----------------------------
 DROP TABLE IF EXISTS `dictionarybean`;
 CREATE TABLE `dictionarybean` (
@@ -2640,7 +2640,7 @@ INSERT INTO `dictionarybean` VALUES ('case.state', '关闭案件', '5', '5', '�
 INSERT INTO `dictionarybean` VALUES ('company.type', '平台管理公司', '0', null, '平台管理公司，用于管理该平台功能');
 
 -- ----------------------------
--- Table structure for generate_key
+-- Table structure for `generate_key`
 -- ----------------------------
 DROP TABLE IF EXISTS `generate_key`;
 CREATE TABLE `generate_key` (
@@ -2654,7 +2654,7 @@ CREATE TABLE `generate_key` (
 INSERT INTO `generate_key` VALUES ('1110', '1111');
 
 -- ----------------------------
--- Table structure for nation
+-- Table structure for `nation`
 -- ----------------------------
 DROP TABLE IF EXISTS `nation`;
 CREATE TABLE `nation` (
@@ -6595,7 +6595,7 @@ INSERT INTO `nation` VALUES ('3922', '820300', '', '路环岛', '', '3913');
 INSERT INTO `nation` VALUES ('3923', '820301', '', '', '圣方济各堂区', '3922');
 
 -- ----------------------------
--- Table structure for oprationlog
+-- Table structure for `oprationlog`
 -- ----------------------------
 DROP TABLE IF EXISTS `oprationlog`;
 CREATE TABLE `oprationlog` (
@@ -6642,7 +6642,7 @@ INSERT INTO `oprationlog` VALUES ('30', '2016-03-09 11:49:59', '注销', '1');
 INSERT INTO `oprationlog` VALUES ('31', '2016-03-09 11:50:05', '登录', '2');
 
 -- ----------------------------
--- Table structure for questioninfo
+-- Table structure for `questioninfo`
 -- ----------------------------
 DROP TABLE IF EXISTS `questioninfo`;
 CREATE TABLE `questioninfo` (
@@ -6650,29 +6650,28 @@ CREATE TABLE `questioninfo` (
   `quest_key` varchar(50) DEFAULT '' COMMENT '问题索引',
   `quest` varchar(100) DEFAULT NULL COMMENT '问题',
   `quest_desc` varchar(100) DEFAULT NULL COMMENT '问题描述',
-  `is_needed` int(11) DEFAULT NULL COMMENT '是否必填1:必填，0:非必填',
   PRIMARY KEY (`quest_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of questioninfo
 -- ----------------------------
-INSERT INTO `questioninfo` VALUES ('1', 'quest_1', '您是 ${companyBranch.owner.companyName } 的员工吗？', '问题描述', '0');
-INSERT INTO `questioninfo` VALUES ('2', 'quest_2', '请说明与此行为相关的人的身份', '例如：无名氏，内部审计主管，未知，晚间监督员', null);
-INSERT INTO `questioninfo` VALUES ('3', 'quest_3', '您是否怀疑或知道监督或管理人员与此有关？', '不知道 / 不愿意透露,如果选择是，请指出是谁？', null);
-INSERT INTO `questioninfo` VALUES ('4', 'quest_4', '管理人员注意到此问题了吗？', '是,否,不知道', null);
-INSERT INTO `questioninfo` VALUES ('5', 'quest_5', '此事件的总体特征是什么？', '这仅为一般说明，稍后我们将询问详细情况。', null);
-INSERT INTO `questioninfo` VALUES ('6', 'quest_6', '您估计这一行为的货币价值是多少？', null, null);
-INSERT INTO `questioninfo` VALUES ('7', 'quest_7', '该事件或违规行为在哪里发生的？', '我们了解到该事件可能没有确切的发生地点，但如果事件有某些文档或业务交易的记录，请相应指明。', null);
-INSERT INTO `questioninfo` VALUES ('8', 'quest_8', '请指出该事件发生的确切或大致时间：', '例如：2002 年 5 月 3 日，星期二；两周前；大约一个月以前', null);
-INSERT INTO `questioninfo` VALUES ('9', 'quest_9', '您认为此问题持续了多少时间？', null, null);
-INSERT INTO `questioninfo` VALUES ('10', 'quest_10', '您是如何发现此违规行为的？', null, null);
-INSERT INTO `questioninfo` VALUES ('11', 'quest_11', '您先前是否报告过这一问题？', '如果答案为“是”，您是何时以何种方式向谁报告的？', null);
-INSERT INTO `questioninfo` VALUES ('12', 'quest_12', '请指出试图隐藏此问题的人以及他们隐藏采取的步骤：', '请指出其姓名和职位。', null);
-INSERT INTO `questioninfo` VALUES ('13', 'quest_13', '请提供关于所谓违规行为的所有细节，包括目击者的位置以及任何对于此情形的评估和最终解决有价值的其它信息。', '请花一些时间尽可能提供细节，但请小心不要提供泄漏您身份的细节，除非您自己愿意。如果您是唯一的知情人，了解这一点非常重要。', null);
+INSERT INTO `questioninfo` VALUES ('1', 'quest_1', '您是 ${companyBranch.owner.companyName } 的员工吗？', '问题描述');
+INSERT INTO `questioninfo` VALUES ('2', 'quest_2', '请说明与此行为相关的人的身份', '例如：无名氏，内部审计主管，未知，晚间监督员');
+INSERT INTO `questioninfo` VALUES ('3', 'quest_3', '您是否怀疑或知道监督或管理人员与此有关？', '不知道 / 不愿意透露,如果选择是，请指出是谁？');
+INSERT INTO `questioninfo` VALUES ('4', 'quest_4', '管理人员注意到此问题了吗？', '是,否,不知道');
+INSERT INTO `questioninfo` VALUES ('5', 'quest_5', '此事件的总体特征是什么？', '这仅为一般说明，稍后我们将询问详细情况。');
+INSERT INTO `questioninfo` VALUES ('6', 'quest_6', '您估计这一行为的货币价值是多少？', null);
+INSERT INTO `questioninfo` VALUES ('7', 'quest_7', '该事件或违规行为在哪里发生的？', '我们了解到该事件可能没有确切的发生地点，但如果事件有某些文档或业务交易的记录，请相应指明。');
+INSERT INTO `questioninfo` VALUES ('8', 'quest_8', '请指出该事件发生的确切或大致时间：', '例如：2002 年 5 月 3 日，星期二；两周前；大约一个月以前');
+INSERT INTO `questioninfo` VALUES ('9', 'quest_9', '您认为此问题持续了多少时间？', null);
+INSERT INTO `questioninfo` VALUES ('10', 'quest_10', '您是如何发现此违规行为的？', null);
+INSERT INTO `questioninfo` VALUES ('11', 'quest_11', '您先前是否报告过这一问题？', '如果答案为“是”，您是何时以何种方式向谁报告的？');
+INSERT INTO `questioninfo` VALUES ('12', 'quest_12', '请指出试图隐藏此问题的人以及他们隐藏采取的步骤：', '请指出其姓名和职位。');
+INSERT INTO `questioninfo` VALUES ('13', 'quest_13', '请提供关于所谓违规行为的所有细节，包括目击者的位置以及任何对于此情形的评估和最终解决有价值的其它信息。', '请花一些时间尽可能提供细节，但请小心不要提供泄漏您身份的细节，除非您自己愿意。如果您是唯一的知情人，了解这一点非常重要。');
 
 -- ----------------------------
--- Table structure for reportanswer
+-- Table structure for `reportanswer`
 -- ----------------------------
 DROP TABLE IF EXISTS `reportanswer`;
 CREATE TABLE `reportanswer` (
@@ -6724,7 +6723,7 @@ INSERT INTO `reportanswer` VALUES ('51', '44', 'quest_12', '测试');
 INSERT INTO `reportanswer` VALUES ('52', '44', 'quest_13', '测试');
 
 -- ----------------------------
--- Table structure for reportcase
+-- Table structure for `reportcase`
 -- ----------------------------
 DROP TABLE IF EXISTS `reportcase`;
 CREATE TABLE `reportcase` (
@@ -6762,7 +6761,7 @@ INSERT INTO `reportcase` VALUES ('43', '2016-03-09 11:20:19', '808', '1', null, 
 INSERT INTO `reportcase` VALUES ('44', '2016-03-09 11:36:07', '808', '1', null, '808', '审计与账户管理,财务问题', '1', null, '111111', 'null2016031109');
 
 -- ----------------------------
--- Table structure for reporter
+-- Table structure for `reporter`
 -- ----------------------------
 DROP TABLE IF EXISTS `reporter`;
 CREATE TABLE `reporter` (
@@ -6784,7 +6783,7 @@ INSERT INTO `reporter` VALUES ('9', '', 'undefined', '-请选择证件类型-', 
 INSERT INTO `reporter` VALUES ('10', '15364060309', '崔剑', '身份证', '43574983789543534', '43287943292@DSF.COM', '测试');
 
 -- ----------------------------
--- Table structure for reporttype
+-- Table structure for `reporttype`
 -- ----------------------------
 DROP TABLE IF EXISTS `reporttype`;
 CREATE TABLE `reporttype` (
@@ -6843,7 +6842,7 @@ INSERT INTO `reporttype` VALUES ('41', '0', '0', '违反政策', '直接违反�
 INSERT INTO `reporttype` VALUES ('42', '0', '0', '错误或不正当的行为', '故意做坏事；特别是故障违反法律或标准。');
 
 -- ----------------------------
--- Table structure for userinfo
+-- Table structure for `userinfo`
 -- ----------------------------
 DROP TABLE IF EXISTS `userinfo`;
 CREATE TABLE `userinfo` (
