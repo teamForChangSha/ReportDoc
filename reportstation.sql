@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50130
 File Encoding         : 65001
 
-Date: 2016-03-11 16:09:16
+Date: 2016-03-13 22:54:08
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -6646,12 +6646,12 @@ INSERT INTO `oprationlog` VALUES ('31', '2016-03-09 11:50:05', '登录', '2');
 -- ----------------------------
 DROP TABLE IF EXISTS `questioninfo`;
 CREATE TABLE `questioninfo` (
-  `quest_id` bigint(20) NOT NULL,
+  `quest_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `quest_key` varchar(50) DEFAULT '' COMMENT '问题索引',
   `quest` varchar(100) DEFAULT NULL COMMENT '问题',
   `quest_desc` varchar(100) DEFAULT NULL COMMENT '问题描述',
   PRIMARY KEY (`quest_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of questioninfo
