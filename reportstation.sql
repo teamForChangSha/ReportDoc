@@ -519,7 +519,7 @@ CREATE TABLE `company` (
 -- ----------------------------
 -- Records of company
 -- ----------------------------
-INSERT INTO `company` VALUES ('1', '平台管理公司', null, null, null, '0', '1', null, null, null);
+
 INSERT INTO `company` VALUES ('100', '平安银行股份有限公司', null, null, null, null, null, null, '金融业', '1');
 INSERT INTO `company` VALUES ('101', '万科企业股份有限公司', null, null, null, null, null, null, '房地产业', '2');
 INSERT INTO `company` VALUES ('102', '深圳中国农大科技股份有限公司', null, null, null, null, null, null, '制造业', '4');
@@ -5529,6 +5529,7 @@ INSERT INTO `companybranch` VALUES ('2492', '2589', '9990', '9991', '总部', '�
 INSERT INTO `companybranch` VALUES ('2493', '2590', '9990', '9991', '总部', '未知', '未知', null, null);
 INSERT INTO `companybranch` VALUES ('2494', '2591', '9990', '9991', '总部', '未知', '未知', null, null);
 INSERT INTO `companybranch` VALUES ('2495', '2592', '9990', '9991', '总部', '未知', '未知', null, null);
+INSERT INTO `company` VALUES ('1', '平台管理公司', null, null, null, '0', '1', null, null, null);
 
 -- ----------------------------
 -- Table structure for `companyother`
