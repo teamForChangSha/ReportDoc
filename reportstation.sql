@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50130
 File Encoding         : 65001
 
-Date: 2016-03-16 16:02:29
+Date: 2016-03-18 12:10:03
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -9662,19 +9662,19 @@ CREATE TABLE `questioninfo` (
 -- ----------------------------
 -- Records of questioninfo
 -- ----------------------------
-INSERT INTO `questioninfo` VALUES ('1', 'quest_1', '您是 ${companyBranch.owner.companyName } 的员工吗？', '问题描述');
-INSERT INTO `questioninfo` VALUES ('2', 'quest_2', '请说明与此行为相关的人的身份', '例如：无名氏，内部审计主管，未知，晚间监督员');
-INSERT INTO `questioninfo` VALUES ('3', 'quest_3', '您是否怀疑或知道监督或管理人员与此有关？', '不知道 / 不愿意透露,如果选择是，请指出是谁？');
-INSERT INTO `questioninfo` VALUES ('4', 'quest_4', '管理人员注意到此问题了吗？', '是,否,不知道');
-INSERT INTO `questioninfo` VALUES ('5', 'quest_5', '此事件的总体特征是什么？', '这仅为一般说明，稍后我们将询问详细情况。');
-INSERT INTO `questioninfo` VALUES ('6', 'quest_6', '您估计这一行为的货币价值是多少？', null);
-INSERT INTO `questioninfo` VALUES ('7', 'quest_7', '该事件或违规行为在哪里发生的？', '我们了解到该事件可能没有确切的发生地点，但如果事件有某些文档或业务交易的记录，请相应指明。');
-INSERT INTO `questioninfo` VALUES ('8', 'quest_8', '请指出该事件发生的确切或大致时间：', '例如：2002 年 5 月 3 日，星期二；两周前；大约一个月以前');
-INSERT INTO `questioninfo` VALUES ('9', 'quest_9', '您认为此问题持续了多少时间？', null);
-INSERT INTO `questioninfo` VALUES ('10', 'quest_10', '您是如何发现此违规行为的？', null);
-INSERT INTO `questioninfo` VALUES ('11', 'quest_11', '您先前是否报告过这一问题？', '如果答案为“是”，您是何时以何种方式向谁报告的？');
-INSERT INTO `questioninfo` VALUES ('12', 'quest_12', '请指出试图隐藏此问题的人以及他们隐藏采取的步骤：', '请指出其姓名和职位。');
-INSERT INTO `questioninfo` VALUES ('13', 'quest_13', '请提供关于所谓违规行为的所有细节，包括目击者的位置以及任何对于此情形的评估和最终解决有价值的其它信息。', '请花一些时间尽可能提供细节，但请小心不要提供泄漏您身份的细节，除非您自己愿意。如果您是唯一的知情人，了解这一点非常重要。');
+INSERT INTO `questioninfo` VALUES ('1', 'quest_1', '您与 ${companyBranch.owner.companyName }的关系', '问题描述');
+INSERT INTO `questioninfo` VALUES ('2', 'quest_2', '请说明该事件或违规行为主要相关人的身份', '例如：无名氏，内部审计主管，未知，晚间监督员');
+INSERT INTO `questioninfo` VALUES ('3', 'quest_3', '您是否怀疑或知道有领导或管理人员与该事件或违规行为有关？ ', '是,否,不愿意透漏');
+INSERT INTO `questioninfo` VALUES ('4', 'quest_4', '是否有公司高级管理人员注意到该事件或违规行为了吗？', '是,否,不愿意透漏');
+INSERT INTO `questioninfo` VALUES ('5', 'quest_5', '请说明该事件或违规行为发生的时间？', '2013年6月25日；一周前；一个半月前');
+INSERT INTO `questioninfo` VALUES ('6', 'quest_6', '您认为该事件或违规行为已经持续了多少时间？', null);
+INSERT INTO `questioninfo` VALUES ('7', 'quest_7', '请说明该事件或违规行为在哪里发生的？', '我们了解到该事件可能没有确切的发生地点，但如果事件有某些文档或业务交易的记录，请相应指明。');
+INSERT INTO `questioninfo` VALUES ('8', 'quest_8', '您估计该事件或违规行为涉及金额是多少？', '人名币、美元、欧元、英镑');
+INSERT INTO `questioninfo` VALUES ('9', 'quest_9', '您是如何发现该事件或违规行为的？', '当事人、看到、听说等方式');
+INSERT INTO `questioninfo` VALUES ('10', 'quest_10', '您之前是否报告过该事件或违规行为？', '是、否');
+INSERT INTO `questioninfo` VALUES ('11', 'quest_11', '请说明试图隐瞒该事件或违规行为的人以及他们的隐瞒方式', '');
+INSERT INTO `questioninfo` VALUES ('12', 'quest_12', '请详细阐述该事件或违规行为的完整细节', '');
+INSERT INTO `questioninfo` VALUES ('13', 'quest_13', '如果您有支持该事件或违规行为的文档或文件，请上传图片或视频', '请花一些时间尽可能提供细节，但请小心不要提供泄漏您身份的细节，除非您自己愿意。如果您是唯一的知情人，了解这一点非常重要。');
 
 -- ----------------------------
 -- Table structure for `reportanswer`
