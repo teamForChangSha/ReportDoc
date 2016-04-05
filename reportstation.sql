@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50530
 File Encoding         : 65001
 
-Date: 2016-04-05 23:47:47
+Date: 2016-04-06 00:40:31
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -5542,30 +5542,18 @@ CREATE TABLE `companyother` (
   `logo_path` varchar(200) DEFAULT NULL COMMENT 'LOGO文件存放路径',
   `logo_height` int(11) DEFAULT NULL COMMENT 'LOGO高度',
   `logo_width` int(11) DEFAULT NULL COMMENT 'LOGO宽度',
+  `email` varchar(50) DEFAULT NULL COMMENT '公司收件箱地址',
+  `is_send` int(11) DEFAULT NULL COMMENT '是否接受举报邮件（0：不接收；1：接收）',
   PRIMARY KEY (`company_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of companyother
 -- ----------------------------
-INSERT INTO `companyother` VALUES ('1', '', '', null, null, '0', '0');
-INSERT INTO `companyother` VALUES ('100', '', '', '/reportStation/fileupload/logo/808/white.png', '/reportStation/fileupload/logo/808', '71', '180');
-INSERT INTO `companyother` VALUES ('2642', 'http', null, null, 'upload/testImg', '400', '300');
-INSERT INTO `companyother` VALUES ('2706', 'http', null, null, 'upload/testImg', '400', '300');
-
--- ----------------------------
--- Table structure for company_email
--- ----------------------------
-DROP TABLE IF EXISTS `company_email`;
-CREATE TABLE `company_email` (
-  `company_id` bigint(20) DEFAULT NULL,
-  `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- ----------------------------
--- Records of company_email
--- ----------------------------
+INSERT INTO `companyother` VALUES ('1', '', '', null, null, '0', '0', null, null);
+INSERT INTO `companyother` VALUES ('100', '', '', '/reportStation/fileupload/logo/808/white.png', '/reportStation/fileupload/logo/808', '71', '180', null, null);
+INSERT INTO `companyother` VALUES ('2642', 'http', null, null, 'upload/testImg', '400', '300', null, null);
+INSERT INTO `companyother` VALUES ('2706', 'http', null, null, 'upload/testImg', '400', '300', null, null);
 
 -- ----------------------------
 -- Table structure for company_question
