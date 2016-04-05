@@ -1,22 +1,22 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : mywork
-Source Server Version : 50130
+Source Server         : MyDB
+Source Server Version : 50530
 Source Host           : localhost:3306
 Source Database       : reportstation
 
 Target Server Type    : MYSQL
-Target Server Version : 50130
+Target Server Version : 50530
 File Encoding         : 65001
 
-Date: 2016-03-18 16:16:07
+Date: 2016-04-05 23:47:47
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for `areainfo`
+-- Table structure for areainfo
 -- ----------------------------
 DROP TABLE IF EXISTS `areainfo`;
 CREATE TABLE `areainfo` (
@@ -433,7 +433,7 @@ INSERT INTO `areainfo` VALUES ('9990', '未知（省）', '2', '1');
 INSERT INTO `areainfo` VALUES ('9991', '未知（市）', '3', '9990');
 
 -- ----------------------------
--- Table structure for `caseattach`
+-- Table structure for caseattach
 -- ----------------------------
 DROP TABLE IF EXISTS `caseattach`;
 CREATE TABLE `caseattach` (
@@ -458,7 +458,7 @@ INSERT INTO `caseattach` VALUES ('48', 'null2016031110', 'white', '/reportStatio
 INSERT INTO `caseattach` VALUES ('49', 'null2016031111', '图片1', '/reportStation/fileupload/file/null2016031111/图片1.png', '/reportStation/fileupload/file/null2016031111/', 'png', '图片1.png', null, '41158', '1', '');
 
 -- ----------------------------
--- Table structure for `casechangelog`
+-- Table structure for casechangelog
 -- ----------------------------
 DROP TABLE IF EXISTS `casechangelog`;
 CREATE TABLE `casechangelog` (
@@ -480,7 +480,7 @@ INSERT INTO `casechangelog` VALUES ('1', '1', '2016-03-16 15:00:13', '1', '1', '
 INSERT INTO `casechangelog` VALUES ('2', '1', '2016-03-16 15:01:07', '1', '3', '2', '1', '100');
 
 -- ----------------------------
--- Table structure for `casecomment`
+-- Table structure for casecomment
 -- ----------------------------
 DROP TABLE IF EXISTS `casecomment`;
 CREATE TABLE `casecomment` (
@@ -499,7 +499,7 @@ CREATE TABLE `casecomment` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `company`
+-- Table structure for company
 -- ----------------------------
 DROP TABLE IF EXISTS `company`;
 CREATE TABLE `company` (
@@ -3015,7 +3015,7 @@ INSERT INTO `company` VALUES ('2592', '上海凌云实业发展股份有限公�
 INSERT INTO `company` VALUES ('1', '平台管理公司', null, null, null, '0', '1', null, null, null);
 
 -- ----------------------------
--- Table structure for `companybranch`
+-- Table structure for companybranch
 -- ----------------------------
 DROP TABLE IF EXISTS `companybranch`;
 CREATE TABLE `companybranch` (
@@ -5531,7 +5531,7 @@ INSERT INTO `companybranch` VALUES ('2494', '2592', '9990', '9991', '总部', '�
 INSERT INTO `companybranch` VALUES ('2495', '1', '9990', '9991', '总部', '未知', '未知', null, null);
 
 -- ----------------------------
--- Table structure for `companyother`
+-- Table structure for companyother
 -- ----------------------------
 DROP TABLE IF EXISTS `companyother`;
 CREATE TABLE `companyother` (
@@ -5554,7 +5554,21 @@ INSERT INTO `companyother` VALUES ('2642', 'http', null, null, 'upload/testImg',
 INSERT INTO `companyother` VALUES ('2706', 'http', null, null, 'upload/testImg', '400', '300');
 
 -- ----------------------------
--- Table structure for `company_question`
+-- Table structure for company_email
+-- ----------------------------
+DROP TABLE IF EXISTS `company_email`;
+CREATE TABLE `company_email` (
+  `company_id` bigint(20) DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+-- Records of company_email
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for company_question
 -- ----------------------------
 DROP TABLE IF EXISTS `company_question`;
 CREATE TABLE `company_question` (
@@ -5598,7 +5612,7 @@ INSERT INTO `company_question` VALUES ('100', '12', '0');
 INSERT INTO `company_question` VALUES ('100', '13', '0');
 
 -- ----------------------------
--- Table structure for `dictionarybean`
+-- Table structure for dictionarybean
 -- ----------------------------
 DROP TABLE IF EXISTS `dictionarybean`;
 CREATE TABLE `dictionarybean` (
@@ -5632,7 +5646,7 @@ INSERT INTO `dictionarybean` VALUES ('case.state', '关闭案件', '5', '5', '�
 INSERT INTO `dictionarybean` VALUES ('company.type', '平台管理公司', '0', null, '平台管理公司，用于管理该平台功能');
 
 -- ----------------------------
--- Table structure for `generate_key`
+-- Table structure for generate_key
 -- ----------------------------
 DROP TABLE IF EXISTS `generate_key`;
 CREATE TABLE `generate_key` (
@@ -5646,7 +5660,7 @@ CREATE TABLE `generate_key` (
 INSERT INTO `generate_key` VALUES ('1117', '1118');
 
 -- ----------------------------
--- Table structure for `nation`
+-- Table structure for nation
 -- ----------------------------
 DROP TABLE IF EXISTS `nation`;
 CREATE TABLE `nation` (
@@ -9587,7 +9601,7 @@ INSERT INTO `nation` VALUES ('3922', '820300', '', '路环岛', '', '3913');
 INSERT INTO `nation` VALUES ('3923', '820301', '', '', '圣方济各堂区', '3922');
 
 -- ----------------------------
--- Table structure for `oprationlog`
+-- Table structure for oprationlog
 -- ----------------------------
 DROP TABLE IF EXISTS `oprationlog`;
 CREATE TABLE `oprationlog` (
@@ -9596,7 +9610,7 @@ CREATE TABLE `oprationlog` (
   `opration` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '操作内容',
   `oprator` bigint(20) DEFAULT NULL COMMENT '操作人ID（用户ID）',
   PRIMARY KEY (`log_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of oprationlog
@@ -9646,12 +9660,21 @@ INSERT INTO `oprationlog` VALUES ('42', '2016-03-16 14:58:40', '登录', '1');
 INSERT INTO `oprationlog` VALUES ('43', '2016-03-16 15:00:34', '注销', '1');
 INSERT INTO `oprationlog` VALUES ('44', '2016-03-16 15:00:46', '登录', '2');
 INSERT INTO `oprationlog` VALUES ('45', '2016-03-16 15:01:18', '注销', '2');
-INSERT INTO `oprationlog` VALUES ('46', '2016-03-18 15:24:59', '登录', '1');
-INSERT INTO `oprationlog` VALUES ('47', '2016-03-18 15:32:17', '登录', '1');
-INSERT INTO `oprationlog` VALUES ('48', '2016-03-18 15:32:56', '登录', '1');
+INSERT INTO `oprationlog` VALUES ('46', '2016-03-17 15:02:23', '登录', '7');
+INSERT INTO `oprationlog` VALUES ('47', '2016-03-17 15:02:39', '登录', '7');
+INSERT INTO `oprationlog` VALUES ('48', '2016-03-17 15:07:42', '登录', '7');
+INSERT INTO `oprationlog` VALUES ('49', '2016-03-17 15:10:40', '登录', '7');
+INSERT INTO `oprationlog` VALUES ('50', '2016-03-17 15:10:45', '登录', '2');
+INSERT INTO `oprationlog` VALUES ('51', '2016-03-17 15:10:47', '注销', '2');
+INSERT INTO `oprationlog` VALUES ('52', '2016-03-17 15:10:59', '登录', '6');
+INSERT INTO `oprationlog` VALUES ('53', '2016-03-17 15:11:09', '注销', '6');
+INSERT INTO `oprationlog` VALUES ('54', '2016-03-17 15:11:16', '登录', '6');
+INSERT INTO `oprationlog` VALUES ('55', '2016-03-17 15:11:21', '注销', '6');
+INSERT INTO `oprationlog` VALUES ('56', '2016-03-17 15:11:34', '注销', '7');
+INSERT INTO `oprationlog` VALUES ('57', '2016-03-17 15:11:37', '登录', '7');
 
 -- ----------------------------
--- Table structure for `questioninfo`
+-- Table structure for questioninfo
 -- ----------------------------
 DROP TABLE IF EXISTS `questioninfo`;
 CREATE TABLE `questioninfo` (
@@ -9665,22 +9688,22 @@ CREATE TABLE `questioninfo` (
 -- ----------------------------
 -- Records of questioninfo
 -- ----------------------------
-INSERT INTO `questioninfo` VALUES ('1', 'quest_1', '您与 ${companyBranch.owner.companyName }的关系', '问题描述');
-INSERT INTO `questioninfo` VALUES ('2', 'quest_2', '请说明该事件或违规行为主要相关人的身份', '例如：无名氏，内部审计主管，未知，晚间监督员');
-INSERT INTO `questioninfo` VALUES ('3', 'quest_3', '您是否怀疑或知道有领导或管理人员与该事件或违规行为有关？ ', '是,否,不愿意透漏');
-INSERT INTO `questioninfo` VALUES ('4', 'quest_4', '是否有公司高级管理人员注意到该事件或违规行为了吗？', '是,否,不愿意透漏');
-INSERT INTO `questioninfo` VALUES ('5', 'quest_5', '请说明该事件或违规行为发生的时间？', '2013年6月25日；一周前；一个半月前');
-INSERT INTO `questioninfo` VALUES ('6', 'quest_6', '您认为该事件或违规行为已经持续了多少时间？', null);
-INSERT INTO `questioninfo` VALUES ('7', 'quest_7', '请说明该事件或违规行为在哪里发生的？', '我们了解到该事件可能没有确切的发生地点，但如果事件有某些文档或业务交易的记录，请相应指明。');
-INSERT INTO `questioninfo` VALUES ('8', 'quest_8', '您估计该事件或违规行为涉及金额是多少？', '人名币、美元、欧元、英镑');
-INSERT INTO `questioninfo` VALUES ('9', 'quest_9', '您是如何发现该事件或违规行为的？', '当事人、看到、听说等方式');
-INSERT INTO `questioninfo` VALUES ('10', 'quest_10', '您之前是否报告过该事件或违规行为？', '是、否');
-INSERT INTO `questioninfo` VALUES ('11', 'quest_11', '请说明试图隐瞒该事件或违规行为的人以及他们的隐瞒方式', '');
-INSERT INTO `questioninfo` VALUES ('12', 'quest_12', '请详细阐述该事件或违规行为的完整细节', '');
-INSERT INTO `questioninfo` VALUES ('13', 'quest_13', '如果您有支持该事件或违规行为的文档或文件，请上传图片或视频', '请花一些时间尽可能提供细节，但请小心不要提供泄漏您身份的细节，除非您自己愿意。如果您是唯一的知情人，了解这一点非常重要。');
+INSERT INTO `questioninfo` VALUES ('1', 'quest_1', '您是 ${companyBranch.owner.companyName } 的员工吗？', '问题描述');
+INSERT INTO `questioninfo` VALUES ('2', 'quest_2', '请说明与此行为相关的人的身份', '例如：无名氏，内部审计主管，未知，晚间监督员');
+INSERT INTO `questioninfo` VALUES ('3', 'quest_3', '您是否怀疑或知道监督或管理人员与此有关？', '不知道 / 不愿意透露,如果选择是，请指出是谁？');
+INSERT INTO `questioninfo` VALUES ('4', 'quest_4', '管理人员注意到此问题了吗？', '是,否,不知道');
+INSERT INTO `questioninfo` VALUES ('5', 'quest_5', '此事件的总体特征是什么？', '这仅为一般说明，稍后我们将询问详细情况。');
+INSERT INTO `questioninfo` VALUES ('6', 'quest_6', '您估计这一行为的货币价值是多少？', null);
+INSERT INTO `questioninfo` VALUES ('7', 'quest_7', '该事件或违规行为在哪里发生的？', '我们了解到该事件可能没有确切的发生地点，但如果事件有某些文档或业务交易的记录，请相应指明。');
+INSERT INTO `questioninfo` VALUES ('8', 'quest_8', '请指出该事件发生的确切或大致时间：', '例如：2002 年 5 月 3 日，星期二；两周前；大约一个月以前');
+INSERT INTO `questioninfo` VALUES ('9', 'quest_9', '您认为此问题持续了多少时间？', null);
+INSERT INTO `questioninfo` VALUES ('10', 'quest_10', '您是如何发现此违规行为的？', null);
+INSERT INTO `questioninfo` VALUES ('11', 'quest_11', '您先前是否报告过这一问题？', '如果答案为“是”，您是何时以何种方式向谁报告的？');
+INSERT INTO `questioninfo` VALUES ('12', 'quest_12', '请指出试图隐藏此问题的人以及他们隐藏采取的步骤：', '请指出其姓名和职位。');
+INSERT INTO `questioninfo` VALUES ('13', 'quest_13', '请提供关于所谓违规行为的所有细节，包括目击者的位置以及任何对于此情形的评估和最终解决有价值的其它信息。', '请花一些时间尽可能提供细节，但请小心不要提供泄漏您身份的细节，除非您自己愿意。如果您是唯一的知情人，了解这一点非常重要。');
 
 -- ----------------------------
--- Table structure for `reportanswer`
+-- Table structure for reportanswer
 -- ----------------------------
 DROP TABLE IF EXISTS `reportanswer`;
 CREATE TABLE `reportanswer` (
@@ -9729,7 +9752,7 @@ INSERT INTO `reportanswer` VALUES ('64', '3', 'quest_11', '否');
 INSERT INTO `reportanswer` VALUES ('79', '28', 'NOXY', 'answer1');
 
 -- ----------------------------
--- Table structure for `reportcase`
+-- Table structure for reportcase
 -- ----------------------------
 DROP TABLE IF EXISTS `reportcase`;
 CREATE TABLE `reportcase` (
@@ -9755,7 +9778,7 @@ INSERT INTO `reportcase` VALUES ('2', '2016-03-16 14:56:58', '101', '2', '11', '
 INSERT INTO `reportcase` VALUES ('3', '2016-03-16 14:59:29', '100', '1', null, '100', '内幕交易/违法证券交易,偷窃', '1', null, '123456', 'null2016031112');
 
 -- ----------------------------
--- Table structure for `reporter`
+-- Table structure for reporter
 -- ----------------------------
 DROP TABLE IF EXISTS `reporter`;
 CREATE TABLE `reporter` (
@@ -9778,7 +9801,7 @@ INSERT INTO `reporter` VALUES ('10', '15364060309', '崔剑', '身份证', '4357
 INSERT INTO `reporter` VALUES ('11', '18613986899', '春', '身份证', '431022199508096574', '33@qq.com', '没有');
 
 -- ----------------------------
--- Table structure for `reporttype`
+-- Table structure for reporttype
 -- ----------------------------
 DROP TABLE IF EXISTS `reporttype`;
 CREATE TABLE `reporttype` (
@@ -9788,38 +9811,42 @@ CREATE TABLE `reporttype` (
   `rt_title` varchar(20) DEFAULT NULL COMMENT '举报企业编号',
   `rt_desc` varchar(500) DEFAULT NULL COMMENT '举报类型描述',
   PRIMARY KEY (`rt_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=58 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of reporttype
 -- ----------------------------
-INSERT INTO `reporttype` VALUES ('1', '0', null, '供应商或承包商问题', '为牟取私利，不公平的选择供应商或承包商；供应商或承包商违反公司政策或商业行为准则。例如：供应商提供回扣、组织围标。');
-INSERT INTO `reporttype` VALUES ('2', '0', null, '贿赂和腐败', '以公司员工的身份提供、索取或收受供应商、客户、政府官员或其他第三方的给予的财物、有价值的实物或不当利益。');
-INSERT INTO `reporttype` VALUES ('3', '0', null, '滥用公司财产或服务', '未经许可出于非业务原因使用公司资源或设备；利用公司信息、实物或知识产权获取个人利益；挪用或转移公司可能有利益存在的任何商业机会或创意；以任何形式与公司竞争');
-INSERT INTO `reporttype` VALUES ('4', '0', null, '挪用公款 ', '为牟取私利，非法占有挪用公司资金的行为。');
-INSERT INTO `reporttype` VALUES ('5', '0', null, '商业信息欺诈', '公司合同、报告、或财务文件中的伪造、篡改、作假、删除重要事实，或做出虚假声明；收入、支出和资产的谎报、GAAP原则的滥用、虚假的交易项目。');
-INSERT INTO `reporttype` VALUES ('6', '0', null, '泄露信息', '未经授权和非法披露公司所有的知识产权、专利信息或商业机密，以及员工、供应商、客户或其他第三方的非公开信息、营销计划、业务建议和策略。');
-INSERT INTO `reporttype` VALUES ('7', '0', null, '知识产权侵权 ', '对属于公司、客户、供应商或业务合作伙伴的知识产权、专利信息或机密信息的未授权不恰当使用、侵占或披露。');
-INSERT INTO `reporttype` VALUES ('8', '0', null, '内幕交易/违法证券交易', '违反证券法律法规的行为。员工受雇期间获得的非公开重要信息，购买或出售股票，或提供此类信息给他人，并导致其根据此类非公开信息购买或出售公司股票的行为。包括其他违反股票交易政策的行为。');
-INSERT INTO `reporttype` VALUES ('9', '1', null, '其它', '如果上述情况无法说明您要报告的事件、行为或情况，请使用此项。');
-INSERT INTO `reporttype` VALUES ('10', '1', null, '蓄意破坏公司财产', '员工因不满情绪而毁坏公司财产或阻碍生产的行为。');
-INSERT INTO `reporttype` VALUES ('11', '1', null, '暴力或恐吓', '对员工、客户或供应商的威胁、恐吓性语言或做出任何攻击或暴力行为。');
-INSERT INTO `reporttype` VALUES ('12', '1', null, '性骚扰 ', '冒犯性的色情言语或行为，特别是在管理岗位的人，利用职位之便对他人的冒犯性行为，当作加薪、升职，或绩效评估的交换条件。');
-INSERT INTO `reporttype` VALUES ('13', '1', null, '歧视或骚扰', '对年龄、性别、性取向、遗传特征、人种、信仰、种族、民族传统、公民身份、残疾、婚姻状况、家庭背景、怀孕或任何其他受法律、法规或条例保护的事项，在言论或行为上进行诽谤、侮辱、隔离、甚至伤害等不公正待遇。（例如： 雇用偏见、工作分配偏见、不当解雇、升职偏见，教育决策偏见，不公平的报酬，不恰当的语言或身体接触）');
-INSERT INTO `reporttype` VALUES ('14', '1', null, '报复', '对善意举报合规问题的个人进行口头、身体或书面歧视或骚扰的行为。');
-INSERT INTO `reporttype` VALUES ('15', '1', null, '工作时间作弊', '公司员工或经理在工作时间上作弊。');
-INSERT INTO `reporttype` VALUES ('16', '1', null, '员工不公平竞争', '不公平的工作绩效评估或奖励分配，不公平的员工招聘、任用或发展。');
-INSERT INTO `reporttype` VALUES ('17', '1', null, '福利欺诈', '为得到公司的福利，伪造记录，例如假病假、虚假的工作时间等。');
-INSERT INTO `reporttype` VALUES ('18', '1', null, '不安全的工作条件', '未能满足在安全环境中执行所有任务所要求的各种条件。未能提供安全的工作环境或公司政策所要求的培训；未能报告事故等，隐瞒事实上或潜在的环境危害；机动车辆安全；未能遵守当地环境法规');
-INSERT INTO `reporttype` VALUES ('19', '1', null, '反垄断行为', '为了确定价格而与其它商业团体达成的口头或书面协议或约定；抵制特定的供货商或客户；分配产品、区域或市场；或交换竞争性的敏感信息；以及关于价格、贸易优惠或折扣、成本、竞争、营销计划或研究、生产计划和能力或任何其它机密信息的讨论。');
-INSERT INTO `reporttype` VALUES ('20', '1', null, '劳工问题', '包括违反童工保护法、集体谈判或工会问题、强迫劳动、工资和工时法律、不当工作条件或其他与劳动者权利有关的问题。');
-INSERT INTO `reporttype` VALUES ('21', '1', null, '滥用药物和酒精', '滥用包括酒精在内的合法和非法药物。 （例如： 可卡因、麻醉药、大麻、兴奋剂）包括在工作场所喝醉或使用非法药物。');
-INSERT INTO `reporttype` VALUES ('22', '1', null, '环境保护、健康或安全法律', '操作和处理危险材料或涉及他人健康和安全时，违反任何环境法律、法规、企业政策或程序。');
-INSERT INTO `reporttype` VALUES ('23', '1', null, '出口控制和进口义务', '未能遵守出口控制和进口法规和政策。');
-INSERT INTO `reporttype` VALUES ('24', '1', null, '偷窃', '盗窃行为；未经同意的拿走或偷走公司或其他个人的钱财、货物或财产的行为。');
+INSERT INTO `reporttype` VALUES ('1', '0', null, '蓄意破坏公司财产', '员工因不满情绪而毁坏公司财产或阻碍生产的行为。');
+INSERT INTO `reporttype` VALUES ('2', '0', null, '供应商或承包商问题', '为牟取私利，不公平的选择供应商或承包商;供应商或承包商违反公司政策和商业行为准则。');
+INSERT INTO `reporttype` VALUES ('3', '0', null, '暴力或恐吓', '对员工、客户或供应商的威胁、恐吓性语言或做出任何攻击或暴力行为。');
+INSERT INTO `reporttype` VALUES ('4', '0', null, '性骚扰 ', '冒犯性的色情言语或行为，特别是在管理岗位的人，利用职位之便对他人的冒犯性行为，当作加薪、升职，或绩效评估的交换条件。');
+INSERT INTO `reporttype` VALUES ('5', '0', null, '歧视或骚扰', '对年龄、性别、性取向、遗传特征、人种、信仰、种族、民族传统、公民身份、残疾、婚姻状况、家庭背景、怀孕或任何其他受法律、法规或条例保护的事项，在言论或行为上进行诽谤、侮辱、隔离、甚至伤害等不公正待遇。（例如： 雇用偏见、工作分配偏见、不当解雇、升职偏见，教育决策偏见，不公平的报酬，不恰当的语言或身体接触）');
+INSERT INTO `reporttype` VALUES ('6', '0', null, '报复', '对善意举报合规问题的个人进行口头、身体或书面歧视或骚扰的行为。');
+INSERT INTO `reporttype` VALUES ('7', '0', null, '工作时间作弊', '公司员工或经理在工作时间上作弊。');
+INSERT INTO `reporttype` VALUES ('8', '0', null, '员工不公平竞争', '不公平的工作绩效评估或奖励分配，不公平的员工招聘、任用或发展。');
+INSERT INTO `reporttype` VALUES ('9', '0', null, '滥用公司财产或服务', '未经许可出于非业务原因使用公司资源或设备;利用公司信息、实物或知识产权获取个人利益;挪用或转移公司可能有利益存在的任何商业机会或创意;以任何形式与公司竞争');
+INSERT INTO `reporttype` VALUES ('10', '0', null, '福利欺诈', '为得到公司的福利，伪造记录，例如假病假、虚假的工作时间等。');
+INSERT INTO `reporttype` VALUES ('11', '0', null, '泄露信息', '未经授权和非法披露公司所有的知识产权、专利信息或商业机密，以及员工、供应商、客户或其他第三方的非公开信息、营销计划、业务建议和策略。');
+INSERT INTO `reporttype` VALUES ('12', '0', null, '知识产权侵权 ', '对属于公司、客户、供应商或业务合作伙伴的知识产权、专利信息或机密信息的未授权不恰当使用、侵占或披露。');
+INSERT INTO `reporttype` VALUES ('13', '0', null, '不安全的工作条件', '未能满足在安全环境中执行所有任务所要求的各种条件。未能提供安全的工作环境或公司政策所要求的培训；未能报告事故等，隐瞒事实上或潜在的环境危害；机动车辆安全；未能遵守当地环境法规');
+INSERT INTO `reporttype` VALUES ('14', '0', null, '反垄断行为', '为了确定价格而与其它商业团体达成的口头或书面协议或约定；抵制特定的供货商或客户；分配产品、区域或市场；或交换竞争性的敏感信息；以及关于价格、贸易优惠或折扣、成本、竞争、营销计划或研究、生产计划和能力或任何其它机密信息的讨论。');
+INSERT INTO `reporttype` VALUES ('15', '0', null, '劳工问题', '包括违反童工保护法、集体谈判或工会问题、强迫劳动、工资和工时法律、不当工作条件或其他与劳动者权利有关的问题。');
+INSERT INTO `reporttype` VALUES ('16', '0', null, '滥用药物和酒精', '滥用包括酒精在内的合法和非法药物。 （例如： 可卡因、麻醉药、大麻、兴奋剂）包括在工作场所喝醉或使用非法药物。');
+INSERT INTO `reporttype` VALUES ('17', '0', null, '环境保护、健康或安全法律', '操作和处理危险材料或涉及他人健康和安全时，违反任何环境法律、法规、企业政策或程序。');
+INSERT INTO `reporttype` VALUES ('18', '0', '0', '出口控制和进口义务', '未能遵守出口控制和进口法规和政策。');
+INSERT INTO `reporttype` VALUES ('19', '0', null, '其它', '如果上述情况无法说明您要报告的事件、行为或情况，请使用此项。');
+INSERT INTO `reporttype` VALUES ('20', '0', null, '数据信息欺诈', '公司合同、报告、或财务文件中的伪造、篡改、作假、删除重要事实，或做出虚假声明；收入、支出和资产的谎报、GAAP原则的滥用、虚假的交易项目。');
+INSERT INTO `reporttype` VALUES ('21', '0', null, '内幕交易/违法证券交易', '违反证券法律法规的行为。员工受雇期间获得的非公开重要信息，购买或出售股票，或提供此类信息给他人，并导致其根据此类非公开信息购买或出售公司股票的行为。包括其他违反股票交易政策的行为。');
+INSERT INTO `reporttype` VALUES ('22', '0', null, '偷窃', '盗窃行为；未经同意的拿走或偷走公司或其他个人的钱财、货物或财产的行为。');
+INSERT INTO `reporttype` VALUES ('23', '0', null, '挪用公款 ', '为牟取私利，非法占有挪用公司资金的行为。');
+INSERT INTO `reporttype` VALUES ('24', '0', null, '贿赂和腐败', '以公司员工的身份提供、索取或收受供应商、客户、政府官员或其他第三方的给予的财物、有价值的实物或不当利益。');
+INSERT INTO `reporttype` VALUES ('32', '1', '100', '贿赂和腐败', '以公司员工的身份提供、索取或收受供应商、客户、政府官员或其他第三方的给予的财物、有价值的实物或不当利益。');
+INSERT INTO `reporttype` VALUES ('33', '1', '100', '数据信息欺诈', '公司合同、报告、或财务文件中的伪造、篡改、作假、删除重要事实，或做出虚假声明；收入、支出和资产的谎报、GAAP原则的滥用、虚假的交易项目。');
+INSERT INTO `reporttype` VALUES ('34', '1', '100', '内幕交易/违法证券交易', '违反证券法律法规的行为。员工受雇期间获得的非公开重要信息，购买或出售股票，或提供此类信息给他人，并导致其根据此类非公开信息购买或出售公司股票的行为。包括其他违反股票交易政策的行为。');
+INSERT INTO `reporttype` VALUES ('35', '1', '100', '偷窃', '盗窃行为；未经同意的拿走或偷走公司或其他个人的钱财、货物或财产的行为。');
 
 -- ----------------------------
--- Table structure for `userinfo`
+-- Table structure for userinfo
 -- ----------------------------
 DROP TABLE IF EXISTS `userinfo`;
 CREATE TABLE `userinfo` (
