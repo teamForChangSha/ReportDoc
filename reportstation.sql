@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50530
 File Encoding         : 65001
 
-Date: 2016-04-06 00:40:31
+Date: 2016-04-06 09:59:55
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -5542,18 +5542,23 @@ CREATE TABLE `companyother` (
   `logo_path` varchar(200) DEFAULT NULL COMMENT 'LOGO文件存放路径',
   `logo_height` int(11) DEFAULT NULL COMMENT 'LOGO高度',
   `logo_width` int(11) DEFAULT NULL COMMENT 'LOGO宽度',
-  `email` varchar(50) DEFAULT NULL COMMENT '公司收件箱地址',
   `is_send` int(11) DEFAULT NULL COMMENT '是否接受举报邮件（0：不接收；1：接收）',
+  `contacts_1` varchar(20) DEFAULT NULL COMMENT '公司联系人_1',
+  `email_1` varchar(30) DEFAULT NULL COMMENT '公司收件箱地址_1',
+  `contacts_2` varchar(20) DEFAULT NULL COMMENT '公司联系人_1',
+  `email_2` varchar(30) DEFAULT NULL COMMENT '公司收件箱地址_1',
+  `contacts_3` varchar(20) DEFAULT NULL COMMENT '公司联系人_1',
+  `email_3` varchar(30) DEFAULT NULL COMMENT '公司收件箱地址_1',
   PRIMARY KEY (`company_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of companyother
 -- ----------------------------
-INSERT INTO `companyother` VALUES ('1', '', '', null, null, '0', '0', null, null);
-INSERT INTO `companyother` VALUES ('100', '', '', '/reportStation/fileupload/logo/808/white.png', '/reportStation/fileupload/logo/808', '71', '180', null, null);
-INSERT INTO `companyother` VALUES ('2642', 'http', null, null, 'upload/testImg', '400', '300', null, null);
-INSERT INTO `companyother` VALUES ('2706', 'http', null, null, 'upload/testImg', '400', '300', null, null);
+INSERT INTO `companyother` VALUES ('1', '', '', null, null, '0', '0', null, null, null, null, null, null, null);
+INSERT INTO `companyother` VALUES ('100', '', '', '/reportStation/fileupload/logo/808/white.png', '/reportStation/fileupload/logo/808', '71', '180', null, null, null, null, null, null, null);
+INSERT INTO `companyother` VALUES ('2642', 'http', null, null, 'upload/testImg', '400', '300', null, null, null, null, null, null, null);
+INSERT INTO `companyother` VALUES ('2706', 'http', null, null, 'upload/testImg', '400', '300', null, null, null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for company_question
