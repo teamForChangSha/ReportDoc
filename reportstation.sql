@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50530
 File Encoding         : 65001
 
-Date: 2016-04-06 09:59:55
+Date: 2016-04-07 15:11:55
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -5543,6 +5543,7 @@ CREATE TABLE `companyother` (
   `logo_height` int(11) DEFAULT NULL COMMENT 'LOGO高度',
   `logo_width` int(11) DEFAULT NULL COMMENT 'LOGO宽度',
   `is_send` int(11) DEFAULT NULL COMMENT '是否接受举报邮件（0：不接收；1：接收）',
+  `send_type` int(11) DEFAULT NULL COMMENT '发送方式，1.收到举报发送；2.每周发送',
   `contacts_1` varchar(20) DEFAULT NULL COMMENT '公司联系人_1',
   `email_1` varchar(30) DEFAULT NULL COMMENT '公司收件箱地址_1',
   `contacts_2` varchar(20) DEFAULT NULL COMMENT '公司联系人_1',
@@ -5555,10 +5556,10 @@ CREATE TABLE `companyother` (
 -- ----------------------------
 -- Records of companyother
 -- ----------------------------
-INSERT INTO `companyother` VALUES ('1', '', '', null, null, '0', '0', null, null, null, null, null, null, null);
-INSERT INTO `companyother` VALUES ('100', '', '', '/reportStation/fileupload/logo/808/white.png', '/reportStation/fileupload/logo/808', '71', '180', null, null, null, null, null, null, null);
-INSERT INTO `companyother` VALUES ('2642', 'http', null, null, 'upload/testImg', '400', '300', null, null, null, null, null, null, null);
-INSERT INTO `companyother` VALUES ('2706', 'http', null, null, 'upload/testImg', '400', '300', null, null, null, null, null, null, null);
+INSERT INTO `companyother` VALUES ('1', '', '', null, null, '0', '0', null, null, null, null, null, null, null, null);
+INSERT INTO `companyother` VALUES ('100', '', '', '/reportStation/fileupload/logo/808/white.png', '/reportStation/fileupload/logo/808', '71', '180', null, null, null, null, null, null, null, null);
+INSERT INTO `companyother` VALUES ('2642', 'http', null, null, 'upload/testImg', '400', '300', null, null, null, null, null, null, null, null);
+INSERT INTO `companyother` VALUES ('2706', 'http', null, null, 'upload/testImg', '400', '300', null, null, null, null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for company_question
@@ -5609,7 +5610,7 @@ INSERT INTO `company_question` VALUES ('100', '13', '0');
 -- ----------------------------
 DROP TABLE IF EXISTS `dictionarybean`;
 CREATE TABLE `dictionarybean` (
-  `dict_type` varchar(20) DEFAULT NULL COMMENT '字典值类型',
+  `dict_type` varchar(30) DEFAULT NULL COMMENT '字典值类型',
   `dict_name` varchar(50) DEFAULT NULL COMMENT '字典值名称',
   `dict_value` varchar(50) DEFAULT NULL COMMENT '字典值',
   `display_order` int(11) DEFAULT NULL COMMENT '字典值显示顺序',
@@ -5637,6 +5638,8 @@ INSERT INTO `dictionarybean` VALUES ('case.state', '处理完毕', '4', '4', '�
 INSERT INTO `dictionarybean` VALUES ('user.state', '停用', '4', null, '停用');
 INSERT INTO `dictionarybean` VALUES ('case.state', '关闭案件', '5', '5', '关闭案件');
 INSERT INTO `dictionarybean` VALUES ('company.type', '平台管理公司', '0', null, '平台管理公司，用于管理该平台功能');
+INSERT INTO `dictionarybean` VALUES ('companyOther.sendType', '收到发送', '1', null, '每收到举报就发邮件');
+INSERT INTO `dictionarybean` VALUES ('companyOther.sendType', '每周发送', '2', null, '每周发送一次举报邮件');
 
 -- ----------------------------
 -- Table structure for generate_key
@@ -9603,7 +9606,7 @@ CREATE TABLE `oprationlog` (
   `opration` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '操作内容',
   `oprator` bigint(20) DEFAULT NULL COMMENT '操作人ID（用户ID）',
   PRIMARY KEY (`log_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of oprationlog
@@ -9665,6 +9668,10 @@ INSERT INTO `oprationlog` VALUES ('54', '2016-03-17 15:11:16', '登录', '6');
 INSERT INTO `oprationlog` VALUES ('55', '2016-03-17 15:11:21', '注销', '6');
 INSERT INTO `oprationlog` VALUES ('56', '2016-03-17 15:11:34', '注销', '7');
 INSERT INTO `oprationlog` VALUES ('57', '2016-03-17 15:11:37', '登录', '7');
+INSERT INTO `oprationlog` VALUES ('58', '2016-04-07 15:05:56', '登录', '2');
+INSERT INTO `oprationlog` VALUES ('59', '2016-04-07 15:06:00', '注销', '2');
+INSERT INTO `oprationlog` VALUES ('60', '2016-04-07 15:06:39', '登录', '2');
+INSERT INTO `oprationlog` VALUES ('61', '2016-04-07 15:06:41', '注销', '2');
 
 -- ----------------------------
 -- Table structure for questioninfo
