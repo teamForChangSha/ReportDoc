@@ -1,22 +1,22 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : MySQL
-Source Server Version : 50710
+Source Server         : MyDB
+Source Server Version : 50530
 Source Host           : localhost:3306
 Source Database       : reportstation
 
 Target Server Type    : MYSQL
-Target Server Version : 50710
+Target Server Version : 50530
 File Encoding         : 65001
 
-Date: 2016-04-08 13:59:04
+Date: 2016-04-06 09:59:55
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for `areainfo`
+-- Table structure for areainfo
 -- ----------------------------
 DROP TABLE IF EXISTS `areainfo`;
 CREATE TABLE `areainfo` (
@@ -433,7 +433,7 @@ INSERT INTO `areainfo` VALUES ('9990', '未知（省）', '2', '1');
 INSERT INTO `areainfo` VALUES ('9991', '未知（市）', '3', '9990');
 
 -- ----------------------------
--- Table structure for `caseattach`
+-- Table structure for caseattach
 -- ----------------------------
 DROP TABLE IF EXISTS `caseattach`;
 CREATE TABLE `caseattach` (
@@ -458,7 +458,7 @@ INSERT INTO `caseattach` VALUES ('48', 'null2016031110', 'white', '/reportStatio
 INSERT INTO `caseattach` VALUES ('49', 'null2016031111', '图片1', '/reportStation/fileupload/file/null2016031111/图片1.png', '/reportStation/fileupload/file/null2016031111/', 'png', '图片1.png', null, '41158', '1', '');
 
 -- ----------------------------
--- Table structure for `casechangelog`
+-- Table structure for casechangelog
 -- ----------------------------
 DROP TABLE IF EXISTS `casechangelog`;
 CREATE TABLE `casechangelog` (
@@ -471,19 +471,16 @@ CREATE TABLE `casechangelog` (
   `handler_before` int(11) DEFAULT NULL COMMENT '变更前处理公司',
   `handler_after` int(11) DEFAULT NULL COMMENT '变更后处理公司',
   PRIMARY KEY (`cc_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of casechangelog
 -- ----------------------------
 INSERT INTO `casechangelog` VALUES ('1', '1', '2016-03-16 15:00:13', '1', '1', '1', '100', '1');
 INSERT INTO `casechangelog` VALUES ('2', '1', '2016-03-16 15:01:07', '1', '3', '2', '1', '100');
-INSERT INTO `casechangelog` VALUES ('3', '3', '2016-04-07 14:07:47', '1', '1', '1', '100', '100');
-INSERT INTO `casechangelog` VALUES ('4', '3', '2016-04-07 14:07:54', '1', '2', '1', '100', '100');
-INSERT INTO `casechangelog` VALUES ('5', '3', '2016-04-07 14:08:01', '2', '2', '1', '100', '1');
 
 -- ----------------------------
--- Table structure for `casecomment`
+-- Table structure for casecomment
 -- ----------------------------
 DROP TABLE IF EXISTS `casecomment`;
 CREATE TABLE `casecomment` (
@@ -502,7 +499,7 @@ CREATE TABLE `casecomment` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `company`
+-- Table structure for company
 -- ----------------------------
 DROP TABLE IF EXISTS `company`;
 CREATE TABLE `company` (
@@ -3015,10 +3012,10 @@ INSERT INTO `company` VALUES ('2589', '大化集团大连化工股份有限公�
 INSERT INTO `company` VALUES ('2590', '恒天凯马股份有限公司', null, null, null, null, null, null, '制造业', '900953');
 INSERT INTO `company` VALUES ('2591', '黄石东贝电器股份有限公司', null, null, null, null, null, null, '制造业', '900956');
 INSERT INTO `company` VALUES ('2592', '上海凌云实业发展股份有限公司', null, null, null, null, null, null, '房地产业', '900957');
-INSERT INTO `company` VALUES ('1', '平台管理公司', null, null, null, '1', '1', null, null, null);
+INSERT INTO `company` VALUES ('1', '平台管理公司', null, null, null, '0', '1', null, null, null);
 
 -- ----------------------------
--- Table structure for `companybranch`
+-- Table structure for companybranch
 -- ----------------------------
 DROP TABLE IF EXISTS `companybranch`;
 CREATE TABLE `companybranch` (
@@ -5534,7 +5531,7 @@ INSERT INTO `companybranch` VALUES ('2494', '2592', '9990', '9991', '总部', '�
 INSERT INTO `companybranch` VALUES ('2495', '1', '9990', '9991', '总部', '未知', '未知', null, null);
 
 -- ----------------------------
--- Table structure for `companyother`
+-- Table structure for companyother
 -- ----------------------------
 DROP TABLE IF EXISTS `companyother`;
 CREATE TABLE `companyother` (
@@ -5558,13 +5555,13 @@ CREATE TABLE `companyother` (
 -- ----------------------------
 -- Records of companyother
 -- ----------------------------
-INSERT INTO `companyother` VALUES ('1', '', '', '/fileupload/logo/1/headImg.jpg', '/fileupload/logo/1', '220', '220', null, '', '', '', '', '', '');
+INSERT INTO `companyother` VALUES ('1', '', '', null, null, '0', '0', null, null, null, null, null, null, null);
 INSERT INTO `companyother` VALUES ('100', '', '', '/reportStation/fileupload/logo/808/white.png', '/reportStation/fileupload/logo/808', '71', '180', null, null, null, null, null, null, null);
 INSERT INTO `companyother` VALUES ('2642', 'http', null, null, 'upload/testImg', '400', '300', null, null, null, null, null, null, null);
 INSERT INTO `companyother` VALUES ('2706', 'http', null, null, 'upload/testImg', '400', '300', null, null, null, null, null, null, null);
 
 -- ----------------------------
--- Table structure for `company_question`
+-- Table structure for company_question
 -- ----------------------------
 DROP TABLE IF EXISTS `company_question`;
 CREATE TABLE `company_question` (
@@ -5608,7 +5605,7 @@ INSERT INTO `company_question` VALUES ('100', '12', '0');
 INSERT INTO `company_question` VALUES ('100', '13', '0');
 
 -- ----------------------------
--- Table structure for `dictionarybean`
+-- Table structure for dictionarybean
 -- ----------------------------
 DROP TABLE IF EXISTS `dictionarybean`;
 CREATE TABLE `dictionarybean` (
@@ -5624,9 +5621,9 @@ CREATE TABLE `dictionarybean` (
 -- ----------------------------
 INSERT INTO `dictionarybean` VALUES ('company.state', '正常', '1', '1', '正常');
 INSERT INTO `dictionarybean` VALUES ('company.state', '待审核', '2', '2', '待审核');
-INSERT INTO `dictionarybean` VALUES ('user.state', '新增', '1', null, '新增');
-INSERT INTO `dictionarybean` VALUES ('user.state', '有效', '2', null, '有效');
-INSERT INTO `dictionarybean` VALUES ('user.state', '停用', '3', null, '停用');
+INSERT INTO `dictionarybean` VALUES ('user.state', '正常', '1', null, '正常');
+INSERT INTO `dictionarybean` VALUES ('user.state', '注销', '2', null, '注销');
+INSERT INTO `dictionarybean` VALUES ('user.state', '待审核', '3', null, '待审核');
 INSERT INTO `dictionarybean` VALUES ('company.type', '国有', '1', null, '国有');
 INSERT INTO `dictionarybean` VALUES ('company.type', '民营', '2', null, '民营');
 INSERT INTO `dictionarybean` VALUES ('company.type', '股份', '3', null, '股份');
@@ -5637,12 +5634,12 @@ INSERT INTO `dictionarybean` VALUES ('user.type', '平台管理员', '2', null, 
 INSERT INTO `dictionarybean` VALUES ('user.type', '超级管理员', '3', null, '超级管理员，能使用所有功能');
 INSERT INTO `dictionarybean` VALUES ('case.state', '处理中', '3', '3', '处理该案件');
 INSERT INTO `dictionarybean` VALUES ('case.state', '处理完毕', '4', '4', '处理完毕该案件');
-INSERT INTO `dictionarybean` VALUES ('user.state', '注销', '4', null, '注销');
+INSERT INTO `dictionarybean` VALUES ('user.state', '停用', '4', null, '停用');
 INSERT INTO `dictionarybean` VALUES ('case.state', '关闭案件', '5', '5', '关闭案件');
 INSERT INTO `dictionarybean` VALUES ('company.type', '平台管理公司', '0', null, '平台管理公司，用于管理该平台功能');
 
 -- ----------------------------
--- Table structure for `generate_key`
+-- Table structure for generate_key
 -- ----------------------------
 DROP TABLE IF EXISTS `generate_key`;
 CREATE TABLE `generate_key` (
@@ -5656,7 +5653,7 @@ CREATE TABLE `generate_key` (
 INSERT INTO `generate_key` VALUES ('1117', '1118');
 
 -- ----------------------------
--- Table structure for `nation`
+-- Table structure for nation
 -- ----------------------------
 DROP TABLE IF EXISTS `nation`;
 CREATE TABLE `nation` (
@@ -9597,7 +9594,7 @@ INSERT INTO `nation` VALUES ('3922', '820300', '', '路环岛', '', '3913');
 INSERT INTO `nation` VALUES ('3923', '820301', '', '', '圣方济各堂区', '3922');
 
 -- ----------------------------
--- Table structure for `oprationlog`
+-- Table structure for oprationlog
 -- ----------------------------
 DROP TABLE IF EXISTS `oprationlog`;
 CREATE TABLE `oprationlog` (
@@ -9606,7 +9603,7 @@ CREATE TABLE `oprationlog` (
   `opration` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '操作内容',
   `oprator` bigint(20) DEFAULT NULL COMMENT '操作人ID（用户ID）',
   PRIMARY KEY (`log_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of oprationlog
@@ -9668,36 +9665,9 @@ INSERT INTO `oprationlog` VALUES ('54', '2016-03-17 15:11:16', '登录', '6');
 INSERT INTO `oprationlog` VALUES ('55', '2016-03-17 15:11:21', '注销', '6');
 INSERT INTO `oprationlog` VALUES ('56', '2016-03-17 15:11:34', '注销', '7');
 INSERT INTO `oprationlog` VALUES ('57', '2016-03-17 15:11:37', '登录', '7');
-INSERT INTO `oprationlog` VALUES ('58', '2016-04-07 14:07:37', '登录', '1');
-INSERT INTO `oprationlog` VALUES ('59', '2016-04-07 14:08:17', '注销', '1');
-INSERT INTO `oprationlog` VALUES ('60', '2016-04-07 14:08:23', '登录', '4');
-INSERT INTO `oprationlog` VALUES ('61', '2016-04-07 14:54:25', '登录', '4');
-INSERT INTO `oprationlog` VALUES ('62', '2016-04-07 15:04:30', '登录', '4');
-INSERT INTO `oprationlog` VALUES ('63', '2016-04-07 15:59:36', '登录', '4');
-INSERT INTO `oprationlog` VALUES ('64', '2016-04-07 15:59:49', '注销', '4');
-INSERT INTO `oprationlog` VALUES ('65', '2016-04-07 15:59:57', '登录', '1');
-INSERT INTO `oprationlog` VALUES ('66', '2016-04-07 17:22:55', '登录', '4');
-INSERT INTO `oprationlog` VALUES ('67', '2016-04-07 17:32:40', '登录', '4');
-INSERT INTO `oprationlog` VALUES ('68', '2016-04-07 17:36:42', '登录', '4');
-INSERT INTO `oprationlog` VALUES ('69', '2016-04-07 18:02:59', '登录', '4');
-INSERT INTO `oprationlog` VALUES ('70', '2016-04-07 18:05:42', '登录', '1');
-INSERT INTO `oprationlog` VALUES ('71', '2016-04-08 10:06:42', '登录', '4');
-INSERT INTO `oprationlog` VALUES ('72', '2016-04-08 10:06:42', '登录', '4');
-INSERT INTO `oprationlog` VALUES ('73', '2016-04-08 10:12:28', '登录', '4');
-INSERT INTO `oprationlog` VALUES ('74', '2016-04-08 10:24:49', '登录', '4');
-INSERT INTO `oprationlog` VALUES ('75', '2016-04-08 10:28:52', '登录', '4');
-INSERT INTO `oprationlog` VALUES ('76', '2016-04-08 11:23:24', '登录', '4');
-INSERT INTO `oprationlog` VALUES ('77', '2016-04-08 11:50:15', '登录', '4');
-INSERT INTO `oprationlog` VALUES ('78', '2016-04-08 11:55:07', '登录', '4');
-INSERT INTO `oprationlog` VALUES ('79', '2016-04-08 11:56:36', '登录', '4');
-INSERT INTO `oprationlog` VALUES ('80', '2016-04-08 13:46:55', '登录', '4');
-INSERT INTO `oprationlog` VALUES ('81', '2016-04-08 13:51:30', '重置了登录名为gcx的用户密码', '4');
-INSERT INTO `oprationlog` VALUES ('82', '2016-04-08 13:51:49', '变更了gcx的状态', '4');
-INSERT INTO `oprationlog` VALUES ('83', '2016-04-08 13:58:18', '变更了cuijian的状态', '4');
-INSERT INTO `oprationlog` VALUES ('84', '2016-04-08 13:58:24', '变更了cuijian的状态', '4');
 
 -- ----------------------------
--- Table structure for `questioninfo`
+-- Table structure for questioninfo
 -- ----------------------------
 DROP TABLE IF EXISTS `questioninfo`;
 CREATE TABLE `questioninfo` (
@@ -9726,7 +9696,7 @@ INSERT INTO `questioninfo` VALUES ('12', 'quest_12', '请指出试图隐藏此�
 INSERT INTO `questioninfo` VALUES ('13', 'quest_13', '请提供关于所谓违规行为的所有细节，包括目击者的位置以及任何对于此情形的评估和最终解决有价值的其它信息。', '请花一些时间尽可能提供细节，但请小心不要提供泄漏您身份的细节，除非您自己愿意。如果您是唯一的知情人，了解这一点非常重要。');
 
 -- ----------------------------
--- Table structure for `reportanswer`
+-- Table structure for reportanswer
 -- ----------------------------
 DROP TABLE IF EXISTS `reportanswer`;
 CREATE TABLE `reportanswer` (
@@ -9775,7 +9745,7 @@ INSERT INTO `reportanswer` VALUES ('64', '3', 'quest_11', '否');
 INSERT INTO `reportanswer` VALUES ('79', '28', 'NOXY', 'answer1');
 
 -- ----------------------------
--- Table structure for `reportcase`
+-- Table structure for reportcase
 -- ----------------------------
 DROP TABLE IF EXISTS `reportcase`;
 CREATE TABLE `reportcase` (
@@ -9798,10 +9768,10 @@ CREATE TABLE `reportcase` (
 -- ----------------------------
 INSERT INTO `reportcase` VALUES ('1', '2016-03-16 14:44:54', '100', '1', null, '100', '偷窃', '3', null, '123456', 'null2016031110');
 INSERT INTO `reportcase` VALUES ('2', '2016-03-16 14:56:58', '101', '2', '11', '101', '内幕交易/违法证券交易', '1', null, '123456', 'null2016031111');
-INSERT INTO `reportcase` VALUES ('3', '2016-03-16 14:59:29', '100', '1', null, '1', '内幕交易/违法证券交易,偷窃', '2', null, '123456', 'null2016031112');
+INSERT INTO `reportcase` VALUES ('3', '2016-03-16 14:59:29', '100', '1', null, '100', '内幕交易/违法证券交易,偷窃', '1', null, '123456', 'null2016031112');
 
 -- ----------------------------
--- Table structure for `reporter`
+-- Table structure for reporter
 -- ----------------------------
 DROP TABLE IF EXISTS `reporter`;
 CREATE TABLE `reporter` (
@@ -9824,7 +9794,7 @@ INSERT INTO `reporter` VALUES ('10', '15364060309', '崔剑', '身份证', '4357
 INSERT INTO `reporter` VALUES ('11', '18613986899', '春', '身份证', '431022199508096574', '33@qq.com', '没有');
 
 -- ----------------------------
--- Table structure for `reporttype`
+-- Table structure for reporttype
 -- ----------------------------
 DROP TABLE IF EXISTS `reporttype`;
 CREATE TABLE `reporttype` (
@@ -9869,7 +9839,7 @@ INSERT INTO `reporttype` VALUES ('34', '1', '100', '内幕交易/违法证券交
 INSERT INTO `reporttype` VALUES ('35', '1', '100', '偷窃', '盗窃行为；未经同意的拿走或偷走公司或其他个人的钱财、货物或财产的行为。');
 
 -- ----------------------------
--- Table structure for `userinfo`
+-- Table structure for userinfo
 -- ----------------------------
 DROP TABLE IF EXISTS `userinfo`;
 CREATE TABLE `userinfo` (
@@ -9890,8 +9860,8 @@ CREATE TABLE `userinfo` (
 -- ----------------------------
 -- Records of userinfo
 -- ----------------------------
-INSERT INTO `userinfo` VALUES ('1', '1', 'gcx', 'e10adc3949ba59abbe56e057f20f883e', '春春', '100', '13142056476', 'NO123', null, null, '4');
-INSERT INTO `userinfo` VALUES ('2', '2', 'cuijian', 'e10adc3949ba59abbe56e057f20f883e', '剑哥', '1', '15364060309', '00001', null, null, '2');
+INSERT INTO `userinfo` VALUES ('1', '1', 'gcx', 'e10adc3949ba59abbe56e057f20f883e', '春春', '100', '13142056476', 'NO123', null, null, '1');
+INSERT INTO `userinfo` VALUES ('2', '2', 'cuijian', 'e10adc3949ba59abbe56e057f20f883e', '剑哥', '1', '15364060309', '00001', null, null, '1');
 INSERT INTO `userinfo` VALUES ('3', '1', 'xiaoqiu', 'e10adc3949ba59abbe56e057f20f883e', '秋秋', '101', '53432432', '00002', null, null, '1');
 INSERT INTO `userinfo` VALUES ('4', '3', 'pan', 'e10adc3949ba59abbe56e057f20f883e', '潘老大', '1', '3413213213', '00003', 'BOSS', null, '1');
 INSERT INTO `userinfo` VALUES ('5', '2', 'zhang', 'e10adc3949ba59abbe56e057f20f883e', '张三', '100', '432432', '00004', null, null, '1');
