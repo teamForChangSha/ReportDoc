@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50130
 File Encoding         : 65001
 
-Date: 2016-04-13 09:53:31
+Date: 2016-04-13 09:57:24
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -9627,7 +9627,7 @@ CREATE TABLE `oprationlog` (
   `opration` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '操作内容',
   `oprator` bigint(20) DEFAULT NULL COMMENT '操作人ID（用户ID）',
   PRIMARY KEY (`log_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=84 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of oprationlog
@@ -9715,6 +9715,9 @@ INSERT INTO `oprationlog` VALUES ('80', '2016-04-13 09:51:09', '注销', '3');
 INSERT INTO `oprationlog` VALUES ('81', '2016-04-13 09:51:13', '登录', '1');
 INSERT INTO `oprationlog` VALUES ('82', '2016-04-13 09:51:44', '注销', '1');
 INSERT INTO `oprationlog` VALUES ('83', '2016-04-13 09:52:06', '登录', '4');
+INSERT INTO `oprationlog` VALUES ('84', '2016-04-13 09:56:04', '注销', '4');
+INSERT INTO `oprationlog` VALUES ('85', '2016-04-13 09:56:08', '登录', '1');
+INSERT INTO `oprationlog` VALUES ('86', '2016-04-13 09:56:52', '注销', '1');
 
 -- ----------------------------
 -- Table structure for `questioninfo`
@@ -9849,12 +9852,12 @@ INSERT INTO `reporter` VALUES ('11', '18613986899', '春', '身份证', '4310221
 DROP TABLE IF EXISTS `reporttype`;
 CREATE TABLE `reporttype` (
   `rt_id` bigint(10) NOT NULL AUTO_INCREMENT COMMENT '编号',
-  `is_standard` int(10) DEFAULT NULL COMMENT '是否为标准类型：0标准，1非标准',
+  `is_standard` int(10) DEFAULT NULL COMMENT '是否为标准类型：0主要，1次要',
   `company_id` bigint(10) DEFAULT NULL COMMENT '举报类型标题',
   `rt_title` varchar(20) DEFAULT NULL COMMENT '举报企业编号',
   `rt_desc` varchar(500) DEFAULT NULL COMMENT '举报类型描述',
   PRIMARY KEY (`rt_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of reporttype
@@ -9883,6 +9886,16 @@ INSERT INTO `reporttype` VALUES ('21', '1', null, '滥用药物和酒精', '滥�
 INSERT INTO `reporttype` VALUES ('22', '1', null, '环境保护、健康或安全法律', '操作和处理危险材料或涉及他人健康和安全时，违反任何环境法律、法规、企业政策或程序。');
 INSERT INTO `reporttype` VALUES ('23', '1', null, '出口控制和进口义务', '未能遵守出口控制和进口法规和政策。');
 INSERT INTO `reporttype` VALUES ('24', '1', null, '偷窃', '盗窃行为；未经同意的拿走或偷走公司或其他个人的钱财、货物或财产的行为。');
+INSERT INTO `reporttype` VALUES ('25', '1', '100', '歧视或骚扰', '对年龄、性别、性取向、遗传特征、人种、信仰、种族、民族传统、公民身份、残疾、婚姻状况、家庭背景、怀孕或任何其他受法律、法规或条例保护的事项，在言论或行为上进行诽谤、侮辱、隔离、甚至伤害等不公正待遇。（例如： 雇用偏见、工作分配偏见、不当解雇、升职偏见，教育决策偏见，不公平的报酬，不恰当的语言或身体接触）');
+INSERT INTO `reporttype` VALUES ('26', '1', '100', '性骚扰 ', '冒犯性的色情言语或行为，特别是在管理岗位的人，利用职位之便对他人的冒犯性行为，当作加薪、升职，或绩效评估的交换条件。');
+INSERT INTO `reporttype` VALUES ('27', '1', '100', '内幕交易/违法证券交易', '违反证券法律法规的行为。员工受雇期间获得的非公开重要信息，购买或出售股票，或提供此类信息给他人，并导致其根据此类非公开信息购买或出售公司股票的行为。包括其他违反股票交易政策的行为。');
+INSERT INTO `reporttype` VALUES ('28', '1', '100', '知识产权侵权 ', '对属于公司、客户、供应商或业务合作伙伴的知识产权、专利信息或机密信息的未授权不恰当使用、侵占或披露。');
+INSERT INTO `reporttype` VALUES ('29', '1', '100', '泄露信息', '未经授权和非法披露公司所有的知识产权、专利信息或商业机密，以及员工、供应商、客户或其他第三方的非公开信息、营销计划、业务建议和策略。');
+INSERT INTO `reporttype` VALUES ('30', '1', '100', '商业信息欺诈', '公司合同、报告、或财务文件中的伪造、篡改、作假、删除重要事实，或做出虚假声明；收入、支出和资产的谎报、GAAP原则的滥用、虚假的交易项目。');
+INSERT INTO `reporttype` VALUES ('31', '1', '100', '挪用公款 ', '为牟取私利，非法占有挪用公司资金的行为。');
+INSERT INTO `reporttype` VALUES ('32', '1', '100', '滥用公司财产或服务', '未经许可出于非业务原因使用公司资源或设备；利用公司信息、实物或知识产权获取个人利益；挪用或转移公司可能有利益存在的任何商业机会或创意；以任何形式与公司竞争');
+INSERT INTO `reporttype` VALUES ('33', '1', '100', '贿赂和腐败', '以公司员工的身份提供、索取或收受供应商、客户、政府官员或其他第三方的给予的财物、有价值的实物或不当利益。');
+INSERT INTO `reporttype` VALUES ('34', '1', '100', '供应商或承包商问题', '为牟取私利，不公平的选择供应商或承包商；供应商或承包商违反公司政策或商业行为准则。例如：供应商提供回扣、组织围标。');
 
 -- ----------------------------
 -- Table structure for `userinfo`
