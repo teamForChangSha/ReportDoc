@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50130
 File Encoding         : 65001
 
-Date: 2016-04-13 10:57:10
+Date: 2016-04-13 11:06:58
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -9836,7 +9836,7 @@ CREATE TABLE `reporter` (
   `name` varchar(20) DEFAULT NULL COMMENT '姓名',
   `id_name` varchar(30) DEFAULT NULL COMMENT '证件名称',
   `id_no` varchar(20) DEFAULT NULL COMMENT '证件号',
-  `email` varchar(20) DEFAULT NULL COMMENT '邮箱',
+  `email` varchar(50) DEFAULT NULL COMMENT '邮箱',
   `best_contact` varchar(50) DEFAULT NULL COMMENT '最佳联系方式以及时间',
   PRIMARY KEY (`reporter_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=54 DEFAULT CHARSET=utf8;
