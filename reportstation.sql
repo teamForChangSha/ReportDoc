@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50130
 File Encoding         : 65001
 
-Date: 2016-04-13 10:00:07
+Date: 2016-04-13 10:57:10
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -439,7 +439,7 @@ DROP TABLE IF EXISTS `caseattach`;
 CREATE TABLE `caseattach` (
   `ca_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '编号',
   `tracking_no` varchar(20) DEFAULT NULL COMMENT '案件追踪号',
-  `attach_name` varchar(20) DEFAULT NULL COMMENT '附件名',
+  `attach_name` varchar(50) DEFAULT NULL COMMENT '附件名',
   `attach_url` varchar(300) DEFAULT NULL COMMENT '访问路径',
   `attach_path` varchar(300) DEFAULT NULL COMMENT '保存路径',
   `attach_ext` varchar(20) DEFAULT NULL COMMENT 'attach_ext',
@@ -9813,15 +9813,18 @@ CREATE TABLE `reportcase` (
   `state_changed` datetime DEFAULT NULL COMMENT '最后修改时间',
   `access_code` varchar(50) DEFAULT NULL COMMENT '访问密码',
   `tracking_no` varchar(20) NOT NULL DEFAULT '' COMMENT '追踪号',
+  `contact_way` varchar(20) DEFAULT NULL COMMENT '联系方式',
+  `province` varchar(30) DEFAULT NULL COMMENT '省',
+  `city` varchar(30) DEFAULT NULL COMMENT '市',
   PRIMARY KEY (`rc_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=66 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of reportcase
 -- ----------------------------
-INSERT INTO `reportcase` VALUES ('1', '2016-03-16 14:44:54', '100', '1', null, '100', '偷窃', '3', null, '123456', 'null2016031110');
-INSERT INTO `reportcase` VALUES ('2', '2016-03-16 14:56:58', '101', '2', '11', '101', '内幕交易/违法证券交易', '1', null, '123456', 'null2016031111');
-INSERT INTO `reportcase` VALUES ('3', '2016-03-16 14:59:29', '100', '1', null, '100', '内幕交易/违法证券交易,偷窃', '1', null, '123456', 'null2016031112');
+INSERT INTO `reportcase` VALUES ('1', '2016-03-16 14:44:54', '100', '1', null, '100', '偷窃', '3', null, '123456', 'null2016031110', null, null, null);
+INSERT INTO `reportcase` VALUES ('2', '2016-03-16 14:56:58', '101', '2', '11', '101', '内幕交易/违法证券交易', '1', null, '123456', 'null2016031111', null, null, null);
+INSERT INTO `reportcase` VALUES ('3', '2016-03-16 14:59:29', '100', '1', null, '100', '内幕交易/违法证券交易,偷窃', '1', null, '123456', 'null2016031112', null, null, null);
 
 -- ----------------------------
 -- Table structure for `reporter`
