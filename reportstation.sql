@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50130
 File Encoding         : 65001
 
-Date: 2016-04-13 11:06:58
+Date: 2016-04-18 22:34:40
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -9919,10 +9919,10 @@ CREATE TABLE `userinfo` (
 -- ----------------------------
 -- Records of userinfo
 -- ----------------------------
-INSERT INTO `userinfo` VALUES ('1', '1', 'gcx', 'e10adc3949ba59abbe56e057f20f883e', '春春', '100', '13142056476', 'NO123', null, null, '2', null, null, null, null, null, null, null);
-INSERT INTO `userinfo` VALUES ('2', '2', 'cuijian', 'e10adc3949ba59abbe56e057f20f883e', '剑哥', '1', '15364060309', '00001', null, null, '2', null, null, null, null, null, null, null);
+INSERT INTO `userinfo` VALUES ('1', '2', 'gcx', 'e10adc3949ba59abbe56e057f20f883e', '春春', '100', '13142056476', 'NO123', null, null, '2', null, null, null, null, null, null, null);
+INSERT INTO `userinfo` VALUES ('2', '3', 'cuijian', 'e10adc3949ba59abbe56e057f20f883e', '剑哥', '1', '15364060309', '00001', null, null, '2', null, null, null, null, null, null, null);
 INSERT INTO `userinfo` VALUES ('3', '1', 'xiaoqiu', 'e10adc3949ba59abbe56e057f20f883e', '秋秋', '101', '53432432', '00002', null, null, '2', null, null, null, null, null, null, null);
 INSERT INTO `userinfo` VALUES ('4', '4', 'pan', 'e10adc3949ba59abbe56e057f20f883e', '潘老大', '1', '3413213213', '00003', 'BOSS', null, '2', null, null, null, null, null, null, null);
 INSERT INTO `userinfo` VALUES ('5', '2', 'zhang', 'e10adc3949ba59abbe56e057f20f883e', '张三', '100', '432432', '00004', null, null, '2', null, null, null, null, null, null, null);
 INSERT INTO `userinfo` VALUES ('6', '1', 'test', 'e10adc3949ba59abbe56e057f20f883e', '测试公司管理员', '808', '543543543', '00005', 'test', null, '2', null, null, null, null, null, null, null);
-INSERT INTO `userinfo` VALUES ('7', '2', 'admin', 'e10adc3949ba59abbe56e057f20f883e', '测试平台管理员', '1', '55555555', '0000', 'test', null, '2', null, null, null, null, null, null, null);
+INSERT INTO `userinfo` VALUES ('7', '3', 'admin', 'e10adc3949ba59abbe56e057f20f883e', '测试平台管理员', '1', '55555555', '0000', 'test', null, '2', null, null, null, null, null, null, null);
