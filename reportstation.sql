@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50530
 File Encoding         : 65001
 
-Date: 2016-05-03 16:30:46
+Date: 2016-05-04 22:50:25
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -473,13 +473,14 @@ CREATE TABLE `casechangelog` (
   `handler_before` int(11) DEFAULT NULL COMMENT '变更前处理公司',
   `handler_after` int(11) DEFAULT NULL COMMENT '变更后处理公司',
   PRIMARY KEY (`cc_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of casechangelog
 -- ----------------------------
 INSERT INTO `casechangelog` VALUES ('7', '75', '2016-05-02 23:16:51', '1', '2', '5', '100', '100');
 INSERT INTO `casechangelog` VALUES ('8', '75', '2016-05-02 23:17:22', '2', '2', '5', '100', '100');
+INSERT INTO `casechangelog` VALUES ('9', '76', '2016-05-04 21:48:40', '1', '2', '6', '808', '808');
 
 -- ----------------------------
 -- Table structure for casecomment
@@ -5684,7 +5685,7 @@ CREATE TABLE `generate_key` (
 -- ----------------------------
 -- Records of generate_key
 -- ----------------------------
-INSERT INTO `generate_key` VALUES ('1144', '1145');
+INSERT INTO `generate_key` VALUES ('1145', '1146');
 
 -- ----------------------------
 -- Table structure for nation
@@ -9637,7 +9638,7 @@ CREATE TABLE `oprationlog` (
   `opration` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '操作内容',
   `oprator` bigint(20) DEFAULT NULL COMMENT '操作人ID（用户ID）',
   PRIMARY KEY (`log_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of oprationlog
@@ -9670,6 +9671,29 @@ INSERT INTO `oprationlog` VALUES ('25', '2016-05-02 23:36:01', '注销', '7');
 INSERT INTO `oprationlog` VALUES ('26', '2016-05-02 23:36:08', '登录', '68');
 INSERT INTO `oprationlog` VALUES ('27', '2016-05-02 23:37:31', '登录', '68');
 INSERT INTO `oprationlog` VALUES ('28', '2016-05-03 09:25:26', '登录', '2');
+INSERT INTO `oprationlog` VALUES ('29', '2016-05-03 16:38:12', '登录', '2');
+INSERT INTO `oprationlog` VALUES ('30', '2016-05-03 16:39:22', '注销', '2');
+INSERT INTO `oprationlog` VALUES ('31', '2016-05-03 16:39:28', '登录', '68');
+INSERT INTO `oprationlog` VALUES ('32', '2016-05-03 23:01:24', '登录', '2');
+INSERT INTO `oprationlog` VALUES ('33', '2016-05-03 23:02:06', '注销', '2');
+INSERT INTO `oprationlog` VALUES ('34', '2016-05-03 23:02:11', '登录', '68');
+INSERT INTO `oprationlog` VALUES ('35', '2016-05-03 23:35:10', '登录', '68');
+INSERT INTO `oprationlog` VALUES ('36', '2016-05-04 00:25:24', '登录', '68');
+INSERT INTO `oprationlog` VALUES ('37', '2016-05-04 15:03:25', '登录', '68');
+INSERT INTO `oprationlog` VALUES ('38', '2016-05-04 15:40:13', '登录', '68');
+INSERT INTO `oprationlog` VALUES ('39', '2016-05-04 15:40:46', '登录', '68');
+INSERT INTO `oprationlog` VALUES ('40', '2016-05-04 16:20:06', '登录', '68');
+INSERT INTO `oprationlog` VALUES ('41', '2016-05-04 16:59:16', '登录', '7');
+INSERT INTO `oprationlog` VALUES ('42', '2016-05-04 17:00:57', '注销', '7');
+INSERT INTO `oprationlog` VALUES ('43', '2016-05-04 17:01:02', '登录', '6');
+INSERT INTO `oprationlog` VALUES ('44', '2016-05-04 18:35:31', '登录', '7');
+INSERT INTO `oprationlog` VALUES ('45', '2016-05-04 18:36:23', '登录', '6');
+INSERT INTO `oprationlog` VALUES ('46', '2016-05-04 21:44:17', '登录', '6');
+INSERT INTO `oprationlog` VALUES ('47', '2016-05-04 21:45:01', '注销', '6');
+INSERT INTO `oprationlog` VALUES ('48', '2016-05-04 21:48:37', '登录', '6');
+INSERT INTO `oprationlog` VALUES ('49', '2016-05-04 22:05:19', '登录', '7');
+INSERT INTO `oprationlog` VALUES ('50', '2016-05-04 22:35:14', '登录', '7');
+INSERT INTO `oprationlog` VALUES ('51', '2016-05-04 22:46:35', '登录', '5');
 
 -- ----------------------------
 -- Table structure for questioninfo
@@ -9710,7 +9734,7 @@ CREATE TABLE `reportanswer` (
   `quest_key` varchar(50) DEFAULT NULL COMMENT '问题索引',
   `quest_value` varchar(50) DEFAULT NULL COMMENT '问题答复',
   PRIMARY KEY (`rd_Id`)
-) ENGINE=MyISAM AUTO_INCREMENT=137 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=149 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of reportanswer
@@ -9719,6 +9743,18 @@ INSERT INTO `reportanswer` VALUES ('133', '73', 'quest_11', '试图隐瞒该事�
 INSERT INTO `reportanswer` VALUES ('134', '74', 'quest_12', '阐述该事件或违规行为的完整细节');
 INSERT INTO `reportanswer` VALUES ('135', '74', 'quest_11', '试图隐瞒该事件或违规行为的人以及他们的隐瞒方式');
 INSERT INTO `reportanswer` VALUES ('136', '75', 'quest_11', '试图隐瞒该事件或违规行为的人以及他们的隐瞒方式');
+INSERT INTO `reportanswer` VALUES ('137', '76', 'quest_1', '前员工');
+INSERT INTO `reportanswer` VALUES ('138', '76', 'quest_2', '姓名：张三,职位：经理,部门：财务');
+INSERT INTO `reportanswer` VALUES ('139', '76', 'quest_3', '否');
+INSERT INTO `reportanswer` VALUES ('140', '76', 'quest_4', '否');
+INSERT INTO `reportanswer` VALUES ('141', '76', 'quest_5', '2013年6月25日');
+INSERT INTO `reportanswer` VALUES ('142', '76', 'quest_6', '一次');
+INSERT INTO `reportanswer` VALUES ('143', '76', 'quest_7', '地点');
+INSERT INTO `reportanswer` VALUES ('144', '76', 'quest_8', '人民币（RMB）:5000-10000');
+INSERT INTO `reportanswer` VALUES ('145', '76', 'quest_9', '我看到的');
+INSERT INTO `reportanswer` VALUES ('146', '76', 'quest_12', '违规行为的完整细节');
+INSERT INTO `reportanswer` VALUES ('147', '76', 'quest_11', '请说明试图隐瞒该事件或违规行为的人');
+INSERT INTO `reportanswer` VALUES ('148', '76', 'quest_10', '否');
 
 -- ----------------------------
 -- Table structure for reportcase
@@ -9740,7 +9776,7 @@ CREATE TABLE `reportcase` (
   `province` varchar(30) DEFAULT NULL COMMENT '省',
   `city` varchar(30) DEFAULT NULL COMMENT '市',
   PRIMARY KEY (`rc_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=76 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=77 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of reportcase
@@ -9748,6 +9784,7 @@ CREATE TABLE `reportcase` (
 INSERT INTO `reportcase` VALUES ('73', '2016-05-02 21:04:43', '100', null, null, '100', '供应商或承包商问题', '1', null, '123456', '051138', '联系方式', '北京', '东城区');
 INSERT INTO `reportcase` VALUES ('74', '2016-05-02 21:30:47', '100', null, '54', '100', '供应商或承包商问题', '1', null, '111111', '051139', '', '北京', '东城区');
 INSERT INTO `reportcase` VALUES ('75', '2016-05-02 21:36:01', '100', null, null, '100', '供应商或承包商问题', '2', null, '111111', '051140', '方式', '北京', '东城区');
+INSERT INTO `reportcase` VALUES ('76', '2016-05-04 21:46:37', '808', null, null, '808', '供应商或承包商问题', '2', null, '111111', '051144', '联系方式', '北京', '东城区');
 
 -- ----------------------------
 -- Table structure for reporter
