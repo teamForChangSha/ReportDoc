@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50530
 File Encoding         : 65001
 
-Date: 2016-05-04 22:50:25
+Date: 2016-05-09 10:47:08
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -449,15 +449,11 @@ CREATE TABLE `caseattach` (
   `state` int(11) DEFAULT NULL COMMENT '附件状态，0：临时，1：正常',
   `description` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`ca_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=71 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=74 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of caseattach
 -- ----------------------------
-INSERT INTO `caseattach` VALUES ('67', '051138', 'Chrysanthemum', '/reportStation/fileupload/temp/051138/Chrysanthemum.jpg', '/reportStation/fileupload/temp/051138/', 'jpg', 'Chrysanthemum.jpg', null, '879394', '0', '');
-INSERT INTO `caseattach` VALUES ('68', '051138', 'Hydrangeas', '/reportStation/fileupload/temp/051138/Hydrangeas.jpg', '/reportStation/fileupload/temp/051138/', 'jpg', 'Hydrangeas.jpg', null, '595284', '0', '');
-INSERT INTO `caseattach` VALUES ('69', '051139', 'Hydrangeas', '/reportStation/fileupload/file/051139/Hydrangeas.jpg', '/reportStation/fileupload/file/051139/', 'jpg', 'Hydrangeas.jpg', null, '595284', '1', '');
-INSERT INTO `caseattach` VALUES ('70', '051140', 'Hydrangeas', '/reportStation/fileupload/file/051140/Hydrangeas.jpg', '/reportStation/fileupload/file/051140/', 'jpg', 'Hydrangeas.jpg', null, '595284', '1', '');
 
 -- ----------------------------
 -- Table structure for casechangelog
@@ -473,14 +469,11 @@ CREATE TABLE `casechangelog` (
   `handler_before` int(11) DEFAULT NULL COMMENT '变更前处理公司',
   `handler_after` int(11) DEFAULT NULL COMMENT '变更后处理公司',
   PRIMARY KEY (`cc_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of casechangelog
 -- ----------------------------
-INSERT INTO `casechangelog` VALUES ('7', '75', '2016-05-02 23:16:51', '1', '2', '5', '100', '100');
-INSERT INTO `casechangelog` VALUES ('8', '75', '2016-05-02 23:17:22', '2', '2', '5', '100', '100');
-INSERT INTO `casechangelog` VALUES ('9', '76', '2016-05-04 21:48:40', '1', '2', '6', '808', '808');
 
 -- ----------------------------
 -- Table structure for casecomment
@@ -495,13 +488,11 @@ CREATE TABLE `casecomment` (
   `company_id` bigint(20) DEFAULT NULL COMMENT '进行追加的公司',
   `content` varchar(255) DEFAULT NULL COMMENT '追加内容',
   PRIMARY KEY (`cc_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of casecomment
 -- ----------------------------
-INSERT INTO `casecomment` VALUES ('8', '74', '1', null, '2016-05-02 23:07:13', null, '请速处理');
-INSERT INTO `casecomment` VALUES ('9', '75', '0', '5', '2016-05-02 23:17:22', '100', '测试');
 
 -- ----------------------------
 -- Table structure for client_company
@@ -516,16 +507,6 @@ CREATE TABLE `client_company` (
 -- ----------------------------
 -- Records of client_company
 -- ----------------------------
-INSERT INTO `client_company` VALUES ('100', null, null);
-INSERT INTO `client_company` VALUES ('103', null, null);
-INSERT INTO `client_company` VALUES ('102', null, null);
-INSERT INTO `client_company` VALUES ('104', null, null);
-INSERT INTO `client_company` VALUES ('105', null, null);
-INSERT INTO `client_company` VALUES ('106', null, null);
-INSERT INTO `client_company` VALUES ('107', null, null);
-INSERT INTO `client_company` VALUES ('108', null, null);
-INSERT INTO `client_company` VALUES ('109', null, null);
-INSERT INTO `client_company` VALUES ('110', null, null);
 
 -- ----------------------------
 -- Table structure for company
@@ -544,12 +525,12 @@ CREATE TABLE `company` (
   `stock_code` varchar(30) DEFAULT NULL COMMENT '股票代码',
   `create_time` datetime DEFAULT NULL,
   PRIMARY KEY (`company_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2727 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2728 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of company
 -- ----------------------------
-INSERT INTO `company` VALUES ('100', '平安银行股份有限公司', null, null, null, '2', '0', null, '金融业', '1', null);
+INSERT INTO `company` VALUES ('100', '平安银行股份有限公司', null, 'PAYH', '010-88888888', '2', '0', null, '金融业', '1', null);
 INSERT INTO `company` VALUES ('101', '万科企业股份有限公司', null, null, null, null, null, null, '房地产业', '2', null);
 INSERT INTO `company` VALUES ('102', '深圳中国农大科技股份有限公司', null, null, null, null, null, null, '制造业', '4', null);
 INSERT INTO `company` VALUES ('103', '深圳世纪星源股份有限公司', null, null, null, null, null, null, '房地产业', '5', null);
@@ -1257,7 +1238,7 @@ INSERT INTO `company` VALUES ('804', '山东恒邦冶炼股份有限公司', nul
 INSERT INTO `company` VALUES ('805', '深圳市天威视讯股份有限公司', null, null, null, null, null, null, '信息传输、软件和信息技术服务业', '2238', null);
 INSERT INTO `company` VALUES ('806', '江苏金飞达服装股份有限公司', null, null, null, null, null, null, '制造业', '2239', null);
 INSERT INTO `company` VALUES ('807', '广东威华股份有限公司', null, null, null, null, null, null, '制造业', '2240', null);
-INSERT INTO `company` VALUES ('808', '歌尔声学股份有限公司', null, null, null, null, null, null, '制造业', '2241', null);
+INSERT INTO `company` VALUES ('808', '歌尔声学股份有限公司', '歌尔声学', 'GESX', '0731-88888888', '3', '0', null, '影视/媒体/艺术/文化传播', '2241', null);
 INSERT INTO `company` VALUES ('809', '九阳股份有限公司', null, null, null, null, null, null, '制造业', '2242', null);
 INSERT INTO `company` VALUES ('810', '深圳市通产丽星股份有限公司', null, null, null, null, null, null, '制造业', '2243', null);
 INSERT INTO `company` VALUES ('811', '杭州滨江房产集团股份有限公司', null, null, null, null, null, null, '房地产业', '2244', null);
@@ -3045,7 +3026,7 @@ INSERT INTO `company` VALUES ('2592', '上海凌云实业发展股份有限公�
 INSERT INTO `company` VALUES ('1', '平台管理公司', null, null, null, '0', '1', null, null, null, null);
 INSERT INTO `company` VALUES ('2724', '中兴软创', null, 'ZTE', null, '3', '1', null, '计算机硬件', '324243', null);
 INSERT INTO `company` VALUES ('2725', '国泰君安', null, null, null, '0', '0', null, null, null, null);
-INSERT INTO `company` VALUES ('2726', '平安', null, null, null, '0', '0', null, null, null, null);
+INSERT INTO `company` VALUES ('2727', '测试科技', null, null, null, '0', '0', null, null, null, null);
 
 -- ----------------------------
 -- Table structure for companybranch
@@ -5589,10 +5570,6 @@ CREATE TABLE `companyother` (
 -- ----------------------------
 -- Records of companyother
 -- ----------------------------
-INSERT INTO `companyother` VALUES ('1', '', '', null, null, '0', '0', null, null, null, null, null, null, null, null);
-INSERT INTO `companyother` VALUES ('100', '', '', '/reportStation/fileupload/logo/808/white.png', '/reportStation/fileupload/logo/808', '0', '0', '1', '', '', '', '', '', '', '1');
-INSERT INTO `companyother` VALUES ('2642', 'http', null, null, 'upload/testImg', '400', '300', null, null, null, null, null, null, null, null);
-INSERT INTO `companyother` VALUES ('2706', 'http', null, null, 'upload/testImg', '400', '300', null, null, null, null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for company_question
@@ -5637,6 +5614,9 @@ INSERT INTO `company_question` VALUES ('5', '13', null);
 INSERT INTO `company_question` VALUES ('100', '11', '1');
 INSERT INTO `company_question` VALUES ('100', '12', '0');
 INSERT INTO `company_question` VALUES ('100', '13', '0');
+INSERT INTO `company_question` VALUES ('808', '1', '1');
+INSERT INTO `company_question` VALUES ('808', '5', '0');
+INSERT INTO `company_question` VALUES ('808', '8', '0');
 
 -- ----------------------------
 -- Table structure for dictionarybean
@@ -5685,7 +5665,7 @@ CREATE TABLE `generate_key` (
 -- ----------------------------
 -- Records of generate_key
 -- ----------------------------
-INSERT INTO `generate_key` VALUES ('1145', '1146');
+INSERT INTO `generate_key` VALUES ('1150', '1151');
 
 -- ----------------------------
 -- Table structure for nation
@@ -9638,62 +9618,11 @@ CREATE TABLE `oprationlog` (
   `opration` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '操作内容',
   `oprator` bigint(20) DEFAULT NULL COMMENT '操作人ID（用户ID）',
   PRIMARY KEY (`log_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of oprationlog
 -- ----------------------------
-INSERT INTO `oprationlog` VALUES ('1', '2016-05-02 23:15:32', '登录', '5');
-INSERT INTO `oprationlog` VALUES ('2', '2016-05-02 23:16:36', '注销', '5');
-INSERT INTO `oprationlog` VALUES ('3', '2016-05-02 23:16:39', '登录', '5');
-INSERT INTO `oprationlog` VALUES ('4', '2016-05-02 23:17:38', '注销', '5');
-INSERT INTO `oprationlog` VALUES ('5', '2016-05-02 23:17:50', '登录', '6');
-INSERT INTO `oprationlog` VALUES ('6', '2016-05-02 23:18:04', '注销', '6');
-INSERT INTO `oprationlog` VALUES ('7', '2016-05-02 23:18:13', '登录', '68');
-INSERT INTO `oprationlog` VALUES ('8', '2016-05-02 23:19:40', '登录', '68');
-INSERT INTO `oprationlog` VALUES ('9', '2016-05-02 23:20:52', '注销', '68');
-INSERT INTO `oprationlog` VALUES ('10', '2016-05-02 23:20:58', '登录', '5');
-INSERT INTO `oprationlog` VALUES ('11', '2016-05-02 23:21:03', '注销', '5');
-INSERT INTO `oprationlog` VALUES ('12', '2016-05-02 23:21:17', '登录', '6');
-INSERT INTO `oprationlog` VALUES ('13', '2016-05-02 23:21:36', '注销', '6');
-INSERT INTO `oprationlog` VALUES ('14', '2016-05-02 23:21:47', '登录', '7');
-INSERT INTO `oprationlog` VALUES ('15', '2016-05-02 23:26:01', '注销', '7');
-INSERT INTO `oprationlog` VALUES ('16', '2016-05-02 23:26:04', '登录', '68');
-INSERT INTO `oprationlog` VALUES ('17', '2016-05-02 23:29:10', '注销', '68');
-INSERT INTO `oprationlog` VALUES ('18', '2016-05-02 23:29:16', '登录', '5');
-INSERT INTO `oprationlog` VALUES ('19', '2016-05-02 23:30:24', '注销', '5');
-INSERT INTO `oprationlog` VALUES ('20', '2016-05-02 23:30:32', '登录', '6');
-INSERT INTO `oprationlog` VALUES ('21', '2016-05-02 23:33:15', '注销', '6');
-INSERT INTO `oprationlog` VALUES ('22', '2016-05-02 23:33:59', '登录', '7');
-INSERT INTO `oprationlog` VALUES ('23', '2016-05-02 23:35:04', '注销', '7');
-INSERT INTO `oprationlog` VALUES ('24', '2016-05-02 23:35:21', '登录', '7');
-INSERT INTO `oprationlog` VALUES ('25', '2016-05-02 23:36:01', '注销', '7');
-INSERT INTO `oprationlog` VALUES ('26', '2016-05-02 23:36:08', '登录', '68');
-INSERT INTO `oprationlog` VALUES ('27', '2016-05-02 23:37:31', '登录', '68');
-INSERT INTO `oprationlog` VALUES ('28', '2016-05-03 09:25:26', '登录', '2');
-INSERT INTO `oprationlog` VALUES ('29', '2016-05-03 16:38:12', '登录', '2');
-INSERT INTO `oprationlog` VALUES ('30', '2016-05-03 16:39:22', '注销', '2');
-INSERT INTO `oprationlog` VALUES ('31', '2016-05-03 16:39:28', '登录', '68');
-INSERT INTO `oprationlog` VALUES ('32', '2016-05-03 23:01:24', '登录', '2');
-INSERT INTO `oprationlog` VALUES ('33', '2016-05-03 23:02:06', '注销', '2');
-INSERT INTO `oprationlog` VALUES ('34', '2016-05-03 23:02:11', '登录', '68');
-INSERT INTO `oprationlog` VALUES ('35', '2016-05-03 23:35:10', '登录', '68');
-INSERT INTO `oprationlog` VALUES ('36', '2016-05-04 00:25:24', '登录', '68');
-INSERT INTO `oprationlog` VALUES ('37', '2016-05-04 15:03:25', '登录', '68');
-INSERT INTO `oprationlog` VALUES ('38', '2016-05-04 15:40:13', '登录', '68');
-INSERT INTO `oprationlog` VALUES ('39', '2016-05-04 15:40:46', '登录', '68');
-INSERT INTO `oprationlog` VALUES ('40', '2016-05-04 16:20:06', '登录', '68');
-INSERT INTO `oprationlog` VALUES ('41', '2016-05-04 16:59:16', '登录', '7');
-INSERT INTO `oprationlog` VALUES ('42', '2016-05-04 17:00:57', '注销', '7');
-INSERT INTO `oprationlog` VALUES ('43', '2016-05-04 17:01:02', '登录', '6');
-INSERT INTO `oprationlog` VALUES ('44', '2016-05-04 18:35:31', '登录', '7');
-INSERT INTO `oprationlog` VALUES ('45', '2016-05-04 18:36:23', '登录', '6');
-INSERT INTO `oprationlog` VALUES ('46', '2016-05-04 21:44:17', '登录', '6');
-INSERT INTO `oprationlog` VALUES ('47', '2016-05-04 21:45:01', '注销', '6');
-INSERT INTO `oprationlog` VALUES ('48', '2016-05-04 21:48:37', '登录', '6');
-INSERT INTO `oprationlog` VALUES ('49', '2016-05-04 22:05:19', '登录', '7');
-INSERT INTO `oprationlog` VALUES ('50', '2016-05-04 22:35:14', '登录', '7');
-INSERT INTO `oprationlog` VALUES ('51', '2016-05-04 22:46:35', '登录', '5');
 
 -- ----------------------------
 -- Table structure for questioninfo
@@ -9710,19 +9639,18 @@ CREATE TABLE `questioninfo` (
 -- ----------------------------
 -- Records of questioninfo
 -- ----------------------------
-INSERT INTO `questioninfo` VALUES ('1', 'quest_1', '您是 ${companyBranch.owner.companyName } 的员工吗？', '问题描述');
-INSERT INTO `questioninfo` VALUES ('2', 'quest_2', '请说明与此行为相关的人的身份', '例如：无名氏，内部审计主管，未知，晚间监督员');
-INSERT INTO `questioninfo` VALUES ('3', 'quest_3', '您是否怀疑或知道监督或管理人员与此有关？', '不知道 / 不愿意透露,如果选择是，请指出是谁？');
-INSERT INTO `questioninfo` VALUES ('4', 'quest_4', '管理人员注意到此问题了吗？', '是,否,不知道');
-INSERT INTO `questioninfo` VALUES ('5', 'quest_5', '此事件的总体特征是什么？', '这仅为一般说明，稍后我们将询问详细情况。');
-INSERT INTO `questioninfo` VALUES ('6', 'quest_6', '您估计这一行为的货币价值是多少？', null);
-INSERT INTO `questioninfo` VALUES ('7', 'quest_7', '该事件或违规行为在哪里发生的？', '我们了解到该事件可能没有确切的发生地点，但如果事件有某些文档或业务交易的记录，请相应指明。');
-INSERT INTO `questioninfo` VALUES ('8', 'quest_8', '请指出该事件发生的确切或大致时间：', '例如：2002 年 5 月 3 日，星期二；两周前；大约一个月以前');
-INSERT INTO `questioninfo` VALUES ('9', 'quest_9', '您认为此问题持续了多少时间？', null);
-INSERT INTO `questioninfo` VALUES ('10', 'quest_10', '您是如何发现此违规行为的？', null);
-INSERT INTO `questioninfo` VALUES ('11', 'quest_11', '您先前是否报告过这一问题？', '如果答案为“是”，您是何时以何种方式向谁报告的？');
-INSERT INTO `questioninfo` VALUES ('12', 'quest_12', '请指出试图隐藏此问题的人以及他们隐藏采取的步骤：', '请指出其姓名和职位。');
-INSERT INTO `questioninfo` VALUES ('13', 'quest_13', '请提供关于所谓违规行为的所有细节，包括目击者的位置以及任何对于此情形的评估和最终解决有价值的其它信息。', '请花一些时间尽可能提供细节，但请小心不要提供泄漏您身份的细节，除非您自己愿意。如果您是唯一的知情人，了解这一点非常重要。');
+INSERT INTO `questioninfo` VALUES ('1', 'quest_1', '您与该公司的关系：', '问题描述');
+INSERT INTO `questioninfo` VALUES ('2', 'quest_2', '请说明该事件或违规行为主要相关人的身份', '例如：无名氏，内部审计主管，未知，晚间监督员');
+INSERT INTO `questioninfo` VALUES ('3', 'quest_3', '您是否怀疑或知道有领导或管理人员与该事件或违规行为有关？', '不知道 / 不愿意透露,如果选择是，请指出是谁？');
+INSERT INTO `questioninfo` VALUES ('4', 'quest_4', '是否有公司高级管理人员注意到该事件或违规行为了吗？', '是,否,不知道');
+INSERT INTO `questioninfo` VALUES ('5', 'quest_5', '请说明该事件或违规行为发生的时间：', '这仅为一般说明，稍后我们将询问详细情况。');
+INSERT INTO `questioninfo` VALUES ('6', 'quest_6', '您认为此问题持续了多少时间？', null);
+INSERT INTO `questioninfo` VALUES ('7', 'quest_7', '请说明该事件或违规行为在哪里发生的？', '我们了解到该事件可能没有确切的发生地点，但如果事件有某些文档或业务交易的记录，请相应指明。');
+INSERT INTO `questioninfo` VALUES ('8', 'quest_8', '您估计该事件或违规行为涉及金额是多少？', '例如：2002 年 5 月 3 日，星期二；两周前；大约一个月以前');
+INSERT INTO `questioninfo` VALUES ('9', 'quest_9', '您是如何发现该事件或违规行为的？', null);
+INSERT INTO `questioninfo` VALUES ('10', 'quest_10', '您之前是否报告过该事件或违规行为？', null);
+INSERT INTO `questioninfo` VALUES ('11', 'quest_11', '请说明试图隐瞒该事件或违规行为的人以及他们的隐瞒方式：', '如果答案为“是”，您是何时以何种方式向谁报告的？');
+INSERT INTO `questioninfo` VALUES ('12', 'quest_12', '请详细阐述该事件或违规行为的完整细节：', '请指出其姓名和职位。');
 
 -- ----------------------------
 -- Table structure for reportanswer
@@ -9734,27 +9662,11 @@ CREATE TABLE `reportanswer` (
   `quest_key` varchar(50) DEFAULT NULL COMMENT '问题索引',
   `quest_value` varchar(50) DEFAULT NULL COMMENT '问题答复',
   PRIMARY KEY (`rd_Id`)
-) ENGINE=MyISAM AUTO_INCREMENT=149 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=153 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of reportanswer
 -- ----------------------------
-INSERT INTO `reportanswer` VALUES ('133', '73', 'quest_11', '试图隐瞒该事件或违规行为的人以及他们');
-INSERT INTO `reportanswer` VALUES ('134', '74', 'quest_12', '阐述该事件或违规行为的完整细节');
-INSERT INTO `reportanswer` VALUES ('135', '74', 'quest_11', '试图隐瞒该事件或违规行为的人以及他们的隐瞒方式');
-INSERT INTO `reportanswer` VALUES ('136', '75', 'quest_11', '试图隐瞒该事件或违规行为的人以及他们的隐瞒方式');
-INSERT INTO `reportanswer` VALUES ('137', '76', 'quest_1', '前员工');
-INSERT INTO `reportanswer` VALUES ('138', '76', 'quest_2', '姓名：张三,职位：经理,部门：财务');
-INSERT INTO `reportanswer` VALUES ('139', '76', 'quest_3', '否');
-INSERT INTO `reportanswer` VALUES ('140', '76', 'quest_4', '否');
-INSERT INTO `reportanswer` VALUES ('141', '76', 'quest_5', '2013年6月25日');
-INSERT INTO `reportanswer` VALUES ('142', '76', 'quest_6', '一次');
-INSERT INTO `reportanswer` VALUES ('143', '76', 'quest_7', '地点');
-INSERT INTO `reportanswer` VALUES ('144', '76', 'quest_8', '人民币（RMB）:5000-10000');
-INSERT INTO `reportanswer` VALUES ('145', '76', 'quest_9', '我看到的');
-INSERT INTO `reportanswer` VALUES ('146', '76', 'quest_12', '违规行为的完整细节');
-INSERT INTO `reportanswer` VALUES ('147', '76', 'quest_11', '请说明试图隐瞒该事件或违规行为的人');
-INSERT INTO `reportanswer` VALUES ('148', '76', 'quest_10', '否');
 
 -- ----------------------------
 -- Table structure for reportcase
@@ -9776,15 +9688,11 @@ CREATE TABLE `reportcase` (
   `province` varchar(30) DEFAULT NULL COMMENT '省',
   `city` varchar(30) DEFAULT NULL COMMENT '市',
   PRIMARY KEY (`rc_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=77 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=79 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of reportcase
 -- ----------------------------
-INSERT INTO `reportcase` VALUES ('73', '2016-05-02 21:04:43', '100', null, null, '100', '供应商或承包商问题', '1', null, '123456', '051138', '联系方式', '北京', '东城区');
-INSERT INTO `reportcase` VALUES ('74', '2016-05-02 21:30:47', '100', null, '54', '100', '供应商或承包商问题', '1', null, '111111', '051139', '', '北京', '东城区');
-INSERT INTO `reportcase` VALUES ('75', '2016-05-02 21:36:01', '100', null, null, '100', '供应商或承包商问题', '2', null, '111111', '051140', '方式', '北京', '东城区');
-INSERT INTO `reportcase` VALUES ('76', '2016-05-04 21:46:37', '808', null, null, '808', '供应商或承包商问题', '2', null, '111111', '051144', '联系方式', '北京', '东城区');
 
 -- ----------------------------
 -- Table structure for reporter
@@ -9799,12 +9707,12 @@ CREATE TABLE `reporter` (
   `email` varchar(50) DEFAULT NULL COMMENT '邮箱',
   `best_contact` varchar(50) DEFAULT NULL COMMENT '最佳联系方式以及时间',
   PRIMARY KEY (`reporter_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=57 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of reporter
 -- ----------------------------
-INSERT INTO `reporter` VALUES ('54', '15364060309', '崔剑', '身份证', '111111111111111111', 'fdsfds@fds.com', 'jkfdsfds');
+INSERT INTO `reporter` VALUES ('56', '15364060309', '崔剑', '身份证', '430103198101071539', 'fdsfd@fdsf', '随时');
 
 -- ----------------------------
 -- Table structure for reporttype
@@ -9817,7 +9725,7 @@ CREATE TABLE `reporttype` (
   `rt_title` varchar(20) DEFAULT NULL COMMENT '举报企业编号',
   `rt_desc` varchar(500) DEFAULT NULL COMMENT '举报类型描述',
   PRIMARY KEY (`rt_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=56 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of reporttype
@@ -9846,6 +9754,17 @@ INSERT INTO `reporttype` VALUES ('21', '1', null, '滥用药物和酒精', '滥�
 INSERT INTO `reporttype` VALUES ('22', '1', null, '环境保护、健康或安全法律', '操作和处理危险材料或涉及他人健康和安全时，违反任何环境法律、法规、企业政策或程序。');
 INSERT INTO `reporttype` VALUES ('23', '1', null, '出口控制和进口义务', '未能遵守出口控制和进口法规和政策。');
 INSERT INTO `reporttype` VALUES ('24', '1', null, '偷窃', '盗窃行为；未经同意的拿走或偷走公司或其他个人的钱财、货物或财产的行为。');
+INSERT INTO `reporttype` VALUES ('52', '1', '808', '知识产权侵权 ', '对属于公司、客户、供应商或业务合作伙伴的知识产权、专利信息或机密信息的未授权不恰当使用、侵占或披露。');
+INSERT INTO `reporttype` VALUES ('53', '1', '808', '内幕交易/违法证券交易', '违反证券法律法规的行为。员工受雇期间获得的非公开重要信息，购买或出售股票，或提供此类信息给他人，并导致其根据此类非公开信息购买或出售公司股票的行为。包括其他违反股票交易政策的行为。');
+INSERT INTO `reporttype` VALUES ('51', '1', '808', '泄露信息', '未经授权和非法披露公司所有的知识产权、专利信息或商业机密，以及员工、供应商、客户或其他第三方的非公开信息、营销计划、业务建议和策略。');
+INSERT INTO `reporttype` VALUES ('49', '1', '808', '挪用公款 ', '为牟取私利，非法占有挪用公司资金的行为。');
+INSERT INTO `reporttype` VALUES ('50', '1', '808', '商业信息欺诈', '公司合同、报告、或财务文件中的伪造、篡改、作假、删除重要事实，或做出虚假声明；收入、支出和资产的谎报、GAAP原则的滥用、虚假的交易项目。');
+INSERT INTO `reporttype` VALUES ('48', '1', '808', '滥用公司财产或服务', '未经许可出于非业务原因使用公司资源或设备；利用公司信息、实物或知识产权获取个人利益；挪用或转移公司可能有利益存在的任何商业机会或创意；以任何形式与公司竞争');
+INSERT INTO `reporttype` VALUES ('47', '1', '808', '贿赂和腐败', '以公司员工的身份提供、索取或收受供应商、客户、政府官员或其他第三方的给予的财物、有价值的实物或不当利益。');
+INSERT INTO `reporttype` VALUES ('45', '1', '808', '私有定制', '私有定制类型');
+INSERT INTO `reporttype` VALUES ('46', '1', '808', '供应商或承包商问题', '为牟取私利，不公平的选择供应商或承包商；供应商或承包商违反公司政策或商业行为准则。例如：供应商提供回扣、组织围标。');
+INSERT INTO `reporttype` VALUES ('54', '1', '808', '偷窃', '盗窃行为；未经同意的拿走或偷走公司或其他个人的钱财、货物或财产的行为。');
+INSERT INTO `reporttype` VALUES ('55', '1', '808', '蓄意破坏公司财产', '员工因不满情绪而毁坏公司财产或阻碍生产的行为。');
 
 -- ----------------------------
 -- Table structure for userinfo
@@ -9876,11 +9795,7 @@ CREATE TABLE `userinfo` (
 -- ----------------------------
 -- Records of userinfo
 -- ----------------------------
-INSERT INTO `userinfo` VALUES ('1', '1', 'gcx', 'e10adc3949ba59abbe56e057f20f883e', '春春', '100', '13142056476', 'NO123', null, null, '2', null, null, null, null, null, null, null);
-INSERT INTO `userinfo` VALUES ('2', '2', 'cuijian', 'e10adc3949ba59abbe56e057f20f883e', '剑哥', '1', '15364060309', '00001', null, null, '2', null, null, null, null, null, null, null);
-INSERT INTO `userinfo` VALUES ('3', '1', 'xiaoqiu', 'e10adc3949ba59abbe56e057f20f883e', '秋秋', '101', '53432432', '00002', null, null, '2', null, null, null, null, null, null, null);
-INSERT INTO `userinfo` VALUES ('4', '4', 'pan', 'e10adc3949ba59abbe56e057f20f883e', '潘老大', '1', '3413213213', '00003', 'BOSS', null, '2', null, null, null, null, null, null, null);
-INSERT INTO `userinfo` VALUES ('5', '1', 'test', 'e10adc3949ba59abbe56e057f20f883e', '测试用户', '100', '432432', '00004', null, null, '2', null, null, null, null, null, null, null);
-INSERT INTO `userinfo` VALUES ('6', '2', 'company', 'e10adc3949ba59abbe56e057f20f883e', '测试公司管理员', '808', '543543543', '00005', 'test', null, '2', null, null, null, null, null, null, null);
+INSERT INTO `userinfo` VALUES ('5', '1', 'test', 'e10adc3949ba59abbe56e057f20f883e', '测试用户', '100', '13444432432', '00004', '测试', null, '2', 'fdsfds@fdsfd.com', null, null, null, null, null, '2019-07-09 00:00:00');
+INSERT INTO `userinfo` VALUES ('6', '2', 'company', 'e10adc3949ba59abbe56e057f20f883e', '测试公司管理员', '100', '13543543543', '00005', '测试', null, '2', 'fdsfds@fds.com', '010-88888888', null, 'weixin001', null, null, '2020-09-09 00:00:00');
 INSERT INTO `userinfo` VALUES ('7', '3', 'platform', 'e10adc3949ba59abbe56e057f20f883e', '测试平台管理员', '1', '55555555', '0000', 'test', null, '2', null, null, null, null, null, null, null);
 INSERT INTO `userinfo` VALUES ('68', '4', 'sys', 'e10adc3949ba59abbe56e057f20f883e', '测试系统管理员', null, '111111111', '00000', null, null, '2', null, null, null, null, null, null, null);
